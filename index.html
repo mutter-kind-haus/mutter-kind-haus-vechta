@@ -8,38 +8,46 @@
 :root{--green:#5A7D5A;--line:#E8DDD3;--dark:#1A1A1A}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:system-ui,sans-serif;background:#fff;color:var(--dark);line-height:1.7;overflow-x:hidden}
-.topbar{position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;height:56px;padding:0 20px}
+.topbar{position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;height:58px;padding:0 20px}
 .logo{font-weight:900;font-size:15px}
-.menu-btn{background:var(--dark);color:#fff;border:none;padding:10px 20px;border-radius:24px;font-weight:800;font-size:13px;cursor:pointer}
-.drawer{position:fixed;top:0;right:-100%;width:360px;max-width:90vw;height:100vh;background:#fff;box-shadow:-12px 0 40px rgba(0,0,0,0.18);z-index:100;transition:0.4s;padding:22px;overflow-y:auto}
+.menu-btn{background:var(--dark);color:#fff;border:none;padding:11px 20px;border-radius:24px;font-weight:800;font-size:13px;cursor:pointer}
+.drawer{position:fixed;top:0;right:-100%;width:360px;max-width:90vw;height:100vh;background:#fff;box-shadow:-12px 0 40px rgba(0,0,0,0.2);z-index:110;transition:0.4s;padding:22px;overflow-y:auto}
 .drawer.open{right:0}
-.overlay{position:fixed;inset:0;background:rgba(0,0,0,0.45);z-index:90;display:none}
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,0.45);z-index:100;display:none}
 .overlay.open{display:block}
 .m-big{margin:10px 0;border:1px solid #EDE4D8;border-radius:14px;overflow:hidden}
 .m-big-head{padding:16px 18px;background:#FFF8E0;display:flex;justify-content:space-between;font-weight:800;color:#B91C1C;cursor:pointer;font-size:16px}
-.m-big-body{max-height:0;overflow:hidden;transition:0.4s;background:#FFFEF2}
-.m-big.open .m-big-body{max-height:800px}
+.m-big-body{max-height:0;overflow:hidden;transition:0.35s;background:#FFFEF2}
+.m-big.open .m-big-body{max-height:600px}
 .m-small{padding:12px 18px;border-top:1px solid #EDE4D8;font-size:14px;cursor:pointer;display:flex;justify-content:space-between;background:#FFFEF2}
 .m-small:hover{background:#FFF3C0}
 .wrap{max-width:700px;margin:0 auto;padding:0 20px 40px}
-.hero{text-align:center;margin:30px 0}
+.hero{text-align:center;margin:30px 0 24px}
 .hero h1{font-size:42px;font-weight:900;line-height:1.05} .hero h1 span{display:block}
 .hero .sub{color:var(--green);font-weight:600;margin:14px 0 22px;font-size:18px}
 .hero-img{width:100%;border-radius:26px;box-shadow:0 8px 28px rgba(0,0,0,0.08)}
-.content-area{margin-top:28px;min-height:200px}
-.welcome{text-align:center;padding:30px 20px;color:#888;font-size:14px;border:1px dashed var(--line);border-radius:16px;background:#FFFEF8}
-.single-content{display:none;border:1px solid #EDE4D8;border-radius:16px;overflow:hidden;background:#FFFEF8;margin-top:16px}
-.single-content.active{display:block}
-.single-head{padding:18px 20px;background:#FFF8E0;border-bottom:1px solid #EDE4D8;font-weight:800;color:#B91C1C;font-size:18px}
-.s-item{border-top:1px solid #EDE4D8;padding:14px 20px;cursor:pointer;display:flex;justify-content:space-between;background:#FFFEF2;font-weight:600;font-size:14px}
-.s-item:first-child{border-top:none}
-.s-info{max-height:0;overflow:hidden;transition:0.4s;background:#fff;padding:0 20px}
-.s-item.open + .s-info{max-height:4000px;padding:16px 20px}
-.contact-cta{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0}
+.welcome-new{background:linear-gradient(180deg,#FFFEF8 0%, #FFF8E8 100%);border:1px solid #EDE4D8;border-radius:22px;padding:32px 26px;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,0.04)}
+.welcome-new h2{font-size:20px;font-weight:900;margin-bottom:8px}
+.welcome-new p{font-size:14px;line-height:1.8;color:#444;margin:10px 0}
+.welcome-new .quote{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;margin:16px 0;font-style:italic;font-size:13.5px;color:#333}
+.btn-dark{background:var(--dark);color:#fff;padding:12px 22px;border-radius:24px;border:none;font-weight:700;font-size:13px;cursor:pointer}
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.55);backdrop-filter:blur(6px);z-index:200;display:none;align-items:center;justify-content:center;padding:20px}
+.modal-overlay.open{display:flex}
+.modal{background:#fff;border-radius:20px;max-width:600px;width:100%;max-height:85vh;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.25);animation:pop 0.35s ease}
+@keyframes pop{from{transform:scale(0.92) translateY(10px);opacity:0}to{transform:scale(1) translateY(0);opacity:1}}
+.modal-head{padding:18px 20px;background:#FFF8E0;border-bottom:1px solid #EDE4D8;display:flex;justify-content:space-between;align-items:center}
+.modal-head b{color:#B91C1C;font-size:17px}
+.modal-close{width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:#fff;cursor:pointer;font-weight:800}
+.modal-body{padding:20px;overflow-y:auto;max-height:65vh}
+.modal-body p{font-size:14px;line-height:1.8;color:#333}
+.modal-body ul{list-style:none;margin:8px 0}
+.modal-body li{font-size:13.5px;padding:6px 0 6px 18px;position:relative;border-bottom:1px dashed #eee}
+.modal-body li:before{content:"•";position:absolute;left:4px;color:var(--green)}
+.contact-cta{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}
 .contact-cta a{padding:11px 16px;border-radius:10px;text-decoration:none;font-weight:700;font-size:12.5px}
 .btn-call{background:var(--dark);color:#fff} .btn-mail{background:#fff;border:1px solid var(--line);color:var(--dark)}
-.map{height:220px;border-radius:12px;overflow:hidden;border:1px solid var(--line);margin-top:10px} .map iframe{width:100%;height:100%;border:0}
-footer{text-align:center;font-size:10px;color:#AAA;margin-top:40px}
+.map{height:200px;border-radius:12px;overflow:hidden;border:1px solid var(--line);margin-top:12px} .map iframe{width:100%;height:100%;border:0}
+footer{text-align:center;font-size:10px;color:#AAA;margin-top:30px}
 </style>
 </head>
 <body>
@@ -53,28 +61,28 @@ footer{text-align:center;font-size:10px;color:#AAA;margin-top:40px}
 <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:22px;padding-bottom:14px;border-bottom:1px solid var(--line)"><b style="font-size:18px">Menü</b><button onclick="closeDrawer()" style="width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:#F5F0E8;cursor:pointer">✕</button></div>
 
 <div class="m-big" id="mb1"><div class="m-big-head" onclick="toggleMbig('mb1')"><span>Einrichtung</span><span>▼</span></div><div class="m-big-body">
-<div class="m-small" onclick="openContent('b1','s1')"><span>Räumlichkeiten</span><span>›</span></div>
-<div class="m-small" onclick="openContent('b1','s2')"><span>Für wen sind wir da</span><span>›</span></div>
-<div class="m-small" onclick="openContent('b1','s3')"><span>Betreuungszeiten</span><span>›</span></div>
-<div class="m-small" onclick="openContent('b1','s4')"><span>Voraussetzungen</span><span>›</span></div>
+<div class="m-small" onclick="openInfo('Räumlichkeiten','<p>Das Mutter-Kind-Haus Vechta wurde 1999 erbaut und ist Bestandteil einer Wohnsiedlung. Die Innenstadt Vechtas ist in 15 Min. zu Fuß zu erreichen. Das Haus verfügt über 5 Wohnungen (2 Zimmer, 1 Flur und 1 Bad, Fläche ca. 36 qm). Weiterhin stehen den Bewohnerinnen mit ihren Kindern ein großer Krabbelraum, eine große Gemeinschaftsküche, ein gemütlicher Aufenthaltsraum, ein Hauswirtschafts- und Vorratsraum sowie ein großer Garten mit geschlossenem Carport zur Verfügung.</p>')"><span>Räumlichkeiten</span><span>›</span></div>
+<div class="m-small" onclick="openInfo('Für wen sind wir da','<p>Unsere pädagogischen und psychologischen Angebote orientieren sich an jungen Schwangeren / Müttern mit ihren Kindern, die durch die Pflege und Erziehung eines Kindes vorübergehend überfordert sind und die auf Grund ihrer persönlichen und sozialen Problematik noch nicht in der Lage sind, allein die alltäglichen Aufgaben zu bewältigen.</p>')"><span>Für wen sind wir da</span><span>›</span></div>
+<div class="m-small" onclick="openInfo('Betreuungszeiten','<p>Wir gewähren von Montag bis Freitag Betreuung vor Ort von <strong>7.00 - 22.00 Uhr</strong>. Die Betreuungszeiten werden morgens flexibel gehandhabt. Bei Bedarf (Schule, Ausbildung) werden die Zeiten individuell angepasst. An den Wochenenden sind wir von <strong>18.00 - 22.00 Uhr</strong> vor Ort. Bei erhöhtem Betreuungsbedarf gestalten wir die Zeiten flexibel. Außerhalb der Betreuungszeit ist ein Rufdienst eingeschaltet.</p>')"><span>Betreuungszeiten</span><span>›</span></div>
+<div class="m-small" onclick="openInfo('Voraussetzungen','<p>Das Gespräch mit der jungen Mutter erfolgt nach Absprache mit dem zuständigen Jugendamt. Sehr wichtig ist uns die Bereitschaft zu einer Schulausbildung oder einer anderen Tätigkeit sowie über Praktika Erfahrungen zu sammeln. Dies schließt auch ein, dass die junge Frau bereit ist, eine einfache Tätigkeit aufzunehmen, um sich an den Kosten der Unterkunft zu beteiligen.<br><br><strong>Grundlage für eine Aufnahme bilden §19, §34 und § 41 SGB VIII</strong></p>')"><span>Voraussetzungen</span><span>›</span></div>
 </div></div>
 
 <div class="m-big" id="mb2"><div class="m-big-head" onclick="toggleMbig('mb2')"><span>Was bieten wir</span><span>▼</span></div><div class="m-big-body">
-<div class="m-small" onclick="openContent('b2','s5')"><span>Konzeptionelle Grundlagen</span><span>›</span></div>
+<div class="m-small" onclick="openInfo('Konzeptionelle Grundlagen','<p>In unserer Einrichtung wird minderjährigen Müttern bzw. Schwangeren in problematischer Lebenssituation für eine Übergangszeit ermöglicht, mit Unterstützung erfolgreich in die neue Rolle hinein zu finden.<br><br>Einrichtung verfügt über 5 Plätze (5 Mütter, 5 Kinder). Grundlage §19, §34, §41 SGB VIII.<br><br><strong>Pädagogische Zielsetzung:</strong> Förderung Mutter-Kind-Beziehung, eigenverantwortlich, Ressourcen aktivieren.<br><br><strong>Psychologische Zielsetzung:</strong> Chancen/Risiken Impulse, Selbstexploration, Motivationshilfen.<br><br><strong>Grundleistungen §5:</strong> Tagesablauf, Geburt, Gespräche, Förderangebote, Haushalt, Wohnung, Küche, Spielzimmer, Betreuung, Fahrtkosten, Hilfeplan 2x/Jahr, Umzug, Behörden.<br><br><strong>Qualitätssicherung:</strong> Dokumentation, Dienstbesprechung, Teamberatung.</p>')"><span>Konzeptionelle Grundlagen</span><span>›</span></div>
 </div></div>
 
 <div class="m-big" id="mb3"><div class="m-big-head" onclick="toggleMbig('mb3')"><span>Das Team</span><span>▼</span></div><div class="m-big-body">
-<div class="m-small" onclick="openContent('b3','s6')"><span>Wir über uns</span><span>›</span></div>
-<div class="m-small" onclick="openContent('b3','s7')"><span>Mitarbeiter</span><span>›</span></div>
+<div class="m-small" onclick="openInfo('Wir über uns','<p>Hier können sie uns näher kennen lernen! An dieser Stelle erfolgen in Kürze die persönliche Vorstellung unserer Mitarbeiter und Details zu ihrer Arbeitsweise.</p>')"><span>Wir über uns</span><span>›</span></div>
+<div class="m-small" onclick="openInfo('Mitarbeiter','<ul><li>1 Dipl. Sozialpädagogin als Leitung mit 16 Std. wöchentlich und 22,5 Std päd. Dienst</li><li>1 Dipl. Sozialpädagoge mit 38,5 Std. wöchentlich</li><li>1 Erzieherin mit 38,5 Std. wöchentlich</li><li>1 Kinderpflegerin mit 30 Std. wöchentlich</li></ul><p><strong>Vernetzung:</strong> Hebammen, Frühförderung, Ergotherapeuten, Krankengymnasten, Heilpäd. Kindergarten, Schulen, Aidsberatung, Malteser Hilfsdienst / Erste Hilfe Kurs, Berufsfördernde Einrichtungen</p>')"><span>Mitarbeiter</span><span>›</span></div>
 </div></div>
 
 <div class="m-big" id="mb4"><div class="m-big-head" onclick="toggleMbig('mb4')"><span>Kontakt</span><span>▼</span></div><div class="m-big-body">
-<div class="m-small" onclick="openContent('b4','s8')"><span>Kontaktdaten</span><span>›</span></div>
-<div class="m-small" onclick="openContent('b4','s9')"><span>Impressum</span><span>›</span></div>
+<div class="m-small" onclick="openContact()"><span>Kontaktdaten</span><span>›</span></div>
+<div class="m-small" onclick="openInfo('Impressum','<p><strong>Hiltrud Schilmöller</strong><br>Graskamp 3<br>49377 Vechta<br>Tel. 04441/851150<br>Fax 04441/851157<br>schilmoeller@mukihave.de</p>')"><span>Impressum</span><span>›</span></div>
 </div></div>
 
 <div class="m-big" id="mb5"><div class="m-big-head" onclick="toggleMbig('mb5')"><span>Infos</span><span>▼</span></div><div class="m-big-body">
-<div class="m-small" onclick="openContent('b5','s10')"><span>Stellenangebote</span><span>›</span></div>
+<div class="m-small" onclick="openInfo('Stellenangebote','<p>Derzeit sind keine offenen Stellen in unserem Hause zu besetzen.</p>')"><span>Stellenangebote</span><span>›</span></div>
 </div></div>
 
 <div style="margin-top:22px;padding:16px;background:#1A1A1A;border-radius:14px;color:#fff;font-size:12.5px">
@@ -91,61 +99,56 @@ footer{text-align:center;font-size:10px;color:#AAA;margin-top:40px}
 <img class="hero-img" src="Bild1.jpg" alt="Mutter und Kind">
 </div>
 
-<div class="content-area" id="contentArea">
-<div class="welcome" id="welcome">👋 Willkommen<br><br>Bitte öffnen Sie das <strong>Menu oben rechts</strong><br>um alle Bereiche zu sehen:<br><br><strong>Einrichtung • Was bieten wir • Das Team • Kontakt • Infos</strong><br><br>Bei Klick auf einen kleinen Titel erscheinen die Informationen direkt hier.</div>
-
-<div class="single-content" id="b1"><div class="single-head">Einrichtung</div>
-<div class="s-item" id="s1" onclick="toggleSingle(this)"><span>Räumlichkeiten</span><span>▼</span></div><div class="s-info"><p>Das Mutter-Kind-Haus Vechta wurde 1999 erbaut und ist Bestandteil einer Wohnsiedlung. Die Innenstadt Vechtas ist in 15 Min. zu Fuß zu erreichen. Das Haus verfügt über 5 Wohnungen (2 Zimmer, 1 Flur und 1 Bad, Fläche ca. 36 qm). Weiterhin stehen den Bewohnerinnen mit ihren Kindern ein großer Krabbelraum, eine große Gemeinschaftsküche, ein gemütlicher Aufenthaltsraum, ein Hauswirtschafts- und Vorratsraum sowie ein großer Garten mit geschlossenem Carport zur Verfügung.</p></div>
-<div class="s-item" id="s2" onclick="toggleSingle(this)"><span>Für wen sind wir da</span><span>▼</span></div><div class="s-info"><p>Unsere pädagogischen und psychologischen Angebote orientieren sich an jungen Schwangeren / Müttern mit ihren Kindern, die durch die Pflege und Erziehung eines Kindes vorübergehend überfordert sind.</p></div>
-<div class="s-item" id="s3" onclick="toggleSingle(this)"><span>Betreuungszeiten</span><span>▼</span></div><div class="s-info"><p>Mo–Fr 7.00–22.00 Uhr, Wochenende 18.00–22.00 Uhr + Rufdienst. Flexibel bei Schule/Ausbildung.</p></div>
-<div class="s-item" id="s4" onclick="toggleSingle(this)"><span>Voraussetzungen</span><span>▼</span></div><div class="s-info"><p>Gespräch nach Absprache mit Jugendamt. Grundlage §19, §34, §41 SGB VIII.</p></div>
+<div class="welcome-new">
+<div style="font-size:32px">💛</div>
+<h2>Herzlich willkommen im<br>Mutter-Kind-Haus Vechta</h2>
+<div style="color:var(--green);font-weight:600;margin:8px 0 14px;font-size:14px">Ein Ort der Geborgenheit und Hoffnung</div>
+<p>Schön, dass Sie da sind. Hier finden Mütter und ihre Kinder nicht nur ein Dach über dem Kopf, sondern ein echtes Zuhause auf Zeit – voller Wärme, Verständnis und Unterstützung.</p>
+<div class="quote">„Seit 1999 begleiten wir junge Mütter mit Herz und Erfahrung auf ihrem Weg in ein selbstbestimmtes Leben. Sie sind nicht allein – wir gehen diesen Weg gemeinsam mit Ihnen."</div>
+<p style="font-weight:700">Sie sind stark. Sie sind wertvoll.<br>Und wir sind für Sie da.</p>
+<button class="btn-dark" style="margin-top:14px" onclick="openDrawer()">☰ Menu öffnen → Alle Bereiche</button>
 </div>
 
-<div class="single-content" id="b2"><div class="single-head">Was bieten wir</div>
-<div class="s-item" id="s5" onclick="toggleSingle(this)"><span>Konzeptionelle Grundlagen</span><span>▼</span></div><div class="s-info"><p>5 Plätze (5 Mütter, 5 Kinder). §19, §34, §41 SGB VIII. Pädagogik: Mutter-Kind-Beziehung, eigenverantwortlich, Ressourcen aktivieren. Psychologie, Grundleistungen §5, Qualitätssicherung.</p></div>
+<footer>Mutter-Kind-Haus Vechta – Nur 1 Bild – Info nur als Popup, nicht unter Bild</footer>
 </div>
 
-<div class="single-content" id="b3"><div class="single-head">Das Team</div>
-<div class="s-item" id="s6" onclick="toggleSingle(this)"><span>Wir über uns</span><span>▼</span></div><div class="s-info"><p>Hier können sie uns näher kennen lernen! Persönliche Vorstellung folgt in Kürze.</p></div>
-<div class="s-item" id="s7" onclick="toggleSingle(this)"><span>Mitarbeiter</span><span>▼</span></div><div class="s-info"><p>1 Dipl. Sozialpädagogin Leitung 16 Std + 22,5 Std Dienst<br>1 Dipl. Sozialpädagoge 38,5 Std<br>1 Erzieherin 38,5 Std<br>1 Kinderpflegerin 30 Std</p></div>
+<div class="modal-overlay" id="modalOverlay" onclick="closeInfo(event)">
+<div class="modal" id="modal">
+<div class="modal-head"><b id="modalTitle">Titel</b><button class="modal-close" onclick="closeModal()">✕</button></div>
+<div class="modal-body" id="modalBody"></div>
 </div>
-
-<div class="single-content" id="b4"><div class="single-head">Kontakt</div>
-<div class="s-item" id="s8" onclick="toggleSingle(this)"><span>Kontaktdaten</span><span>▼</span></div><div class="s-info" style="max-height:1000px"><p><strong>Hiltrud Schilmöller</strong><br>Graskamp 3<br>49377 Vechta<br>Tel. 04441/851150<br>schilmoeller@mukihave.de</p><div class="contact-cta"><a class="btn-call" href="tel:+494441851150">📞 Anrufen</a><a class="btn-mail" href="mailto:schilmoeller@mukihave.de">✉️ E-Mail schreiben</a></div><div class="map"><iframe src="https://www.google.com/maps?q=Graskamp+3,+49377+Vechta&z=16&output=embed"></iframe></div></div>
-<div class="s-item" id="s9" onclick="toggleSingle(this)"><span>Impressum</span><span>▼</span></div><div class="s-info"><p>Hiltrud Schilmöller, Graskamp 3, 49377 Vechta</p></div>
-</div>
-
-<div class="single-content" id="b5"><div class="single-head">Infos</div>
-<div class="s-item" id="s10" onclick="toggleSingle(this)"><span>Stellenangebote</span><span>▼</span></div><div class="s-info"><p>Derzeit sind keine offenen Stellen in unserem Hause zu besetzen.</p></div>
-</div>
-
-</div>
-<footer style="text-align:center;font-size:10px;color:#AAA;margin-top:40px">Mutter-Kind-Haus Vechta – Nur 1 Bild – Keine Titel unter Bild – Alles nur im Menu oben rechts</footer>
 </div>
 
 <script>
 function openDrawer(){document.getElementById('drawer').classList.add('open');document.getElementById('overlay').classList.add('open')}
 function closeDrawer(){document.getElementById('drawer').classList.remove('open');document.getElementById('overlay').classList.remove('open')}
-function toggleMbig(id){document.getElementById(id).classList.toggle('open')}
-function toggleSingle(el){
- const info=el.nextElementSibling;
- const isOpen=info.style.maxHeight && info.style.maxHeight!=='0px' && info.style.maxHeight!=='';
- if(isOpen){info.style.maxHeight='0'}else{info.style.maxHeight=info.scrollHeight+500+'px'}
+function toggleMbig(id){
+ document.querySelectorAll('.m-big').forEach(b=>{if(b.id!==id) b.classList.remove('open')});
+ document.getElementById(id).classList.toggle('open');
 }
-function openContent(bigId, smallId){
+function openInfo(title, html){
  closeDrawer();
- document.getElementById('welcome').style.display='none';
- document.querySelectorAll('.single-content').forEach(b=>b.classList.remove('active'));
- let big=document.getElementById(bigId);
- big.classList.add('active');
- setTimeout(()=>{
-   let small=document.getElementById(smallId);
-   if(small){
-     big.querySelectorAll('.s-info').forEach(i=>i.style.maxHeight='0');
-     small.nextElementSibling.style.maxHeight=small.nextElementSibling.scrollHeight+500+'px';
-     small.scrollIntoView({behavior:'smooth',block:'start'});
-   }
- },200);
+ document.getElementById('modalTitle').innerText=title;
+ document.getElementById('modalBody').innerHTML=html;
+ document.getElementById('modalOverlay').classList.add('open');
+ document.body.style.overflow='hidden';
+}
+function openContact(){
+ closeDrawer();
+ let html=`<p><strong>Hiltrud Schilmöller</strong><br>Graskamp 3<br>49377 Vechta<br>Tel. 04441/851150<br>Fax 04441/851157<br>schilmoeller@mukihave.de</p>
+ <div class="contact-cta">
+ <a class="btn-call" href="tel:+494441851150">📞 Anrufen – 04441/851150</a>
+ <a class="btn-mail" href="mailto:schilmoeller@mukihave.de">✉️ E-Mail schreiben</a>
+ </div>
+ <div class="map"><iframe src="https://www.google.com/maps?q=Graskamp+3,+49377+Vechta&z=16&output=embed"></iframe></div>`;
+ openInfo('Kontaktdaten', html);
+}
+function closeModal(){
+ document.getElementById('modalOverlay').classList.remove('open');
+ document.body.style.overflow='';
+}
+function closeInfo(e){
+ if(e.target.id==='modalOverlay') closeModal();
 }
 </script>
 </body>
