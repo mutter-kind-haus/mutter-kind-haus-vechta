@@ -1,25 +1,111 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mutter-Kind-Haus Vechta</title>
 <style>
-.topbar{position:sticky;top:0;display:flex;justify-content:space-between;height:56px;padding:0 20px;background:#fff;border-bottom:1px solid #E8DDD3}
-.menu-btn{background:#1A1A1A;color:#fff;padding:10px 18px;border-radius:20px;border:none;font-weight:800;cursor:pointer}
-.drawer{position:fixed;top:0;right:-100%;width:340px;height:100vh;background:#fff;box-shadow:-10px 0 40px rgba(0,0,0,0.15);z-index:100;transition:0.4s;padding:20px}
-.drawer.open{right:0}
-.hero-img{width:100%;border-radius:24px}
-.big{margin:12px 0;border:1px solid #EDE4D8;border-radius:14px;overflow:hidden}
-.big-head{padding:18px 20px;background:#FFF8E0;cursor:pointer;display:flex;justify-content:space-between}
+:root{--green:#5A7D5A;--line:#E8DDD3;--dark:#1A1A1A}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,sans-serif;background:#fff;line-height:1.7}
+.topbar{position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;height:56px;padding:0 20px}
+.menu-btn{background:var(--dark);color:#fff;border:none;padding:10px 18px;border-radius:20px;font-weight:800;font-size:12px;cursor:pointer}
+.drawer{position:fixed;top:0;right:-100%;width:340px;max-width:88vw;height:100vh;background:#fff;box-shadow:-10px 0 40px rgba(0,0,0,0.15);z-index:100;transition:0.4s;padding:20px;overflow-y:auto}
+.drawer.open{right:0} .overlay{position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:90;display:none} .overlay.open{display:block}
+.m-big{margin:8px 0;border:1px solid #EDE4D8;border-radius:12px;overflow:hidden}
+.m-big-head{padding:14px 16px;background:#FFF8E0;display:flex;justify-content:space-between;font-weight:800;color:#B91C1C;cursor:pointer}
+.m-big-body{max-height:0;overflow:hidden;transition:0.35s} .m-big.open .m-big-body{max-height:600px}
+.m-small{padding:10px 16px;border-top:1px solid #EDE4D8;cursor:pointer;font-size:13px;display:flex;justify-content:space-between;background:#FFFEF2}
+.m-small:hover{background:#FFF3C0}
+.wrap{max-width:700px;margin:0 auto;padding:0 20px 60px}
+.hero{text-align:center;margin:32px 0 28px} .hero h1{font-size:40px;font-weight:900;line-height:1.05} .hero .sub{color:var(--green);font-weight:600;margin:14px 0 22px;font-size:18px}
+.hero-img{width:100%;border-radius:24px;box-shadow:0 8px 24px rgba(0,0,0,0.08)}
+.big{margin:14px 0;border:1px solid #EDE4D8;border-radius:14px;overflow:hidden;background:#FFFEF8}
+.big-head{padding:16px 20px;background:#FFF8E0;cursor:pointer;display:flex;justify-content:space-between}
+.big-head b{color:#B91C1C;font-size:17px}
 .big-body{max-height:0;overflow:hidden;transition:0.45s} .big.open .big-body{max-height:5000px}
+.small{border-top:1px solid #EDE4D8;padding:12px 20px;display:flex;justify-content:space-between;background:#FFFEF2;cursor:pointer}
+.small-info{max-height:0;overflow:hidden;transition:0.4s;background:#fff;padding:0 20px}
+.small.open .small-info{max-height:5000px;padding:14px 20px}
+.contact-cta{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0} .contact-cta a{padding:11px 16px;border-radius:10px;text-decoration:none;font-weight:700;font-size:12.5px}
+.btn-call{background:#1A1A1A;color:#fff} .btn-mail{background:#fff;border:1px solid var(--line);color:#1A1A1A}
+.map{height:200px;border-radius:12px;overflow:hidden;border:1px solid var(--line)} .map iframe{width:100%;height:100%;border:0}
 </style>
 </head>
 <body>
-<div class="topbar"><div>Mutter-Kind-Haus Vechta</div><button class="menu-btn" onclick="openDrawer()">☰ Menu</button></div>
-<div id="drawer" class="drawer"><!-- كل العناوين الكبرى هنا --></div>
-<div class="wrap">
-<div class="hero"><h1>Mutter-Kind-Haus Vechta</h1><img class="hero-img" src="Bild1.jpg"></div>
-<!-- باقي المحتوى -->
+<div class="topbar"><div style="font-weight:900;font-size:14px">Mutter-Kind-Haus Vechta</div><button class="menu-btn" onclick="openDrawer()">☰ Menu</button></div>
+<div class="overlay" id="overlay" onclick="closeDrawer()"></div>
+<div class="drawer" id="drawer">
+<div style="display:flex;justify-content:space-between;margin-bottom:20px"><b>Menü</b><button onclick="closeDrawer()" style="width:32px;height:32px;border-radius:50%;border:1px solid #E8DDD3;cursor:pointer">✕</button></div>
+
+<div class="m-big" id="mb1"><div class="m-big-head" onclick="this.parentElement.classList.toggle('open')"><span>Einrichtung</span><span>▼</span></div><div class="m-big-body">
+<div class="m-small" onclick="goTo('b1','s1')"><span>Räumlichkeiten</span><span>›</span></div>
+<div class="m-small" onclick="goTo('b1','s2')"><span>Für wen sind wir da</span><span>›</span></div>
+<div class="m-small" onclick="goTo('b1','s3')"><span>Betreuungszeiten</span><span>›</span></div>
+<div class="m-small" onclick="goTo('b1','s4')"><span>Voraussetzungen</span><span>›</span></div>
+</div></div>
+
+<div class="m-big" id="mb2"><div class="m-big-head" onclick="this.parentElement.classList.toggle('open')"><span>Was bieten wir</span><span>▼</span></div><div class="m-big-body">
+<div class="m-small" onclick="goTo('b2','s5')"><span>Konzeptionelle Grundlagen</span><span>›</span></div>
+</div></div>
+
+<div class="m-big" id="mb3"><div class="m-big-head" onclick="this.parentElement.classList.toggle('open')"><span>Das Team</span><span>▼</span></div><div class="m-big-body">
+<div class="m-small" onclick="goTo('b3','s6')"><span>Wir über uns</span><span>›</span></div>
+<div class="m-small" onclick="goTo('b3','s7')"><span>Mitarbeiter</span><span>›</span></div>
+</div></div>
+
+<div class="m-big" id="mb4"><div class="m-big-head" onclick="this.parentElement.classList.toggle('open')"><span>Kontakt</span><span>▼</span></div><div class="m-big-body">
+<div class="m-small" onclick="goTo('b4','s8')"><span>Kontaktdaten</span><span>›</span></div>
+<div class="m-small" onclick="goTo('b4','s9')"><span>Impressum</span><span>›</span></div>
+</div></div>
+
+<div class="m-big" id="mb5"><div class="m-big-head" onclick="this.parentElement.classList.toggle('open')"><span>Infos</span><span>▼</span></div><div class="m-big-body">
+<div class="m-small" onclick="goTo('b5','s10')"><span>Stellenangebote</span><span>›</span></div>
+</div></div>
 </div>
+
+<div class="wrap">
+<div class="hero">
+<h1><span>Mutter-Kind-Haus</span><span>Vechta</span></h1>
+<div class="sub">Ein Zuhause für den Neuanfang</div>
+<img class="hero-img" src="Bild1.jpg" alt="Bild1">
+</div>
+
+<div class="big" id="b1"><div class="big-head" onclick="this.parentElement.classList.toggle('open')"><b>Einrichtung</b><span>▼</span></div><div class="big-body">
+<div class="small" id="s1" onclick="toggleSmall(this)"><span>Räumlichkeiten</span><span>›</span></div><div class="small-info"><p>1999 erbaut, 5 Wohnungen (2 Zimmer, Flur, Bad, 36 qm), Krabbelraum, Gemeinschaftsküche, Garten mit Carport.</p></div>
+<div class="small" id="s2" onclick="toggleSmall(this)"><span>Für wen sind wir da</span><span>›</span></div><div class="small-info"><p>Junge Schwangere / Mütter, die vorübergehend überfordert sind.</p></div>
+<div class="small" id="s3" onclick="toggleSmall(this)"><span>Betreuungszeiten</span><span>›</span></div><div class="small-info"><p>Mo–Fr 7.00–22.00, Wochenende 18.00–22.00 + Rufdienst.</p></div>
+<div class="small" id="s4" onclick="toggleSmall(this)"><span>Voraussetzungen</span><span>›</span></div><div class="small-info"><p>Gespräch mit Jugendamt. Grundlage §19, §34, §41 SGB VIII.</p></div>
+</div></div>
+
+<div class="big" id="b2"><div class="big-head" onclick="this.parentElement.classList.toggle('open')"><b>Was bieten wir</b><span>▼</span></div><div class="big-body">
+<div class="small" id="s5" onclick="toggleSmall(this)"><span>Konzeptionelle Grundlagen</span><span>›</span></div><div class="small-info"><p>5 Plätze, §19, §34, §41 SGB VIII. Pädagogik, Psychologie, Grundleistungen, Qualitätssicherung.</p></div>
+</div></div>
+
+<div class="big" id="b3"><div class="big-head" onclick="this.parentElement.classList.toggle('open')"><b>Das Team</b><span>▼</span></div><div class="big-body">
+<div class="small" id="s6" onclick="toggleSmall(this)"><span>Wir über uns</span><span>›</span></div><div class="small-info"><p>Vorstellung folgt in Kürze.</p></div>
+<div class="small" id="s7" onclick="toggleSmall(this)"><span>Mitarbeiter</span><span>›</span></div><div class="small-info"><p>1 Dipl. Sozialpädagogin, 1 Dipl. Sozialpädagoge, 1 Erzieherin, 1 Kinderpflegerin</p></div>
+</div></div>
+
+<div class="big" id="b4"><div class="big-head" onclick="this.parentElement.classList.toggle('open')"><b>Kontakt</b><span>▼</span></div><div class="big-body">
+<div class="small open" id="s8" onclick="toggleSmall(this)"><span>Kontaktdaten</span><span>›</span></div><div class="small-info" style="max-height:1000px"><p><strong>Hiltrud Schilmöller</strong><br>Graskamp 3, 49377 Vechta<br>Tel. 04441/851150</p><div class="contact-cta"><a class="btn-call" href="tel:+494441851150">📞 Anrufen</a><a class="btn-mail" href="mailto:schilmoeller@mukihave.de">✉️ E-Mail</a></div><div class="map"><iframe src="https://www.google.com/maps?q=Graskamp+3,+49377+Vechta&z=16&output=embed"></iframe></div></div>
+<div class="small" id="s9" onclick="toggleSmall(this)"><span>Impressum</span><span>›</span></div><div class="small-info"><p>Hiltrud Schilmöller, Graskamp 3, 49377 Vechta</p></div>
+</div></div>
+
+<div class="big" id="b5"><div class="big-head" onclick="this.parentElement.classList.toggle('open')"><b>Infos</b><span>▼</span></div><div class="big-body">
+<div class="small" id="s10" onclick="toggleSmall(this)"><span>Stellenangebote</span><span>›</span></div><div class="small-info"><p>Derzeit keine offenen Stellen.</p></div>
+</div></div>
+</div>
+
+<script>
+function openDrawer(){document.getElementById('drawer').classList.add('open');document.getElementById('overlay').classList.add('open')}
+function closeDrawer(){document.getElementById('drawer').classList.remove('open');document.getElementById('overlay').classList.remove('open')}
+function toggleSmall(el){el.classList.toggle('open');let i=el.nextElementSibling;i.style.maxHeight=el.classList.contains('open')?'5000px':'0'}
+function goTo(bigId, smallId){
+ closeDrawer();
+ let big=document.getElementById(bigId); big.classList.add('open');
+ setTimeout(()=>{let s=document.getElementById(smallId); if(s){s.classList.add('open'); s.nextElementSibling.style.maxHeight='5000px'; s.scrollIntoView({behavior:'smooth',block:'center'})}},350);
+}
+</script>
 </body>
 </html>
