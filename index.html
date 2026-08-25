@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -6,23 +5,26 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Mutter-Kind-Haus Vechta</title>
 <style>
-html,body{margin:0;padding:0;width:100%;overflow-x:hidden;background:#fff;font-family:Arial}
-.gold{background:#D4A600;color:white;padding:30px;width:100vw;margin:0;font-size:28px;line-height:1.2}
+html,body{margin:0;padding:0;width:100%;overflow-x:hidden;background:#fff;font-family:Arial;line-height:1.6}
+.gold{background:#D4A600;color:white;padding:30px;width:100vw;margin:0;font-size:28px}
 .gold b{font-size:32px}
-.hero{position:relative;width:100vw;height:90vh;min-height:600px;margin:0;padding:0;overflow:hidden;background:#000;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw}
+.hero{position:relative;width:100vw;height:75vh;min-height:550px;margin:0;overflow:hidden;background:#000;left:50%;margin-left:-50vw}
 .slide{position:absolute;inset:0;opacity:0;transition:opacity 1s}
 .slide.active{opacity:1}
-.slide img{width:100vw;height:90vh;min-height:600px;object-fit:cover;object-position:center;display:block}
+.slide img{width:100vw;height:75vh;min-height:550px;object-fit:cover;display:block}
 .badge{position:absolute;top:20px;left:30px;background:#D4A600;color:white;padding:8px 16px;border-radius:20px;font-weight:bold;z-index:10}
 .dots{position:absolute;bottom:25px;left:50%;transform:translateX(-50%);display:flex;gap:14px;z-index:10}
-.dot{width:18px;height:18px;border-radius:50%;background:rgba(255,255,255,.5);border:3px solid white;cursor:pointer}
+.dot{width:18px;height:18px;border-radius:50%;background:rgba(255,255,255,.6);border:3px solid white;cursor:pointer}
 .dot.active{background:#FFD54F}
-.bar{width:100vw;background:#F5F0E6;padding:15px 0;margin:0;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw;position:relative}
+.bar{width:100vw;background:#F5F0E6;padding:15px 0;left:50%;margin-left:-50vw;position:relative}
 .grid{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;padding:0 20px;max-width:1400px;margin:0 auto}
 .grid button{background:#D3366E;color:white;border:none;padding:20px 30px;font-size:18px;font-weight:bold;border-radius:12px;cursor:pointer;flex:1 1 160px}
 .sections{width:100%;max-width:1200px;margin:0 auto;padding:20px}
 .section{display:none;padding:30px;border-top:8px solid #EFEAE0}
 .section.active{display:block}
+.map-box{width:100%;height:400px;border-radius:12px;overflow:hidden;margin:20px 0;border:3px solid #D4A600;box-shadow:0 4px 15px rgba(0,0,0,.2)}
+.map-box iframe{width:100%;height:100%;border:0}
+.kontakt-btn{display:inline-block;margin:8px 10px 8px 0;padding:12px 22px;background:#FFF8E7;border:2px solid #D4A600;border-radius:25px;color:#8B5E00;text-decoration:none;font-weight:bold}
 </style>
 </head>
 <body>
@@ -30,9 +32,9 @@ html,body{margin:0;padding:0;width:100%;overflow-x:hidden;background:#fff;font-f
 <div class="gold">Mutter-Kind-Haus Vechta —<br><b>Ein Zuhause für den Neuanfang</b><br><span style="font-size:14px">Graskamp 3, 49377 Vechta – §§19,34,41 SGB VIII</span></div>
 
 <div class="hero">
-<div class="slide active"><img src="Bild1.jpg"><div class="badge">1 / 3</div></div>
-<div class="slide"><img src="Bild2.jpg"><div class="badge">2 / 3</div></div>
-<div class="slide"><img src="Bild3.jpg"><div class="badge">3 / 3</div></div>
+<div class="slide active"><img src="Bild1.jpg"><div class="badge">1 / 3 - Freude</div></div>
+<div class="slide"><img src="Bild2.jpg"><div class="badge">2 / 3 - Sorge</div></div>
+<div class="slide"><img src="Bild3.jpg"><div class="badge">3 / 3 - Neubeginn</div></div>
 <div class="dots"><div class="dot active" onclick="go(0)"></div><div class="dot" onclick="go(1)"></div><div class="dot" onclick="go(2)"></div></div>
 </div>
 
@@ -41,24 +43,39 @@ html,body{margin:0;padding:0;width:100%;overflow-x:hidden;background:#fff;font-f
 <button onclick="show('haus')">Das Haus</button>
 <button onclick="show('betreuung')">Betreuung</button>
 <button onclick="show('aufnahme')">Aufnahme</button>
-<button onclick="show('kontakt')">Kontakt</button>
+<button onclick="show('kontakt')">Kontakt + Karte</button>
 <button onclick="show('recht')">Rechtliches</button>
 </div></div>
 
 <div class="sections">
-<div id="ueber" class="section active"><h2>Betreuung, die Vertrauen zuerst gibt</h2><p>Viele junge Frauen kommen nach Abbrüchen, Streit oder Verlust des Zuhauses. Hier dürfen sie bleiben. Private Einrichtung für Schwangere und Mütter ab 16 Jahren, Kinder 0-6 Jahre. 5 Wohnungen 36m², 1999 erbaut, 15 Min Innenstadt, Kitas Graskamp 1. Aufnahme §§19,34,41 SGB VIII.</p></div>
+<div id="ueber" class="section active"><h2>Betreuung, die Vertrauen zuerst gibt</h2><p>Private Einrichtung für Schwangere und Mütter ab 16 Jahren, Kinder 0-6 Jahre. 5 Wohnungen 36m² möbliert, 1999 erbaut, 15 Min Innenstadt, Kitas Graskamp 1. §§19,34,41 SGB VIII.</p></div>
 <div id="haus" class="section"><h2>Das Haus</h2><p>5 Wohnungen je 36m², Krabbelraum, Gemeinschaftsküche, großer Garten, Carport</p></div>
 <div id="betreuung" class="section"><h2>Begleitung 24h</h2><p>Bezugsbetreuung, Mutter-Kind-Bindung, Alltag, Schule/Ausbildung, Behörden, Nachbetreuung §41</p></div>
 <div id="aufnahme" class="section"><h2>Aufnahme</h2><p>1.Jugendamt 2.Kennenlernen 3.Bereitschaft Ausbildung. Kosten trägt Jugendamt.</p></div>
-<div id="kontakt" class="section"><h2>Kontakt</h2>Graskamp 3, 49377 Vechta<br>Tel 04441/851150<br>schilmoeller@mukihave.de</div>
-<div id="recht" class="section"><h2>Impressum</h2><p>§§19,34,41 SGB VIII, Leitung Hiltrud Schilmoeller</p></div>
+
+<div id="kontakt" class="section">
+<h2>📍 Hier finden Sie uns – Graskamp 3, 49377 Vechta</h2>
+<p><b>Mutter-Kind-Haus Vechta</b><br>Graskamp 3, 49377 Vechta<br>Tel 04441/851150<br>E-Mail: schilmoeller@mukihave.de<br>Leitung: Hiltrud Schilmoeller</p>
+
+<div class="map-box">
+<iframe src="https://www.google.com/maps?q=Graskamp+3,+49377+Vechta&z=16&output=embed" loading="lazy" allowfullscreen></iframe>
+</div>
+
+<a class="kontakt-btn" href="https://www.google.com/maps/dir/?api=1&destination=Graskamp+3,+49377+Vechta" target="_blank">🧭 Route mit Google Maps starten</a>
+<a class="kontakt-btn" href="tel:04441851150">📞 Anrufen</a>
+<a class="kontakt-btn" href="mailto:schilmoeller@mukihave.de">✉️ E-Mail</a>
+
+<p style="margin-top:15px;font-size:13px;color:#666">15 Min zu Fuß in die Innenstadt, direkt neben Kitas Graskamp 1</p>
+</div>
+
+<div id="recht" class="section"><h2>Impressum</h2><p>§§19,34,41 SGB VIII, Leitung Hiltrud Schilmoeller, Graskamp 3, 49377 Vechta</p></div>
 </div>
 
 <script>
 let cur=0;const s=document.querySelectorAll('.slide'),d=document.querySelectorAll('.dot');
 function go(i){s[cur].classList.remove('active');d[cur].classList.remove('active');cur=i;s[cur].classList.add('active');d[cur].classList.add('active');}
-setInterval(()=>go((cur+1)%3),3000);
-function show(id){document.querySelectorAll('.section').forEach(x=>x.classList.remove('active'));document.getElementById(id).classList.add('active');}
+setInterval(()=>go((cur+1)%3),3500);
+function show(id){document.querySelectorAll('.section').forEach(x=>x.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo({top:650,behavior:'smooth'});}
 </script>
 </body>
 </html>
