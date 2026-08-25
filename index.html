@@ -1,42 +1,38 @@
 
-
 <!DOCTYPE html>
 <html lang="de">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Mutter-Kind-Haus Vechta – Ein Zuhause für den Neuanfang</title>
+<title>Mutter-Kind-Haus Vechta</title>
 <style>
-*{box-sizing:border-box}
-body{margin:0;background:#EFEAE0;font-family:Arial,sans-serif;color:#2B2620;line-height:1.6}
-.wrap{max-width:800px;margin:0 auto;background:white;box-shadow:0 0 25px rgba(0,0,0,.08)}
-.gold{background:#D4A600;color:white;padding:28px 22px;font-size:26px;line-height:1.3}
-.hero{position:relative;height:480px;overflow:hidden;background:#000}
-.slide{position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease}
-.slide.active{opacity:1}
-.slide img{width:100%;height:100%;object-fit:cover}
-.dots{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:5}
-.dot{width:12px;height:12px;border-radius:50%;background:rgba(255,255,255,.5);border:2px solid white;cursor:pointer}
+*{box-sizing:border-box}body{margin:0;background:#EFEAE0;font-family:Arial;color:#2B2620;line-height:1.6}
+.wrap{max-width:800px;margin:0 auto;background:white}
+.gold{background:#D4A600;color:white;padding:28px 22px;font-size:26px}
+.hero{position:relative;height:480px;overflow:hidden;background:#222}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity 1s;pointer-events:none}
+.slide.active{opacity:1;pointer-events:auto}
+.slide img{width:100%;height:100%;object-fit:cover;display:block}
+.badge{position:absolute;top:12px;left:12px;background:#D4A600;color:white;padding:6px 12px;border-radius:20px;font-size:13px;z-index:10;font-weight:bold}
+.dots{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);display:flex;gap:10px;z-index:10}
+.dot{width:14px;height:14px;border-radius:50%;background:rgba(255,255,255,.6);border:2px solid white;cursor:pointer}
 .dot.active{background:#FFD54F}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:10px;background:#F5F0E6}
-.grid button{background:#D3366E;color:white;border:none;padding:18px;font-size:18px;font-weight:bold;border-radius:10px;cursor:pointer;transition:.3s}
+.grid button{background:#D3366E;color:white;border:none;padding:18px;font-size:18px;font-weight:bold;border-radius:10px;cursor:pointer}
 .grid button:hover{background:#a82a55}
-.section{display:none;padding:28px 22px;border-top:8px solid #EFEAE0;animation:up .5s}
+.section{display:none;padding:28px 22px;border-top:8px solid #EFEAE0}
 .section.active{display:block}
-@keyframes up{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
-h2{font-size:27px;margin:0 0 14px}
 .kontakt a{display:inline-block;margin:6px 0;padding:10px 16px;background:#FFF8E7;border:1px solid #E8DCC6;border-radius:20px;color:#B9892D;text-decoration:none;font-weight:bold}
-.info{background:#FFFBF5;padding:14px;border-left:4px solid #D4A600;margin:12px 0;border-radius:0 8px 8px 0}
 </style>
 </head>
 <body>
 <div class="wrap">
-<div class="gold">Mutter-Kind-Haus Vechta —<br><b>Ein Zuhause für den Neuanfang</b><br><span style="font-size:14px;opacity:.9">Graskamp 3, 49377 Vechta – §§ 19, 34 & 41 SGB VIII</span></div>
+<div class="gold">Mutter-Kind-Haus Vechta —<br><b>Ein Zuhause für den Neuanfang</b><br><span style="font-size:14px">Graskamp 3, 49377 Vechta – §§19,34,41 SGB VIII</span></div>
 
-<div class="hero">
-<div class="slide active"><img src="Bild1.jpg"></div>
-<div class="slide"><img src="Bild2.jpg"></div>
-<div class="slide"><img src="Bild3.jpg"></div>
+<div class="hero" id="hero">
+<div class="slide active"><img src="Bild1.jpg"><div class="badge">1 / 3 - Freude</div></div>
+<div class="slide"><img src="Bild2.jpg"><div class="badge">2 / 3 - Sorge</div></div>
+<div class="slide"><img src="Bild3.jpg"><div class="badge">3 / 3 - Neubeginn</div></div>
 <div class="dots"><div class="dot active" onclick="go(0)"></div><div class="dot" onclick="go(1)"></div><div class="dot" onclick="go(2)"></div></div>
 </div>
 
@@ -49,44 +45,36 @@ h2{font-size:27px;margin:0 0 14px}
 <button onclick="show('recht')">Rechtliches</button>
 </div>
 
-<div id="ueber" class="section active">
-<h2>Betreuung, die Vertrauen zuerst gibt</h2>
-<p>Viele junge Frauen kommen zu uns nach Abbrüchen, Streit oder dem Verlust eines vertrauten Zuhauses. Im Mutter-Kind-Haus erleben sie: <b>Hier darf ich bleiben, auch wenn nicht alles sofort gelingt.</b></p>
-<div class="info"><b>Private Einrichtung</b> für Schwangere und Mütter ab 16 Jahren, Kinder 0-6 Jahre. Ziel: Verselbständigung und stabile Mutter-Kind-Bindung.</div>
-<p>✓ 5 Wohnungen mit je zwei Zimmern, Flur und Bad, ca. 36 m², möbliert<br>✓ 15 Min. zu Fuß in die Innenstadt<br>✓ 1999 erbaut, kein Institutionsbau<br>✓ Kitas Graskamp 1 direkt nebenan</p>
-<p>Die Aufnahme erfolgt in Absprache mit dem zuständigen Jugendamt auf Grundlage der §§ 19, 34 und 41 SGB VIII.</p>
+<div id="ueber" class="section active"><h2>Betreuung, die Vertrauen zuerst gibt</h2><p>Viele junge Frauen kommen nach Abbrüchen, Streit oder Verlust des Zuhauses. Hier dürfen sie bleiben.</p><p><b>Private Einrichtung</b> für Schwangere und Mütter ab 16 Jahren, Kinder 0-6 Jahre. 5 Wohnungen 36m², 1999 erbaut, 15 Min Innenstadt, Kitas Graskamp 1.</p></div>
+<div id="haus" class="section"><h2>Das Haus</h2><p>Wohnung 36m² möbliert, Krabbelraum, Gemeinschaftsküche, großer Garten, Carport</p></div>
+<div id="betreuung" class="section"><h2>Begleitung 24h</h2><p>Bezugsbetreuung, Mutter-Kind-Bindung, Alltag, Schule/Ausbildung, Behörden, Nachbetreuung §41</p></div>
+<div id="aufnahme" class="section"><h2>Aufnahme</h2><p>1. Jugendamt 2. Kennenlernen 3. Bereitschaft Ausbildung. Kosten trägt Jugendamt.</p></div>
+<div id="kontakt" class="section"><h2>Kontakt</h2>Graskamp 3, 49377 Vechta<br>Tel 04441/851150<br>E-Mail: schilmoeller@mukihave.de<br><br><a href="tel:04441851150">📞 Anrufen</a> <a href="mailto:schilmoeller@mukihave.de">✉️ E-Mail</a></div>
+<div id="recht" class="section"><h2>Impressum</h2><p>§§19,34,41 SGB VIII, Leitung Hiltrud Schilmoeller, schilmoeller@mukihave.de</p></div>
 </div>
 
-<div id="haus" class="section">
-<h2>Raum für den Alltag zu zweit — und für Gemeinschaft</h2>
-<p><b>Eigene Wohnung:</b> Zwei Zimmer, Flur und Bad, ca. 36 m², vollständig möbliert<br>
-<b>Krabbelraum:</b> sicherer Raum zum Spielen und für Frühförderung<br>
-<b>Gemeinschaftsküche:</b> gemeinsames Kochen, Backen und Austausch<br>
-<b>Garten & Carport:</b> großer geschützter Garten mit Spielgeräten und Sitzecken</p>
-</div>
+<script>
+let cur = 0;
+const slides = document.querySelectorAll('.slide');
+const dots = document.querySelectorAll('.dot');
+function go(i){
+  slides[cur].classList.remove('active');
+  dots[cur].classList.remove('active');
+  cur = i;
+  slides[cur].classList.add('active');
+  dots[cur].classList.add('active');
+}
+// Auto Diaporama alle 3 Sekunden
+setInterval(function(){
+  let next = (cur + 1) % 3;
+  go(next);
+}, 3000);
 
-<div id="betreuung" class="section">
-<h2>Begleitung 24h – individuell und rund um die Uhr</h2>
-<p>✓ Bezugsbetreuung und Hilfeplanung<br>✓ Mutter-Kind-Bindung und Erziehung<br>✓ Alltag, Haushalt, Finanzen<br>✓ Schule / Ausbildung / Beruf<br>✓ Behörden, Ärzte, Anträge<br>✓ Nachbetreuung §41 beim Auszug</p>
-<p>Zusammenarbeit mit Jugendämtern, Kinderärzten, Hebammen, Kitas, Schulen.</p>
-</div>
-
-<div id="aufnahme" class="section">
-<h2>Der Weg zur Aufnahme</h2>
-<p><b>Schritt 1:</b> Kontakt über das Jugendamt – Prüfung nach SGB VIII<br>
-<b>Schritt 2:</b> Kennenlernen der Einrichtung – Besichtigung und Gespräch<br>
-<b>Schritt 3:</b> Bereitschaft zu Schule/Ausbildung und aktiver Mitarbeit</p>
-<p><b>Kosten:</b> Werden vom Jugendamt übernommen – kein Eigenanteil für Mutter.</p>
-</div>
-
-<div id="kontakt" class="section">
-<h2>Sprechen Sie mit uns</h2>
-private Mutter-Kind-Einrichtung<br>
-<b>Mutter-Kind-Haus Vechta</b><br>
-Graskamp 3, 49377 Vechta<br>
-Tel 04441/851150<br>
-E-Mail: schilmoeller@mukihave.de<br><br>
-<a href="tel:04441851150">📞 Anrufen »</a><br>
-<a href="mailto:schilmoeller@mukihave.de">✉️ E-Mail schreiben »</a><br>
-<a href="https://maps.google.com/?q=Graskamp+3+49377+Vechta" target="_blank">📍 Route planen »</a><br><br>
-Leitung: Hiltrud Schilmoeller
+function show(id){
+  document.querySelectorAll('.section').forEach(function(s){s.classList.remove('active')});
+  document.getElementById(id).classList.add('active');
+  window.scrollTo({top:500,behavior:'smooth'});
+}
+</script>
+</body>
+</html>
