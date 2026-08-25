@@ -3,145 +3,105 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mutter-Kind-Haus Vechta – Ein Zuhause für den Neuanfang</title>
+<title>Mutter-Kind-Haus Vechta</title>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{--ink:#17181A;--muted:#6B6F76;--paper:#FFFCF6;--line:#EEE6D9;--sand:#FFF6E8;--sand2:#FFF0D1;--green:#3A5F41;--green-light:#E8F0E9;--terracotta:#B91C1C;--shadow:0 20px 50px rgba(23,24,26,0.08), 0 4px 12px rgba(23,24,26,0.04)}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 .topbar{position:sticky;top:0;z-index:60;height:72px;padding:0 24px;display:flex;justify-content:space-between;align-items:center;background:rgba(255,252,246,0.92);backdrop-filter:blur(18px) saturate(180%);border-bottom:1px solid var(--line)}
-.brand{display:flex;align-items:center;gap:12px}
-.brand-mark{width:36px;height:36px;border-radius:11px;background:var(--ink);color:#fff;display:grid;place-items:center;font-family:'Fraunces',serif;font-weight:900;font-size:18px}
-.brand-text b{font-family:'Fraunces',serif;font-size:16.5px;font-weight:900;line-height:1;display:block}
-.brand-text span{font-size:10.5px;letter-spacing:1.2px;text-transform:uppercase;color:var(--muted);font-weight:600}
+.brand{display:flex;align-items:center;gap:12px}.brand-mark{width:36px;height:36px;border-radius:11px;background:var(--ink);color:#fff;display:grid;place-items:center;font-family:'Fraunces',serif;font-weight:900;font-size:18px}
+.brand-text b{font-family:'Fraunces',serif;font-size:16.5px;font-weight:900;display:block}.brand-text span{font-size:10.5px;letter-spacing:1.2px;text-transform:uppercase;color:var(--muted);font-weight:600}
 .menu-btn{height:42px;padding:0 18px;border-radius:999px;background:var(--ink);color:#fff;border:1px solid var(--ink);display:flex;align-items:center;gap:10px;font-size:13px;font-weight:700;cursor:pointer}
 .menu-btn .dot{width:6px;height:6px;border-radius:50%;background:#8BE28D;box-shadow:0 0 0 4px rgba(139,226,141,0.2)}
-.overlay{position:fixed;inset:0;background:rgba(17,18,20,0.38);backdrop-filter:blur(8px);z-index:80;opacity:0;pointer-events:none;transition:0.35s}
-.overlay.open{opacity:1;pointer-events:auto}
-.drawer{position:fixed;top:0;right:-100%;width:390px;max-width:92vw;height:100dvh;background:#fff;z-index:90;transition:0.45s cubic-bezier(0.22,1,0.36,1);padding:0;display:flex;flex-direction:column;box-shadow:-24px 0 80px rgba(0,0,0,0.18)}
-.drawer.open{right:0}
-.drawer-top{padding:22px 24px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line)}
-.drawer-top b{font-family:'Fraunces',serif;font-size:18px}
+.overlay{position:fixed;inset:0;background:rgba(17,18,20,0.38);backdrop-filter:blur(8px);z-index:80;opacity:0;pointer-events:none;transition:0.35s}.overlay.open{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:-100%;width:390px;max-width:92vw;height:100dvh;background:#fff;z-index:90;transition:0.45s cubic-bezier(0.22,1,0.36,1);display:flex;flex-direction:column;box-shadow:-24px 0 80px rgba(0,0,0,0.18)}.drawer.open{right:0}
+.drawer-top{padding:22px 24px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line)}.drawer-top b{font-family:'Fraunces',serif;font-size:18px}
 .icon-btn{width:38px;height:38px;border-radius:999px;border:1px solid var(--line);background:#fff;display:grid;place-items:center;cursor:pointer}
 .drawer-scroll{flex:1;overflow-y:auto;padding:18px 16px 10px}
-.m-big{margin:10px 0;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--paper)}
-.m-big.open{border-color:var(--ink);box-shadow:0 6px 20px rgba(0,0,0,0.06)}
-.m-big-head{padding:16px 18px;display:flex;justify-content:space-between;align-items:center;cursor:pointer}
-.m-big-head .left{display:flex;align-items:center;gap:12px}
+.m-big{margin:10px 0;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--paper)}.m-big.open{border-color:var(--ink);box-shadow:0 6px 20px rgba(0,0,0,0.06)}
+.m-big-head{padding:16px 18px;display:flex;justify-content:space-between;align-items:center;cursor:pointer}.m-big-head .left{display:flex;align-items:center;gap:12px}
 .m-big-head .num{width:28px;height:28px;border-radius:9px;background:var(--sand2);border:1px solid var(--line);display:grid;place-items:center;font-size:11px;font-weight:800}
 .m-big-head span.title{font-weight:800;font-size:14.5px;color:var(--terracotta)}
-.m-big-head .chev{width:26px;height:26px;border-radius:999px;background:#fff;border:1px solid var(--line);display:grid;place-items:center;transition:0.3s;font-size:11px}
-.m-big.open .chev{transform:rotate(180deg);background:var(--ink);color:#fff;border-color:var(--ink)}
-.m-big-body{max-height:0;overflow:hidden;transition:0.4s}
-.m-big.open .m-big-body{max-height:700px}
-.m-small{padding:13px 18px 13px 58px;border-top:1px solid var(--line);font-size:13.5px;font-weight:500;display:flex;justify-content:space-between;align-items:center;cursor:pointer;background:var(--paper)}
-.m-small:hover{background:var(--sand)}
-.m-small:first-child{border-top:none}
-.drawer-foot{padding:16px;background:var(--ink);color:#EDE8E0;margin:10px 16px 16px;border-radius:16px}
-.drawer-foot a{color:#C9E5CB;text-decoration:none;font-weight:600}
-
-/* PC FULL WIDTH */
+.m-big-head .chev{width:26px;height:26px;border-radius:999px;background:#fff;border:1px solid var(--line);display:grid;place-items:center;transition:0.3s;font-size:11px}.m-big.open .chev{transform:rotate(180deg);background:var(--ink);color:#fff;border-color:var(--ink)}
+.m-big-body{max-height:0;overflow:hidden;transition:0.4s}.m-big.open .m-big-body{max-height:700px}
+.m-small{padding:13px 18px 13px 58px;border-top:1px solid var(--line);font-size:13.5px;font-weight:500;display:flex;justify-content:space-between;align-items:center;cursor:pointer;background:var(--paper)}.m-small:hover{background:var(--sand)}.m-small:first-child{border-top:none}
+.drawer-foot{padding:16px;background:var(--ink);color:#EDE8E0;margin:10px 16px 16px;border-radius:16px}.drawer-foot a{color:#C9E5CB;text-decoration:none;font-weight:600}
 .wrap{max-width:100%;margin:0 auto;padding:0 0 50px}
-.hero{margin:0 0 28px;width:100vw;left:50%;margin-left:-50vw;position:relative}
-.hero-card{position:relative;border-radius:0;overflow:hidden;background:#111;box-shadow:none;width:100vw}
-.hero-card img{width:100vw;height:82vh;min-height:620px;object-fit:cover;display:block;aspect-ratio:auto}
-.hero-card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,0.08) 0%, rgba(0,0,0,0.0) 35%, rgba(0,0,0,0.45) 100%)}
-.hero-text{position:absolute;left:40px;right:40px;bottom:30px;z-index:2;color:#fff}
-.hero-text h1{font-family:'Fraunces',serif;font-size:56px;line-height:0.95;letter-spacing:-1.5px;font-weight:900;text-shadow:0 2px 18px rgba(0,0,0,0.45)}
-.hero-text h1 i{font-style:italic;font-weight:700}
-.hero-badge{position:absolute;top:24px;left:40px;z-index:2;background:rgba(255,255,255,0.92);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.6);padding:9px 14px;border-radius:999px;font-size:11px;font-weight:700;letter-spacing:0.6px;text-transform:uppercase;color:var(--ink);display:flex;align-items:center;gap:8px}
-.hero-badge .live{width:6px;height:6px;border-radius:50%;background:#1FC16B;box-shadow:0 0 0 4px rgba(31,193,107,0.2)}
-
-.content-inner{max-width:760px;margin:0 auto;padding:0 22px}
-.welcome-pro{margin:0 auto;background:#fff;border:1px solid var(--line);border-radius:24px;overflow:hidden;box-shadow:var(--shadow);max-width:760px}
-.welcome-pro-top{padding:28px 26px 18px;display:flex;gap:16px;align-items:flex-start}
-.welcome-avatar{width:44px;height:44px;border-radius:13px;background:linear-gradient(135deg, #FFF0D1, #FFE4A8);border:1px solid var(--line);display:grid;place-items:center;font-size:22px;flex-shrink:0}
-.welcome-pro h2{font-family:'Fraunces',serif;font-size:22px;line-height:1.15;letter-spacing:-0.4px}
-.welcome-pro h2 em{font-style:italic;font-weight:700;color:var(--green)}
+.hero{margin:0 0 28px;width:100vw;left:50%;margin-left:-50vw;position:relative}.hero-card{position:relative;border-radius:0;overflow:hidden;background:#111;width:100vw}
+.hero-card img{width:100vw;height:82vh;min-height:620px;object-fit:cover;display:block}
+.hero-card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,0.08) 0%, rgba(0,0,0,0) 35%, rgba(0,0,0,0.45) 100%)}
+.hero-text{position:absolute;left:40px;right:40px;bottom:30px;z-index:2;color:#fff}.hero-text h1{font-family:'Fraunces',serif;font-size:56px;line-height:0.95;letter-spacing:-1.5px;font-weight:900;text-shadow:0 2px 18px rgba(0,0,0,0.45)}.hero-text h1 i{font-style:italic;font-weight:700}
+.hero-badge{position:absolute;top:24px;left:40px;z-index:2;background:rgba(255,255,255,0.92);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.6);padding:9px 14px;border-radius:999px;font-size:11px;font-weight:700;letter-spacing:0.6px;text-transform:uppercase;color:var(--ink);display:flex;align-items:center;gap:8px}.hero-badge .live{width:6px;height:6px;border-radius:50%;background:#1FC16B;box-shadow:0 0 0 4px rgba(31,193,107,0.2)}
+.content-inner{max-width:760px;margin:0 auto;padding:0 22px}.welcome-pro{margin:0 auto;background:#fff;border:1px solid var(--line);border-radius:24px;overflow:hidden;box-shadow:var(--shadow);max-width:760px}
+.welcome-pro-top{padding:28px 26px 18px;display:flex;gap:16px;align-items:flex-start}.welcome-avatar{width:44px;height:44px;border-radius:13px;background:linear-gradient(135deg, #FFF0D1, #FFE4A8);border:1px solid var(--line);display:grid;place-items:center;font-size:22px;flex-shrink:0}
+.welcome-pro h2{font-family:'Fraunces',serif;font-size:22px;line-height:1.15;letter-spacing:-0.4px}.welcome-pro h2 em{font-style:italic;font-weight:700;color:var(--green)}
 .welcome-pro .kicker{font-size:11px;letter-spacing:1.1px;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:6px}
-.welcome-pro p{font-size:14px;line-height:1.85;color:#3B3E44;margin:0 26px 12px}
-.welcome-quote{margin:16px 26px;background:var(--paper);border:1px dashed var(--line);border-radius:16px;padding:16px 18px;font-size:13.5px;line-height:1.75;color:#2F3338}
-.welcome-actions{display:flex;gap:10px;padding:0 26px 26px;flex-wrap:wrap}
-.btn-primary{height:44px;padding:0 18px;border-radius:999px;background:var(--ink);color:#fff;border:1px solid var(--ink);font-weight:700;font-size:13px;cursor:pointer;display:flex;align-items:center;gap:10px}
+.welcome-pro p{font-size:14px;line-height:1.85;color:#3B3E44;margin:0 26px 12px}.welcome-quote{margin:16px 26px;background:var(--paper);border:1px dashed var(--line);border-radius:16px;padding:16px 18px;font-size:13.5px;line-height:1.75;color:#2F3338}
+.welcome-actions{display:flex;gap:10px;padding:0 26px 26px;flex-wrap:wrap}.btn-primary{height:44px;padding:0 18px;border-radius:999px;background:var(--ink);color:#fff;border:1px solid var(--ink);font-weight:700;font-size:13px;cursor:pointer;display:flex;align-items:center;gap:10px}
 .btn-ghost{height:44px;padding:0 18px;border-radius:999px;background:#fff;border:1px solid var(--line);font-weight:600;font-size:13px;cursor:pointer;display:flex;align-items:center;gap:8px}
-.modal-overlay{position:fixed;inset:0;background:rgba(17,18,20,0.52);backdrop-filter:blur(10px);z-index:200;display:none;align-items:center;justify-content:center;padding:18px}
-.modal-overlay.open{display:flex}
+.modal-overlay{position:fixed;inset:0;background:rgba(17,18,20,0.52);backdrop-filter:blur(10px);z-index:200;display:none;align-items:center;justify-content:center;padding:18px}.modal-overlay.open{display:flex}
 .modal{width:min(640px,100%);max-height:86dvh;background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,0.28);animation:pop 0.42s cubic-bezier(0.22,1,0.36,1)}
 @keyframes pop{from{transform:translateY(12px) scale(0.96);opacity:0}to{transform:translateY(0) scale(1);opacity:1}}
-.modal-head{height:58px;padding:0 18px 0 20px;background:linear-gradient(180deg,#FFF8E8,#FFFEF8);border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}
-.modal-head b{font-family:'Fraunces',serif;font-size:18px}
-.modal-body{padding:20px 22px 22px;overflow:auto;max-height:68dvh}
-.modal-body p{font-size:14.2px;line-height:1.9;color:#2F3338}
-.modal-body ul{list-style:none;margin:10px 0}
-.modal-body li{padding:8px 0 8px 22px;position:relative;border-bottom:1px dashed #EEE6D9;font-size:13.8px}
-.modal-body li::before{content:"";position:absolute;left:4px;top:15px;width:6px;height:6px;border-radius:50%;background:var(--green)}
-.pill-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
-.pill{padding:8px 12px;border-radius:999px;background:var(--green-light);border:1px solid #DDE8DE;color:var(--green);font-size:11.5px;font-weight:700}
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
-.contact-card{border:1px solid var(--line);border-radius:14px;padding:14px;background:var(--paper);display:flex;gap:10px;align-items:center;text-decoration:none;color:var(--ink)}
-.contact-card .ic{width:36px;height:36px;border-radius:10px;background:#fff;border:1px solid var(--line);display:grid;place-items:center}
-.map{margin-top:16px;height:380px;border-radius:16px;overflow:hidden;border:1px solid var(--line)} .map iframe{width:100%;height:100%;border:0}
+.modal-head{height:58px;padding:0 18px 0 20px;background:linear-gradient(180deg,#FFF8E8,#FFFEF8);border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}.modal-head b{font-family:'Fraunces',serif;font-size:18px}
+.modal-body{padding:20px 22px 22px;overflow:auto;max-height:68dvh}.modal-body p{font-size:14.2px;line-height:1.9;color:#2F3338}.modal-body ul{list-style:none;margin:10px 0}.modal-body li{padding:8px 0 8px 22px;position:relative;border-bottom:1px dashed #EEE6D9;font-size:13.8px}.modal-body li::before{content:"";position:absolute;left:4px;top:15px;width:6px;height:6px;border-radius:50%;background:var(--green)}
+.pill-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.pill{padding:8px 12px;border-radius:999px;background:var(--green-light);border:1px solid #DDE8DE;color:var(--green);font-size:11.5px;font-weight:700}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}.contact-card{border:1px solid var(--line);border-radius:14px;padding:14px;background:var(--paper);display:flex;gap:10px;align-items:center;text-decoration:none;color:var(--ink)}.contact-card .ic{width:36px;height:36px;border-radius:10px;background:#fff;border:1px solid var(--line);display:grid;place-items:center}
+.map{margin-top:16px;height:400px;border-radius:16px;overflow:hidden;border:1px solid var(--line)} .map iframe{width:100%;height:100%;border:0}
 footer{margin-top:28px;text-align:center;font-size:11px;color:#9AA0A8}
-
-/* Mobile zurück zu Card */
-@media(max-width:900px){
-  .hero{width:auto;left:auto;margin-left:auto;margin:18px 22px 22px;border-radius:28px;overflow:hidden}
-  .hero-card{width:100%;border-radius:28px}
-  .hero-card img{width:100%;height:auto;min-height:auto;aspect-ratio:4/3}
-  .hero-text h1{font-size:38px}
-  .hero-badge{left:16px;top:16px}
-  .hero-text{left:22px;right:22px;bottom:20px}
-}
+@media(max-width:900px){.hero{width:auto;left:auto;margin-left:auto;margin:18px 22px 22px;border-radius:28px;overflow:hidden}.hero-card{width:100%;border-radius:28px}.hero-card img{width:100%;height:auto;min-height:auto;aspect-ratio:4/3}.hero-text h1{font-size:38px}.hero-badge{left:16px;top:16px}.hero-text{left:22px;right:22px;bottom:20px}}
 </style>
 </head>
 <body>
-<div class="topbar">
-<div class="brand"><div class="brand-mark">M</div><div class="brand-text"><b>Mutter-Kind-Haus Vechta</b><span>Seit 1999 • Graskamp 3</span></div></div>
-<button class="menu-btn" onclick="openDrawer()"><span class="dot"></span> Menu</button>
-</div>
+<div class="topbar"><div class="brand"><div class="brand-mark">M</div><div class="brand-text"><b>Mutter-Kind-Haus Vechta</b><span>Seit 1999 • Graskamp 3</span></div></div><button class="menu-btn" onclick="openDrawer()"><span class="dot"></span> Menu</button></div>
 <div class="overlay" id="overlay" onclick="closeDrawer()"></div>
 <div class="drawer" id="drawer">
 <div class="drawer-top"><b>Menü</b><button class="icon-btn" onclick="closeDrawer()">✕</button></div>
 <div class="drawer-scroll">
 <div class="m-big" id="mb1"><div class="m-big-head" onclick="toggleMbig('mb1')"><div class="left"><div class="num">01</div><span class="title">Einrichtung</span></div><div class="chev">▼</div></div><div class="m-big-body">
-<div class="m-small" onclick="openInfo('Räumlichkeiten','<p>1999 erbaut – 15 Min. zu Fuß in die Innenstadt. 5 Wohnungen (2 Zimmer, Flur, Bad, ca. 36 m²) mit Krabbelraum, Gemeinschaftsküche, Aufenthaltsraum, Garten mit Carport.</p><div class=pill-row><div class=pill>5 Wohnungen</div><div class=pill>36 m²</div><div class=pill>Garten + Carport</div></div>')"><span>Räumlichkeiten</span><span>›</span></div>
-<div class="m-small" onclick="openInfo('Für wen sind wir da','<p>Für junge Schwangere und Mütter mit Kind, die durch Pflege und Erziehung vorübergehend überfordert sind.</p>')"><span>Für wen sind wir da</span><span>›</span></div>
+<div class="m-small" onclick="openInfo('Räumlichkeiten','<p>1999 erbaut – 15 Min. zu Fuß in die Innenstadt. 5 Wohnungen (2 Zimmer, Flur, Bad, ca. 36 m²) mit Krabbelraum, Gemeinschaftsküche, Aufenthaltsraum, Garten mit Carport.</p><div class=pill-row><div class=pill>5 Wohnungen</div><div class=pill>36 m²</div><div class=pill>Garten</div></div>')"><span>Räumlichkeiten</span><span>›</span></div>
+<div class="m-small" onclick="openInfo('Für wen sind wir da','<p>Für junge Schwangere und Mütter mit Kind, die vorübergehend überfordert sind.</p>')"><span>Für wen sind wir da</span><span>›</span></div>
 <div class="m-small" onclick="openInfo('Betreuungszeiten','<p><strong>Mo–Fr 7:00–22:00 Uhr</strong><br><strong>Sa–So 18:00–22:00 Uhr</strong><br>Außerhalb Rufdienst.</p>')"><span>Betreuungszeiten</span><span>›</span></div>
 <div class="m-small" onclick="openInfo('Voraussetzungen','<p>Erstgespräch mit Jugendamt. Bereitschaft zu Schule/Ausbildung. §19, §34, §41 SGB VIII.</p>')"><span>Voraussetzungen</span><span>›</span></div>
 </div></div>
+
+<div class="m-big" id="mb2"><div class="m-big-head" onclick="toggleMbig('mb2')"><div class="left"><div class="num">02</div><span class="title">Was bieten wir</span></div><div class="chev">▼</div></div><div class="m-big-body">
+<div class="m-small" onclick="openInfo('Konzeptionelle Grundlagen','<p>5 Plätze (5 Mütter, 5 Kinder). §19, §34, §41 SGB VIII. Pädagogik: Mutter-Kind-Beziehung, Eigenverantwortung.</p>')"><span>Konzeptionelle Grundlagen</span><span>›</span></div>
+<div class="m-small" onclick="openInfo('Grundleistungen','<p>Hilfen nach §5 SGB VIII, Förderung der Erziehung, Alltagsbegleitung.</p>')"><span>Grundleistungen</span><span>›</span></div>
+</div></div>
+
+<div class="m-big" id="mb3"><div class="m-big-head" onclick="toggleMbig('mb3')"><div class="left"><div class="num">03</div><span class="title">Das Team</span></div><div class="chev">▼</div></div><div class="m-big-body">
+<div class="m-small" onclick="openInfo('Wir über uns','<p>Wir sind ein kleines, erfahrenes Team mit Herz.</p>')"><span>Wir über uns</span><span>›</span></div>
+<div class="m-small" onclick="openInfo('Mitarbeiter','<ul><li>1 Dipl. Sozialpädagogin – Leitung</li><li>1 Dipl. Sozialpädagoge – 38,5 Std.</li><li>1 Erzieherin – 38,5 Std.</li><li>1 Kinderpflegerin – 30 Std.</li></ul>')"><span>Mitarbeiter</span><span>›</span></div>
+</div></div>
+
 <div class="m-big" id="mb4"><div class="m-big-head" onclick="toggleMbig('mb4')"><div class="left"><div class="num">04</div><span class="title">Kontakt</span></div><div class="chev">▼</div></div><div class="m-big-body">
 <div class="m-small" onclick="openContact()"><span>Kontaktdaten + Karte</span><span>›</span></div>
-<div class="m-small" onclick="openInfo('Impressum','<p>Hiltrud Schilmöller<br>Graskamp 3, 49377 Vechta</p>')"><span>Impressum</span><span>›</span></div>
+<div class="m-small" onclick="openInfo('Impressum','<p>Hiltrud Schilmöller<br>Graskamp 3, 49377 Vechta<br>04441/851150</p>')"><span>Impressum</span><span>›</span></div>
 </div></div>
+
+<div class="m-big" id="mb5"><div class="m-big-head" onclick="toggleMbig('mb5')"><div class="left"><div class="num">05</div><span class="title">Infos</span></div><div class="chev">▼</div></div><div class="m-big-body">
+<div class="m-small" onclick="openInfo('Stellenangebote','<p>Derzeit keine offenen Stellen.</p>')"><span>Stellenangebote</span><span>›</span></div>
+<div class="m-small" onclick="openInfo('Datenschutz','<p>Datenschutzhinweise nach DSGVO.</p>')"><span>Datenschutz</span><span>›</span></div>
+</div></div>
+
 </div>
 <div class="drawer-foot"><b>Hiltrud Schilmöller – Leitung</b><div style="font-size:12px">Graskamp 3, 49377 Vechta<br><a href="tel:+494441851150">📞 04441 / 851150</a> · <a href="mailto:schilmoeller@mukihave.de">E-Mail</a></div></div>
 </div>
 
 <div class="wrap">
-<div class="hero">
-<div class="hero-card">
-<div class="hero-badge"><span class="live"></span> Aufnahme nach §19 SGB VIII</div>
-<img src="Bild1.jpg" alt="Mutter und Kind">
-<div class="hero-text"><h1>Mutter-Kind-Haus <i>Vechta</i></h1></div>
-</div>
-</div>
-
+<div class="hero"><div class="hero-card"><div class="hero-badge"><span class="live"></span> Aufnahme nach §19 SGB VIII</div><img src="Bild1.jpg" alt="Mutter und Kind"><div class="hero-text"><h1>Mutter-Kind-Haus <i>Vechta</i></h1></div></div></div>
 <div class="content-inner">
 <div class="welcome-pro">
-<div class="welcome-pro-top"><div class="welcome-avatar">💛</div><div><div class="kicker">Willkommen – Sie sind hier richtig</div><h2>Ein Zuhause für den <em>Neuanfang</em></h2></div></div>
-<p>Schön, dass Sie da sind. Hier finden Mütter und ihre Kinder nicht nur ein Dach über dem Kopf, sondern ein echtes Zuhause auf Zeit – voller Wärme, Verständnis und professioneller Begleitung.</p>
-<div class="welcome-quote">Seit 1999 begleiten wir junge Mütter mit Herz und Erfahrung auf ihrem Weg in ein selbstbestimmtes Leben. Sie sind nicht allein.</div>
+<div class="welcome-pro-top"><div class="welcome-avatar">💛</div><div><div class="kicker">Willkommen</div><h2>Ein Zuhause für den <em>Neuanfang</em></h2></div></div>
+<p>Hier finden Mütter und ihre Kinder ein echtes Zuhause auf Zeit – voller Wärme, Verständnis und professioneller Begleitung.</p>
+<div class="welcome-quote">Seit 1999 begleiten wir junge Mütter mit Herz und Erfahrung. Sie sind nicht allein.</div>
 <div class="welcome-actions"><button class="btn-primary" onclick="openDrawer()"><span class="dot"></span> Menu öffnen</button><button class="btn-ghost" onclick="openContact()">📍 Karte ansehen</button></div>
 </div>
 <footer>© Mutter-Kind-Haus Vechta · Graskamp 3 · 49377 Vechta</footer>
 </div>
 </div>
 
-<div class="modal-overlay" id="modalOverlay" onclick="closeInfo(event)">
-<div class="modal"><div class="modal-head"><b id="modalTitle"></b><button class="icon-btn" onclick="closeModal()">✕</button></div><div class="modal-body" id="modalBody"></div></div>
-</div>
-
+<div class="modal-overlay" id="modalOverlay" onclick="closeInfo(event)"><div class="modal"><div class="modal-head"><b id="modalTitle"></b><button class="icon-btn" onclick="closeModal()">✕</button></div><div class="modal-body" id="modalBody"></div></div></div>
 <script>
 function openDrawer(){document.getElementById('drawer').classList.add('open');document.getElementById('overlay').classList.add('open')}
 function closeDrawer(){document.getElementById('drawer').classList.remove('open');document.getElementById('overlay').classList.remove('open')}
@@ -154,11 +114,11 @@ let html=`<p><strong>Hiltrud Schilmöller</strong><br>Graskamp 3<br>49377 Vechta
 <a class="contact-card" href="tel:+494441851150"><div class="ic">📞</div><div><b>Anrufen</b><br><span>04441 / 851150</span></div></a>
 <a class="contact-card" href="mailto:schilmoeller@mukihave.de"><div class="ic">✉️</div><div><b>E-Mail</b><br><span>schilmoeller@mukihave.de</span></div></a>
 </div>
-<a class="contact-card" style="margin-top:10px" href="https://www.google.com/maps/dir//Graskamp+3,+49377+Vechta" target="_blank"><div class="ic">📍</div><div><b>Route planen</b><br><span>Google Maps Navigation starten</span></div></a>
-<div class="map" style="height:400px;margin-top:16px;border:2px solid #EEE6D9">
+<a class="contact-card" style="margin-top:10px" href="https://www.google.com/maps/dir//Graskamp+3,+49377+Vechta" target="_blank"><div class="ic">📍</div><div><b>Route planen</b><br><span>Google Maps</span></div></a>
+<div class="map" style="height:400px;margin-top:16px">
 <iframe src="https://maps.google.com/maps?width=100%25&height=400&hl=de&q=Graskamp%203,%2049377%20Vechta%20(Mutter-Kind-Haus%20Vechta)&t=&z=17&ie=UTF8&iwloc=B&output=embed" width="100%" height="400" frameborder="0" style="border:0" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </div>
-<div style="text-align:center;margin-top:10px"><a href="https://www.google.com/maps/place/Graskamp+3,+49377+Vechta" target="_blank" style="font-size:12px;color:#B91C1C;font-weight:700;text-decoration:underline">Falls Karte nicht lädt: Hier in Google Maps öffnen</a></div>`;
+<div style="text-align:center;margin-top:8px"><a href="https://www.google.com/maps/place/Graskamp+3,+49377+Vechta" target="_blank" style="font-size:12px;color:#B91C1C;font-weight:700;text-decoration:underline">In Google Maps öffnen</a></div>`;
 openInfo('Kontaktdaten + Karte',html)
 }
 function closeModal(){document.getElementById('modalOverlay').classList.remove('open');document.body.style.overflow=''}
