@@ -1,75 +1,76 @@
-
 <!DOCTYPE html>
 <html lang="de">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mutter-Kind-Haus Vechta – Professionelle große Titel</title>
+<title>Mutter-Kind-Haus Vechta</title>
 <style>
-:root{--green:#5A7D5A;--sand:#FDF8F2;--line:#E8DDD3;--dark:#1A1A1A}
+:root{--green:#5A7D5A;--line:#E8DDD3;--gold:#C9A86A}
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:system-ui,sans-serif;background:#fff;color:var(--dark);line-height:1.7}
-.pro-nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);box-shadow:0 2px 10px rgba(0,0,0,0.05)}
-.pro-nav-inner{max-width:900px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;height:60px;padding:0 20px}
-.logo{font-weight:900;font-size:16px}
-.menu{display:flex;gap:6px}
-.menu a{font-weight:600;font-size:12px;padding:7px 12px;border-radius:20px;text-decoration:none;color:var(--dark);border:1px solid var(--line);transition:0.2s}
-.menu a:hover{background:var(--green);color:#fff;border-color:var(--green)}
-.wrap{max-width:840px;margin:0 auto;padding:0 20px 40px}
-.hero{margin:28px 0;text-align:center}
-.hero h1{font-size:36px;font-weight:900} .hero .sub{color:var(--green);font-weight:700;margin:6px 0 16px}
-.hero-imgs{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:18px 0}
-.hero-imgs img{width:100%;height:290px;object-fit:cover;border-radius:16px}
-.big-group-title{font-size:30px;font-weight:900;color:var(--dark);margin:48px 0 18px;padding-bottom:10px;border-bottom:3px solid var(--green);letter-spacing:-0.5px;position:relative}
-.big-group-title::after{content:"";position:absolute;bottom:-3px;left:0;width:60px;height:3px;background:var(--dark)}
-.sub-title{font-size:17px;font-weight:700;color:var(--green);margin:22px 0 8px}
-.section{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:12px}
-.section p{font-size:14px;margin:6px 0}
-ul{list-style:none} li{padding:4px 0 4px 22px;position:relative;font-size:13.5px;border-bottom:1px dashed #eee}
-li:before{content:"•";position:absolute;left:6px;color:var(--green)}
-.contact{background:var(--sand);border:1px solid var(--line);border-radius:14px;padding:18px;margin-top:20px}
-.map{height:340px;border-radius:12px;overflow:hidden;border:1px solid var(--line);margin-top:12px}
-.map iframe{width:100%;height:100%;border:0}
-footer{text-align:center;font-size:11px;color:#888;margin-top:30px;border-top:1px solid var(--line);padding-top:12px}
-@media(max-width:700px){.hero-imgs{grid-template-columns:1fr}.menu a{font-size:11px;padding:6px 8px}.big-group-title{font-size:24px}}
+body{font-family:system-ui,sans-serif;background:#fff;color:#1A1A1A;line-height:1.7}
+.wrap{max-width:720px;margin:0 auto;padding:0 20px 60px}
+/* الشكل الخارجي الجميل دائما ظاهر */
+.hero{text-align:center;margin:40px 0 24px}
+.hero h1{font-size:38px;font-weight:900;line-height:1.1} .hero h1 span{display:block}
+.hero .sub{color:var(--green);font-weight:600;margin:16px 0 22px;font-size:18px}
+.hero-imgs{display:flex;flex-direction:column;gap:18px;margin:0 0 30px}
+.hero-imgs img{width:100%;height:auto;border-radius:24px;object-fit:cover;box-shadow:0 8px 24px rgba(0,0,0,0.06)}
+/* العناوين الكبرى الخمسة تحت الصور */
+.big{margin:12px 0;border:1px solid #EDE4D8;border-radius:14px;overflow:hidden;background:#FFFEF8}
+.big-head{padding:18px 20px;background:#FFF8E0;border-bottom:1px solid #EDE4D8;cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+.big-head b{color:#B91C1C;font-size:18px;font-weight:800;letter-spacing:0.2px}
+.big-body{max-height:0;overflow:hidden;transition:0.45s;background:#FFFEF2}
+.big.open .big-body{max-height:2000px}
+/* العناوين الصغرى تظهر فقط بعد الضغط على الكبير */
+.small{border-top:1px solid #EDE4D8;cursor:pointer;padding:12px 20px;display:flex;justify-content:space-between;background:#FFFEF2}
+.small:hover{background:#FFF3C0}
+.small span{font-size:15px}
+.small-info{max-height:0;overflow:hidden;transition:0.4s;background:#fff;padding:0 20px}
+.small.open .small-info{max-height:3000px;padding:14px 20px}
+.small-info p{font-size:13.5px;line-height:1.7;margin:6px 0}
+ul{list-style:none} li{font-size:13px;padding:3px 0 3px 18px;position:relative;border-bottom:1px dashed #eee}
+li:before{content:"•";position:absolute;left:4px;color:var(--green)}
+.contact{margin-top:20px;padding:16px;background:#FDF8F2;border:1px solid var(--line);border-radius:12px;font-size:13px}
+.map{height:200px;border-radius:12px;overflow:hidden;margin-top:10px} .map iframe{width:100%;height:100%;border:0}
 </style>
 </head>
 <body>
-<nav class="pro-nav"><div class="pro-nav-inner"><div class="logo">Mutter-Kind-Haus Vechta</div><div class="menu"><a href="#einrichtung">Einrichtung</a><a href="#was">Was bieten wir</a><a href="#team">Das Team</a><a href="#kontakt">Kontakt</a><a href="#infos">Infos</a></div></div></nav>
-
 <div class="wrap">
 <div class="hero">
-<h1>Mutter-Kind-Haus Vechta</h1>
+<h1><span>Mutter-Kind-Haus</span><span>Vechta</span></h1>
 <div class="sub">Ein Zuhause für den Neuanfang</div>
-<div class="hero-imgs"><img src="Bild1.jpg" alt="Bild1"><img src="Bild3.jpg" alt="Bild3"></div>
+<div class="hero-imgs"><img src="Bild1.jpg"><img src="Bild3.jpg"></div>
 </div>
 
-<div id="einrichtung"><div class="big-group-title">Einrichtung</div>
-<div class="sub-title">Räumlichkeiten</div><div class="section"><p>Das Mutter-Kind-Haus Vechta wurde 1999 erbaut und ist Bestandteil einer Wohnsiedlung. Die Innenstadt Vechtas ist in 15 Min. zu Fuß zu erreichen. Das Haus verfügt über 5 Wohnungen (2 Zimmer, 1 Flur und 1 Bad, Fläche ca. 36 qm). Weiterhin stehen den Bewohnerinnen mit ihren Kindern ein großer Krabbelraum, eine große Gemeinschaftsküche, ein gemütlicher Aufenthaltsraum, ein Hauswirtschafts- und Vorratsraum sowie ein großer Garten mit geschlossenem Carport zur Verfügung. Alle wichtigen Behörden, weiterführende Schulen und zahlreiche Möglichkeiten zur Berufsausbildung sind in der Stadt Vechta vorhanden und gut zu erreichen.</p></div>
-<div class="sub-title">Für wen sind wir da</div><div class="section"><p>Unsere pädagogischen und psychologischen Angebote orientieren sich an jungen Schwangeren / Müttern mit ihren Kindern, die durch die Pflege und Erziehung eines Kindes vorübergehend überfordert sind und die auf Grund ihrer persönlichen und sozialen Problematik noch nicht in der Lage sind, allein die alltäglichen Aufgaben zu bewältigen. Sie erfahren bei uns eine behutsame und klar strukturierte Unterstützung, um in ihre Rolle hineinzufinden.</p></div>
-<div class="sub-title">Betreuungszeiten</div><div class="section"><p>Wir gewähren von Montag bis Freitag Betreuung vor Ort von <strong>7.00 - 22.00 Uhr</strong>. Die Betreuungszeiten werden morgens flexibel gehandhabt. Bei Bedarf (Schule, Ausbildung) werden die Zeiten individuell angepasst. An den Wochenenden sind wir von <strong>18.00 - 22.00 Uhr</strong> vor Ort. Bei erhöhtem Betreuungsbedarf gestalten wir die Zeiten flexibel. Außerhalb der Betreuungszeit ist ein Rufdienst eingeschaltet, so dass stets jemand zu erreichen ist.</p></div>
-<div class="sub-title">Voraussetzungen</div><div class="section"><p>Das Gespräch mit der jungen Mutter erfolgt nach Absprache mit dem zuständigen Jugendamt. Im Mutter-Kind-Haus kann sich die junge Erwachsene ein Bild von der Einrichtung machen und für sich klären, ob sie sich mit den Anforderungen und Zielsetzungen der Einrichtung einverstanden erklären kann. Sehr wichtig ist uns die Bereitschaft zu einer Schulausbildung oder einer anderen Tätigkeit sowie über Praktika Erfahrungen zu sammeln. Dies schließt auch ein, dass die junge Frau bereit ist, eine einfache Tätigkeit aufzunehmen, um sich an den Kosten der Unterkunft zu beteiligen. <strong>Grundlage für eine Aufnahme bilden §19, §34 und § 41 SGB VIII</strong></p></div>
-</div>
+<div class="big" id="b1"><div class="big-head" onclick="toggleBig('b1')"><b>Einrichtung</b><span>▼</span></div><div class="big-body">
+<div class="small" onclick="toggleSmall(this)"><span>Räumlichkeiten</span><span>›</span></div><div class="small-info"><p>Das Mutter-Kind-Haus Vechta wurde 1999 erbaut und ist Bestandteil einer Wohnsiedlung. Die Innenstadt Vechtas ist in 15 Min. zu Fuß zu erreichen. Das Haus verfügt über 5 Wohnungen (2 Zimmer, 1 Flur und 1 Bad, Fläche ca. 36 qm). Weiterhin stehen den Bewohnerinnen mit ihren Kindern ein großer Krabbelraum, eine große Gemeinschaftsküche, ein gemütlicher Aufenthaltsraum, ein Hauswirtschafts- und Vorratsraum sowie ein großer Garten mit geschlossenem Carport zur Verfügung.</p></div>
+<div class="small" onclick="toggleSmall(this)"><span>Für wen sind wir da</span><span>›</span></div><div class="small-info"><p>Unsere Angebote orientieren sich an jungen Schwangeren / Müttern mit ihren Kindern, die durch die Pflege und Erziehung eines Kindes vorübergehend überfordert sind und die auf Grund ihrer persönlichen und sozialen Problematik noch nicht in der Lage sind, allein die alltäglichen Aufgaben zu bewältigen.</p></div>
+<div class="small" onclick="toggleSmall(this)"><span>Betreuungszeiten</span><span>›</span></div><div class="small-info"><p>Mo–Fr 7.00–22.00 Uhr (flexibel morgens, individuell bei Schule/Ausbildung). Wochenende 18.00–22.00 Uhr. Bei Bedarf flexibel. Außerhalb Rufdienst.</p></div>
+<div class="small" onclick="toggleSmall(this)"><span>Voraussetzungen</span><span>›</span></div><div class="small-info"><p>Gespräch nach Absprache mit Jugendamt. Bereitschaft zu Schulausbildung / Tätigkeit / Praktika und Beteiligung an Unterbringungskosten. Grundlage §19, §34, §41 SGB VIII.</p></div>
+</div></div>
 
-<div id="was"><div class="big-group-title">Was bieten wir</div>
-<div class="sub-title">Konzeptionelle Grundlagen</div><div class="section"><p>In unserer Einrichtung wird minderjährigen Müttern bzw. Schwangeren in problematischer Lebenssituation für eine Übergangszeit ermöglicht, mit Unterstützung erfolgreich in die neue Rolle hinein zu finden. Einrichtung verfügt über 5 Plätze (5 Mütter, 5 Kinder). Grundlage §19, §34, §41 SGB VIII. Einzugsbereich: Landkreis Vechta, angrenzende Landkreise Niedersachsen, benachbarte Bundesländer.</p><p><strong>Pädagogische Zielsetzung:</strong> Förderung Mutter-Kind-Beziehung, eigenverantwortlich, Ressourcen aktivieren, destruktive Muster überführen, Einzelgespräche, technische Aufzeichnung, Schulabschluss, Berufsausbildung, Praktika, Kostenbeteiligung, gemeinsamer Plan, Gruppendynamik, Anleitung, Spielmaterial, frische Luft, Bewegung.</p><p><strong>Psychologische Zielsetzung:</strong> Chancen/Risiken Impulse, innere Kompromisse, klientenzentrierte Selbstexploration, Zielvorhaben begleitet, Motivationshilfen, Veränderungen/Resistenzen, Handlungsalternativen, Rückmeldungen, Diskrepanzen Selbst-/Fremdwahrnehmung, entwicklungspsychologische Schritte.</p><p><strong>Grundleistungen §5:</strong> Tagesablauf, Geburt/Schwangerschaftsberatung, Einzel-/Gruppengespräche, Förderangebote, Anleitung Erziehung, Haushaltsführung/Geld, Sparbuch, hygienisch/pflegerisch, Hausaufgabenhilfe, Betreuung bei Abwesenheit, Partner-/Angehörigenarbeit, Verpflegung, Wohnung 2 Zimmer Flur Bad, Gemeinschaftsküche, Hauswirtschaftsraum, Vorratsraum, Krabbel-/Spielzimmer, Sport-/Freizeitraum, Betreuung Schul-/Ausbildungszeit, Fahrtkosten, Hilfeplankonferenzen 2x jährlich, Pflege-/Adoptionsdienst, Begleitung Wohnungssuche Umzug, Behördengänge.</p><p><strong>Qualitätssicherung:</strong> Dokumentation Krankheiten Kinder, Arztbesuche, Krankenhaus, Tagesabläufe, besondere Ereignisse, Übergaben, wöchentliche Dienstbesprechung, Teamberatung mit Psychologe, therapeutische Hilfen, Feedbacks Bewohnerinnen, Dokumentation Entwicklungsverläufe.</p></div>
-</div>
+<div class="big" id="b2"><div class="big-head" onclick="toggleBig('b2')"><b>Was bieten wir</b><span>▼</span></div><div class="big-body">
+<div class="small" onclick="toggleSmall(this)"><span>Konzeptionelle Grundlagen</span><span>›</span></div><div class="small-info"><p>5 Plätze (5 Mütter, 5 Kinder). §19, §34, §41 SGB VIII. Einzugsbereich Landkreis Vechta + umliegende Landkreise + Bundesländer. Pädagogische Zielsetzung: Mutter-Kind-Beziehung, eigenverantwortlich, Ressourcen aktivieren, Einzelgespräche, Schulabschluss, Berufsausbildung. Psychologische Zielsetzung: Impulse, innere Kompromisse, Selbstexploration, Motivationshilfen. Grundleistungen §5: Tagesablauf, Geburt, Gespräche, Förderangebote, Haushalt/Geld, Wohnung, Küche, Spielzimmer, Betreuung, Fahrtkosten, Hilfeplan 2x/Jahr, Umzug, Behörden. Qualitätssicherung: Dokumentation, Dienstbesprechung, Teamberatung.</p></div>
+</div></div>
 
-<div id="team"><div class="big-group-title">Das Team</div>
-<div class="sub-title">Wir über uns</div><div class="section"><p>Hier können sie uns näher kennen lernen! An dieser Stelle erfolgen in Kürze die persönliche Vorstellung unserer Mitarbeiter und Details zu ihrer Arbeitsweise.</p></div>
-<div class="sub-title">Mitarbeiter</div><div class="section"><ul><li>1 Dipl. Sozialpädagogin als Leitung mit 16 Std. wöchentlich und 22,5 Std päd. Dienst</li><li>1 Dipl. Sozialpädagoge mit 38,5 Std. wöchentlich</li><li>1 Erzieherin mit 38,5 Std. wöchentlich</li><li>1 Kinderpflegerin mit 30 Std. wöchentlich</li></ul><p><strong>Vernetzung:</strong> Hebammen, Frühförderung, Ergotherapeuten, Krankengymnasten, Heilpäd. Kindergarten, Schulen, Aidsberatung, Malteser Hilfsdienst / Erste Hilfe Kurs (Notfall bei Kleinkindern), Berufsfördernde Einrichtungen</p></div>
-</div>
+<div class="big" id="b3"><div class="big-head" onclick="toggleBig('b3')"><b>Das Team</b><span>▼</span></div><div class="big-body">
+<div class="small" onclick="toggleSmall(this)"><span>Wir über uns</span><span>›</span></div><div class="small-info"><p>Hier können sie uns näher kennen lernen! Persönliche Vorstellung der Mitarbeiter und Details zur Arbeitsweise folgen in Kürze.</p></div>
+<div class="small" onclick="toggleSmall(this)"><span>Mitarbeiter</span><span>›</span></div><div class="small-info"><ul><li>1 Dipl. Sozialpädagogin Leitung 16 Std + 22,5 Std Dienst</li><li>1 Dipl. Sozialpädagoge 38,5 Std</li><li>1 Erzieherin 38,5 Std</li><li>1 Kinderpflegerin 30 Std</li></ul><p>Vernetzung: Hebammen, Frühförderung, Ergotherapeuten, Krankengymnasten, Kindergarten, Schulen, Aidsberatung, Malteser Erste Hilfe, Berufsförderung</p></div>
+</div></div>
 
-<div id="kontakt"><div class="big-group-title">Kontakt</div>
-<div class="section"><p><strong>Hiltrud Schilmöller</strong><br>Graskamp 3<br>49377 Vechta<br>Tel. 04441/851150<br>Fax 04441/851157<br>email: schilmoeller@mukihave.de</p><p><strong>Impressum:</strong> Identisch mit Kontaktdaten – Hiltrud Schilmöller, Graskamp 3, 49377 Vechta</p></div>
-<div class="contact"><div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;font-size:14px"><div><strong>Hiltrud Schilmöller</strong><br>Graskamp 3<br>49377 Vechta<br><br>Tel. 04441/851150<br>Fax 04441/851157</div><div><strong>email:</strong><br><a href="mailto:schilmoeller@mukihave.de">schilmoeller@mukihave.de</a><br><br>Mo–Fr 7.00-22.00<br>Sa-So 18.00-22.00 + Rufdienst</div></div><div class="map"><iframe src="https://www.google.com/maps?q=Graskamp+3,+49377+Vechta&z=16&output=embed"></iframe></div></div>
-</div>
+<div class="big" id="b4"><div class="big-head" onclick="toggleBig('b4')"><b>Kontakt</b><span>▼</span></div><div class="big-body">
+<div class="small" onclick="toggleSmall(this)"><span>Kontaktdaten</span><span>›</span></div><div class="small-info"><p><strong>Hiltrud Schilmöller</strong><br>Graskamp 3, 49377 Vechta<br>Tel. 04441/851150<br>schilmoeller@mukihave.de</p><div class="contact"><p>Mo–Fr 7.00–22.00, Sa–So 18.00–22.00 + Rufdienst</p><div class="map"><iframe src="https://www.google.com/maps?q=Graskamp+3,+49377+Vechta&z=16&output=embed"></iframe></div></div></div>
+<div class="small" onclick="toggleSmall(this)"><span>Impressum</span><span>›</span></div><div class="small-info"><p>Identisch mit Kontaktdaten – Hiltrud Schilmöller, Graskamp 3, 49377 Vechta</p></div>
+</div></div>
 
-<div id="infos"><div class="big-group-title">Infos</div>
-<div class="sub-title">Stellenangebote</div><div class="section"><p>Derzeit sind keine offenen Stellen in unserem Hause zu besetzen.</p></div>
-</div>
+<div class="big" id="b5"><div class="big-head" onclick="toggleBig('b5')"><b>Infos</b><span>▼</span></div><div class="big-body">
+<div class="small" onclick="toggleSmall(this)"><span>Stellenangebote</span><span>›</span></div><div class="small-info"><p>Derzeit sind keine offenen Stellen in unserem Hause zu besetzen.</p></div>
+</div></div>
 
-<footer>Mutter-Kind-Haus Vechta – Graskamp 3, 49377 Vechta – schilmoeller@mukihave.de – Alle Inhalte von mukihave.de 1:1 – Bild1.jpg + Bild3.jpg</footer>
 </div>
+<script>
+function toggleBig(id){document.getElementById(id).classList.toggle('open')}
+function toggleSmall(el){el.classList.toggle('open');let info=el.nextElementSibling;info.style.maxHeight=el.classList.contains('open')?info.scrollHeight+'px':'0'}
+</script>
 </body>
 </html>
