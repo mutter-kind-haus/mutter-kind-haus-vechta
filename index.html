@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -6,62 +5,68 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mutter-Kind-Haus Vechta</title>
 <style>
-*{box-sizing:border-box}
-body{margin:0;background:#EFEAE0;font-family:'Work Sans',Arial,sans-serif;color:#2B2620;line-height:1.6}
-.wrap{max-width:750px;margin:0 auto;background:white;min-height:100vh;box-shadow:0 0 20px rgba(0,0,0,0.05)}
-.gold{background:#D4A600;color:white;padding:28px 22px;font-size:26px}
-.hero{width:100%;height:400px;object-fit:cover;display:block}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:10px}
-.grid a{background:#D3366E;color:white;text-align:center;padding:18px;text-decoration:none;font-size:20px}
-.section{padding:30px 22px;border-top:8px solid #EFEAE0}
-h2{font-size:28px;margin:0 0 15px 0}
-.kontakt{color:#C89B00;font-size:19px}
-.kontakt a{color:#C89B00;text-decoration:none}
+body{font-family:Arial; margin:0; background:#FFFBF5; color:#2B2620}
+nav{position:sticky; top:0; background:white; padding:10px; display:flex; gap:10px; border-bottom:2px solid #E8DCC6}
+nav button{background:#FEF0C7; border:none; padding:10px 15px; border-radius:20px; font-weight:bold; cursor:pointer}
+nav button.active{background:#F6BA5B}
+.section{display:none; padding:20px; background:white; margin:15px; border-radius:15px}
+.section.active{display:block}
+.kontakt{background:#FFF8E7; border:2px solid #F6BA5B}
+a{color:#B9892D; text-decoration:none; font-weight:bold; margin-right:15px}
 </style>
 </head>
 <body>
-<div class="wrap">
-  <div class="gold">Mutter-Kind-Haus Vechta —<br><b>Ein Zuhause für den Neuanfang</b></div>
-  <img class="hero" src="9d15c4580c5d46e29bfde42981ad4007.jpg" alt="Mutter-Kind-Haus">
 
-  <div class="grid">
-    <a href="#ueber">Über uns</a>
-    <a href="#haus">Das Haus</a>
-    <a href="#aufnahme">Aufnahme</a>
-    <a href="#kontakt">Kontakt</a>
-  </div>
+<nav>
+<button onclick="show('wohnung')" id="btn-wohnung" class="active">Wohnung</button>
+<button onclick="show('krabbel')" id="btn-krabbel">Krabbelraum</button>
+<button onclick="show('kueche')" id="btn-kueche">Küche</button>
+<button onclick="show('garten')" id="btn-garten">Garten</button>
+<button onclick="show('aufnahme')" id="btn-aufnahme">Aufnahme</button>
+<button onclick="show('kontakt')" id="btn-kontakt">Kontakt</button>
+</nav>
 
-  <div id="ueber" class="section">
-    <h2>Betreuung, die Vertrauen zuerst gibt</h2>
-    <p>Viele junge Frauen kommen zu uns nach Abbrüchen, Streit oder dem Verlust eines vertrauten Zuhauses. Im Mutter-Kind-Haus erleben sie: Hier darf ich bleiben, auch wenn nicht alles sofort gelingt.</p>
-    <p>Die Aufnahme erfolgt in Absprache mit dem zuständigen Jugendamt auf Grundlage der §§ 19, 34 und 41 SGB VIII.</p>
-    <p>✓ 5 Wohnungen mit je zwei Zimmern, Flur und Bad<br>✓ 15 Min. zu Fuß in die Innenstadt<br>✓ 1999 erbaut, kein Institutionsbau</p>
-  </div>
-
-  <div id="haus" class="section">
-    <h2>Raum für den Alltag zu zweit — und für Gemeinschaft</h2>
-    <p><b>Eigene Wohnung:</b> Zwei Zimmer, Flur und Bad, ca. 36 m²<br>
-    <b>Krabbelraum:</b> sicherer Raum zum Spielen<br>
-    <b>Gemeinschaftsküche:</b> gemeinsames Kochen<br>
-    <b>Garten & Carport:</b> großer Garten</p>
-  </div>
-
-  <div id="aufnahme" class="section">
-    <h2>Der Weg zur Aufnahme</h2>
-    <p><b>Schritt 1:</b> Kontakt über das Jugendamt<br>
-    <b>Schritt 2:</b> Kennenlernen der Einrichtung<br>
-    <b>Schritt 3:</b> Bereitschaft zu Schule/Ausbildung</p>
-    <p>Rechtliche Grundlage: §§ 19, 34 & 41 SGB VIII</p>
-  </div>
-
-  <div id="kontakt" class="section kontakt">
-    <h2 style="color:#2B2620">Sprechen Sie mit uns</h2>
-    private Mutter-Kind-Einrichtung<br>
-    Graskamp 3, 49377 Vechta<br>
-    Tel 04441/851150<br><br>
-    <a href="tel:04441851150">📞 Anrufen »</a>
-    <a href="mailto:schilmoeller@mukihave.de">✉️ E-Mail schreiben »</a>
-  </div>
+<div id="wohnung" class="section active">
+<b>Eigene Wohnung:</b> Zwei Zimmer, Flur und Bad, ca. 36 m² - Ihr privater Rückzugsort
 </div>
+
+<div id="krabbel" class="section">
+<b>Krabbelraum:</b> sicherer Raum zum Spielen und für die Entwicklung Ihres Kindes
+</div>
+
+<div id="kueche" class="section">
+<b>Gemeinschaftsküche:</b> gemeinsames Kochen und Austausch mit anderen Müttern
+</div>
+
+<div id="garten" class="section">
+<b>Garten & Carport:</b> großer Garten zum Spielen und Carport für Fahrräder/Kinderwagen
+</div>
+
+<div id="aufnahme" class="section">
+<h2>Der Weg zur Aufnahme</h2>
+<b>Schritt 1:</b> Kontakt über das Jugendamt<br>
+<b>Schritt 2:</b> Kennenlernen der Einrichtung<br>
+<b>Schritt 3:</b> Bereitschaft zu Schule/Ausbildung<br><br>
+Rechtliche Grundlage: §§ 19, 34 & 41 SGB VIII
+</div>
+
+<div id="kontakt" class="section kontakt">
+<h2>Sprechen Sie mit uns</h2>
+private Mutter-Kind-Einrichtung<br>
+Graskamp 3, 49377 Vechta<br>
+Tel 04441/851150<br><br>
+<a href="tel:04441851150">📞 Anrufen »</a><br><br>
+<a href="mailto:schilmoeller@mukihave.de">✉️ E-Mail schreiben »</a>
+</div>
+
+<script>
+function show(id){
+document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
+document.getElementById(id).classList.add('active');
+document.getElementById('btn-'+id).classList.add('active');
+}
+</script>
+
 </body>
 </html>
