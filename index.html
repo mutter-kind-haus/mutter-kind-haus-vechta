@@ -5,33 +5,30 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mutter-Kind-Haus Vechta</title>
 <style>
-:root{--green:#5A7D5A;--line:#E8DDD3;--gold:#C9A86A}
+:root{--green:#5A7D5A;--line:#E8DDD3;--dark:#1A1A1A}
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:system-ui,sans-serif;background:#fff;color:#1A1A1A;line-height:1.7}
+body{font-family:system-ui,sans-serif;background:#fff;color:var(--dark);line-height:1.7}
 .wrap{max-width:720px;margin:0 auto;padding:0 20px 60px}
-/* الشكل الخارجي الجميل دائما ظاهر */
 .hero{text-align:center;margin:40px 0 24px}
 .hero h1{font-size:38px;font-weight:900;line-height:1.1} .hero h1 span{display:block}
 .hero .sub{color:var(--green);font-weight:600;margin:16px 0 22px;font-size:18px}
 .hero-imgs{display:flex;flex-direction:column;gap:18px;margin:0 0 30px}
 .hero-imgs img{width:100%;height:auto;border-radius:24px;object-fit:cover;box-shadow:0 8px 24px rgba(0,0,0,0.06)}
-/* العناوين الكبرى الخمسة تحت الصور */
 .big{margin:12px 0;border:1px solid #EDE4D8;border-radius:14px;overflow:hidden;background:#FFFEF8}
 .big-head{padding:18px 20px;background:#FFF8E0;border-bottom:1px solid #EDE4D8;cursor:pointer;display:flex;justify-content:space-between;align-items:center}
-.big-head b{color:#B91C1C;font-size:18px;font-weight:800;letter-spacing:0.2px}
+.big-head b{color:#B91C1C;font-size:18px;font-weight:800}
 .big-body{max-height:0;overflow:hidden;transition:0.45s;background:#FFFEF2}
-.big.open .big-body{max-height:2000px}
-/* العناوين الصغرى تظهر فقط بعد الضغط على الكبير */
+.big.open .big-body{max-height:5000px}
 .small{border-top:1px solid #EDE4D8;cursor:pointer;padding:12px 20px;display:flex;justify-content:space-between;background:#FFFEF2}
 .small:hover{background:#FFF3C0}
 .small span{font-size:15px}
 .small-info{max-height:0;overflow:hidden;transition:0.4s;background:#fff;padding:0 20px}
-.small.open .small-info{max-height:3000px;padding:14px 20px}
+.small.open .small-info{max-height:5000px;padding:14px 20px}
 .small-info p{font-size:13.5px;line-height:1.7;margin:6px 0}
-ul{list-style:none} li{font-size:13px;padding:3px 0 3px 18px;position:relative;border-bottom:1px dashed #eee}
-li:before{content:"•";position:absolute;left:4px;color:var(--green)}
-.contact{margin-top:20px;padding:16px;background:#FDF8F2;border:1px solid var(--line);border-radius:12px;font-size:13px}
-.map{height:200px;border-radius:12px;overflow:hidden;margin-top:10px} .map iframe{width:100%;height:100%;border:0}
+.contact-cta{display:flex;gap:10px;margin:14px 0;flex-wrap:wrap}
+.contact-cta a{padding:12px 18px;border-radius:10px;text-decoration:none;font-weight:700;font-size:13px;display:flex;align-items:center;gap:8px}
+.btn-call{background:#1A1A1A;color:#fff} .btn-mail{background:#fff;border:1px solid #E8DDD3;color:#1A1A1A} .btn-route{background:#FDF8F2;border:1px solid #E8DDD3;color:#5A7D5A}
+.map{height:220px;border-radius:12px;overflow:hidden;margin-top:12px;border:1px solid #E8DDD3} .map iframe{width:100%;height:100%;border:0}
 </style>
 </head>
 <body>
@@ -43,34 +40,47 @@ li:before{content:"•";position:absolute;left:4px;color:var(--green)}
 </div>
 
 <div class="big" id="b1"><div class="big-head" onclick="toggleBig('b1')"><b>Einrichtung</b><span>▼</span></div><div class="big-body">
-<div class="small" onclick="toggleSmall(this)"><span>Räumlichkeiten</span><span>›</span></div><div class="small-info"><p>Das Mutter-Kind-Haus Vechta wurde 1999 erbaut und ist Bestandteil einer Wohnsiedlung. Die Innenstadt Vechtas ist in 15 Min. zu Fuß zu erreichen. Das Haus verfügt über 5 Wohnungen (2 Zimmer, 1 Flur und 1 Bad, Fläche ca. 36 qm). Weiterhin stehen den Bewohnerinnen mit ihren Kindern ein großer Krabbelraum, eine große Gemeinschaftsküche, ein gemütlicher Aufenthaltsraum, ein Hauswirtschafts- und Vorratsraum sowie ein großer Garten mit geschlossenem Carport zur Verfügung.</p></div>
-<div class="small" onclick="toggleSmall(this)"><span>Für wen sind wir da</span><span>›</span></div><div class="small-info"><p>Unsere Angebote orientieren sich an jungen Schwangeren / Müttern mit ihren Kindern, die durch die Pflege und Erziehung eines Kindes vorübergehend überfordert sind und die auf Grund ihrer persönlichen und sozialen Problematik noch nicht in der Lage sind, allein die alltäglichen Aufgaben zu bewältigen.</p></div>
-<div class="small" onclick="toggleSmall(this)"><span>Betreuungszeiten</span><span>›</span></div><div class="small-info"><p>Mo–Fr 7.00–22.00 Uhr (flexibel morgens, individuell bei Schule/Ausbildung). Wochenende 18.00–22.00 Uhr. Bei Bedarf flexibel. Außerhalb Rufdienst.</p></div>
-<div class="small" onclick="toggleSmall(this)"><span>Voraussetzungen</span><span>›</span></div><div class="small-info"><p>Gespräch nach Absprache mit Jugendamt. Bereitschaft zu Schulausbildung / Tätigkeit / Praktika und Beteiligung an Unterbringungskosten. Grundlage §19, §34, §41 SGB VIII.</p></div>
+<div class="small" onclick="toggleSmall(this)"><span>Räumlichkeiten</span><span>›</span></div><div class="small-info"><p>1999 erbaut, Wohnsiedlung, 15 Min. zur Innenstadt. 5 Wohnungen (2 Zimmer, Flur, Bad, 36 qm). Krabbelraum, Gemeinschaftsküche, Aufenthaltsraum, Hauswirtschaftsraum, Vorratsraum, Garten mit Carport.</p></div>
+<div class="small" onclick="toggleSmall(this)"><span>Für wen sind wir da</span><span>›</span></div><div class="small-info"><p>Junge Schwangere / Mütter, die durch Pflege und Erziehung vorübergehend überfordert sind.</p></div>
+<div class="small" onclick="toggleSmall(this)"><span>Betreuungszeiten</span><span>›</span></div><div class="small-info"><p>Mo–Fr 7.00–22.00 Uhr, Wochenende 18.00–22.00 Uhr + Rufdienst.</p></div>
+<div class="small" onclick="toggleSmall(this)"><span>Voraussetzungen</span><span>›</span></div><div class="small-info"><p>Gespräch nach Absprache mit Jugendamt. Grundlage §19, §34, §41 SGB VIII.</p></div>
 </div></div>
 
 <div class="big" id="b2"><div class="big-head" onclick="toggleBig('b2')"><b>Was bieten wir</b><span>▼</span></div><div class="big-body">
-<div class="small" onclick="toggleSmall(this)"><span>Konzeptionelle Grundlagen</span><span>›</span></div><div class="small-info"><p>5 Plätze (5 Mütter, 5 Kinder). §19, §34, §41 SGB VIII. Einzugsbereich Landkreis Vechta + umliegende Landkreise + Bundesländer. Pädagogische Zielsetzung: Mutter-Kind-Beziehung, eigenverantwortlich, Ressourcen aktivieren, Einzelgespräche, Schulabschluss, Berufsausbildung. Psychologische Zielsetzung: Impulse, innere Kompromisse, Selbstexploration, Motivationshilfen. Grundleistungen §5: Tagesablauf, Geburt, Gespräche, Förderangebote, Haushalt/Geld, Wohnung, Küche, Spielzimmer, Betreuung, Fahrtkosten, Hilfeplan 2x/Jahr, Umzug, Behörden. Qualitätssicherung: Dokumentation, Dienstbesprechung, Teamberatung.</p></div>
+<div class="small" onclick="toggleSmall(this)"><span>Konzeptionelle Grundlagen</span><span>›</span></div><div class="small-info"><p>5 Plätze (5 Mütter, 5 Kinder). §19, §34, §41 SGB VIII. Pädagogik, Psychologie, Grundleistungen §5, Qualitätssicherung.</p></div>
 </div></div>
 
 <div class="big" id="b3"><div class="big-head" onclick="toggleBig('b3')"><b>Das Team</b><span>▼</span></div><div class="big-body">
-<div class="small" onclick="toggleSmall(this)"><span>Wir über uns</span><span>›</span></div><div class="small-info"><p>Hier können sie uns näher kennen lernen! Persönliche Vorstellung der Mitarbeiter und Details zur Arbeitsweise folgen in Kürze.</p></div>
-<div class="small" onclick="toggleSmall(this)"><span>Mitarbeiter</span><span>›</span></div><div class="small-info"><ul><li>1 Dipl. Sozialpädagogin Leitung 16 Std + 22,5 Std Dienst</li><li>1 Dipl. Sozialpädagoge 38,5 Std</li><li>1 Erzieherin 38,5 Std</li><li>1 Kinderpflegerin 30 Std</li></ul><p>Vernetzung: Hebammen, Frühförderung, Ergotherapeuten, Krankengymnasten, Kindergarten, Schulen, Aidsberatung, Malteser Erste Hilfe, Berufsförderung</p></div>
+<div class="small" onclick="toggleSmall(this)"><span>Wir über uns</span><span>›</span></div><div class="small-info"><p>Persönliche Vorstellung folgt in Kürze.</p></div>
+<div class="small" onclick="toggleSmall(this)"><span>Mitarbeiter</span><span>›</span></div><div class="small-info"><p>1 Dipl. Sozialpädagogin, 1 Dipl. Sozialpädagoge, 1 Erzieherin, 1 Kinderpflegerin</p></div>
 </div></div>
 
 <div class="big" id="b4"><div class="big-head" onclick="toggleBig('b4')"><b>Kontakt</b><span>▼</span></div><div class="big-body">
-<div class="small" onclick="toggleSmall(this)"><span>Kontaktdaten</span><span>›</span></div><div class="small-info"><p><strong>Hiltrud Schilmöller</strong><br>Graskamp 3, 49377 Vechta<br>Tel. 04441/851150<br>schilmoeller@mukihave.de</p><div class="contact"><p>Mo–Fr 7.00–22.00, Sa–So 18.00–22.00 + Rufdienst</p><div class="map"><iframe src="https://www.google.com/maps?q=Graskamp+3,+49377+Vechta&z=16&output=embed"></iframe></div></div></div>
-<div class="small" onclick="toggleSmall(this)"><span>Impressum</span><span>›</span></div><div class="small-info"><p>Identisch mit Kontaktdaten – Hiltrud Schilmöller, Graskamp 3, 49377 Vechta</p></div>
+<div class="small open" onclick="toggleSmall(this)"><span>Kontaktdaten</span><span>›</span></div><div class="small-info" style="max-height:1000px">
+<p><strong>Hiltrud Schilmöller</strong><br>Graskamp 3<br>49377 Vechta<br>Tel. 04441/851150<br>schilmoeller@mukihave.de</p>
+<div class="contact-cta">
+<a class="btn-call" href="tel:+494441851150">📞 Anrufen – 04441/851150</a>
+<a class="btn-mail" href="mailto:schilmoeller@mukihave.de">✉️ E-Mail schreiben</a>
+<a class="btn-route" href="https://www.google.com/maps/dir//Graskamp+3,+49377+Vechta" target="_blank">📍 Route</a>
+</div>
+<div class="map"><iframe src="https://www.google.com/maps?q=Graskamp+3,+49377+Vechta&z=16&output=embed"></iframe></div>
+</div>
+<div class="small" onclick="toggleSmall(this)"><span>Impressum</span><span>›</span></div><div class="small-info"><p>Hiltrud Schilmöller, Graskamp 3, 49377 Vechta</p></div>
 </div></div>
 
 <div class="big" id="b5"><div class="big-head" onclick="toggleBig('b5')"><b>Infos</b><span>▼</span></div><div class="big-body">
-<div class="small" onclick="toggleSmall(this)"><span>Stellenangebote</span><span>›</span></div><div class="small-info"><p>Derzeit sind keine offenen Stellen in unserem Hause zu besetzen.</p></div>
+<div class="small" onclick="toggleSmall(this)"><span>Stellenangebote</span><span>›</span></div><div class="small-info"><p>Derzeit keine offenen Stellen.</p></div>
 </div></div>
 
 </div>
 <script>
 function toggleBig(id){document.getElementById(id).classList.toggle('open')}
-function toggleSmall(el){el.classList.toggle('open');let info=el.nextElementSibling;info.style.maxHeight=el.classList.contains('open')?info.scrollHeight+'px':'0'}
+function toggleSmall(el){
+ const isOpen=el.classList.contains('open');
+ el.classList.toggle('open');
+ let info=el.nextElementSibling;
+ if(!isOpen){info.style.maxHeight=info.scrollHeight+'px';setTimeout(()=>{info.style.maxHeight='5000px'},400)}else{info.style.maxHeight='0'}
+}
 </script>
 </body>
 </html>
