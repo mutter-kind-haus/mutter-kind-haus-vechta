@@ -1,286 +1,759 @@
-<!DOCTYPE html>
-<html lang="de">
-<head><style>
-@font-face {
-  font-family: "Optimistic";
-  font-style: normal;
-  font-weight: 400 600;
-  font-display: swap;
-  src: url("/fonts/OptimisticAI_VF_Optimized.woff2") format("woff2");
-}
-@font-face {
-  font-family: "Optimistic Mono";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("/fonts/OptimisticMono_W_TextRegular.woff2") format("woff2");
-}
-:where(html) {
-  font-family: "Optimistic", system-ui, sans-serif;
-}
-:where(code, pre, kbd, samp) {
-  font-family: "Optimistic Mono", ui-monospace, monospace;
-}
-</style>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Mutter-Kind-Haus Vechta – Ein sicherer Anfang darf klein beginnen.">
-<title>Mutter-Kind-Haus Vechta</title>
-<style>
-:root{--blue:#4a8fb8;--blue-dark:#2f5a7a;--lg:#e6f2f8;--cream:#f4f9fc;--dark:#1e3445;--text:#344a5a;--accent:#5aa9c8;--shadow:0 15px 45px rgba(47,90,122,.12);--green:#4a8fb8}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:Arial,Helvetica,sans-serif;color:var(--text);background:#fff;line-height:1.7}
-.container{width:min(1100px,92%);margin:auto}
-header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:1px solid #d6e8ef}
-.navbar{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:12px}
-.logo{color:var(--blue-dark);text-decoration:none;font-weight:800;font-size:1.05rem;line-height:1.2;cursor:pointer}
-.logo span{display:block;color:var(--accent);font-size:.72rem;font-weight:500;margin-top:3px}
-.tools{display:flex;align-items:center;gap:8px}
-.pill-btn{border:1px solid #d9dfdc;border-radius:30px;padding:8px 14px;cursor:pointer;background:#fff;font-weight:700;color:var(--dark);font-size:.9rem;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
-.pill-btn.dark{background:var(--blue-dark);color:#fff;border-color:var(--blue-dark)}
-.hero{
-  min-height:720px;display:flex;align-items:center;color:#fff;
-  background: linear-gradient(105deg, rgba(18,36,52,0.94) 0%, rgba(47,90,122,0.82) 48%, rgba(47,90,122,0.20) 100%), url('828775336_2667259953676938_1281870662223500688_n.jpg') center 35% / cover no-repeat;
-  position:relative;
-}
-.hero .container{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
-.hero-img{position:relative;border-radius:28px;overflow:hidden;box-shadow:0 25px 60px rgba(0,0,0,.35);min-height:460px;background:#2f5a7a}
-.hero-img img{width:100%;height:100%;min-height:460px;aspect-ratio:4/3.3;object-fit:cover;display:block}
-.hero-badge{position:absolute;left:14px;bottom:14px;background:#fff;color:var(--dark);padding:9px 16px;border-radius:30px;font-size:.85rem;font-weight:700;box-shadow:0 6px 20px rgba(0,0,0,.15)}
-.hero-content{max-width:680px;padding:90px 0;position:relative;z-index:2;text-shadow:0 2px 22px rgba(0,0,0,.55)}
-.eyebrow{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);padding:7px 14px;border-radius:30px;margin-bottom:22px;font-size:.85rem;backdrop-filter:blur(6px)}
-.hero h1{font-size:clamp(2.3rem,6vw,4.4rem);line-height:1.08;margin-bottom:22px;color:#fff}
-.hero p{font-size:1.22rem;max-width:600px;color:#eef6fb;margin-bottom:30px}
-.buttons{display:flex;flex-wrap:wrap;gap:12px}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:8px;text-decoration:none;font-weight:700;transition:.2s;cursor:pointer;border:1px solid transparent;font-size:1rem}
-.btn:hover{transform:translateY(-2px)}
-.btn-w{background:#fff;color:var(--blue-dark);box-shadow:0 8px 20px rgba(0,0,0,.2)}
-.btn-o{color:#fff;border-color:rgba(255,255,255,.85);background:rgba(255,255,255,.14);backdrop-filter:blur(6px)}
-.btn-g{background:var(--blue-dark);color:#fff}
-.btn-gl{background:var(--lg);color:var(--blue-dark)}
-.section{padding:80px 0;background:linear-gradient(180deg,#ffffff 0%,#eaf4f8 100%)}
-.center{text-align:center;max-width:680px;margin:0 auto 45px}
-.label{color:var(--accent);font-size:.82rem;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px}
-h2{color:var(--dark);font-size:clamp(1.8rem,4vw,2.7rem);line-height:1.15;margin-bottom:16px}
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.card{padding:32px;border:1px solid #d6e8ef;border-radius:18px;background:rgba(255,255,255,.95);box-shadow:var(--shadow);transition:.25s;cursor:pointer}
-.card:hover{transform:translateY(-6px)}
-.icon{width:54px;height:54px;border-radius:15px;display:grid;place-items:center;background:var(--lg);font-size:1.5rem;margin-bottom:18px}
-.card h3{color:var(--dark);margin-bottom:10px}
-.contact-box{background:linear-gradient(135deg,#2f5a7a 0%,#4a8fb8 100%);color:#fff;border-radius:24px;padding:50px;display:grid;grid-template-columns:1.1fr .9fr;gap:40px}
-.contact-box h2{color:#fff}
-.cinfo{display:flex;flex-direction:column;gap:12px;align-items:flex-start}
-.cinfo .btn{width:100%;justify-content:center}
-.overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:200;opacity:0;pointer-events:none;transition:.3s}
-.overlay.open{opacity:1;pointer-events:auto}
-.drawer{position:fixed;top:0;right:-100%;width:420px;max-width:100vw;height:100dvh;background:#1e3445;z-index:210;transition:.4s;display:flex;flex-direction:column}
-.drawer.open{right:0}
-.d-top{padding:16px 22px;display:flex;justify-content:space-between;align-items:center;color:#fff}
-.d-top button{width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.08);color:#fff;font-size:18px;cursor:pointer}
-.d-scroll{flex:1;overflow-y:auto;padding-bottom:10px}
-.mb{border-bottom:1px solid rgba(255,255,255,.1);padding:0 24px}
-.mb-h{padding:18px 0;display:flex;justify-content:space-between;align-items:center;cursor:pointer;color:#fff;font-weight:700;font-size:1.1rem}
-.mb-h .n{color:var(--accent);font-size:.8rem;margin-right:14px}
-.mb-b{max-height:0;overflow:hidden;transition:.4s}
-.mb.open .mb-b{max-height:600px;padding-bottom:12px}
-.mb-b a{display:flex;justify-content:space-between;padding:11px 0 11px 30px;color:#b6c2bd;text-decoration:none;cursor:pointer}
-.mb-b a:hover{color:#fff}
-.d-foot{padding:16px 24px;background:#121e28;color:#fff;font-size:.9rem}
-.d-foot a{color:#c9e5cb;text-decoration:none}
-#page{display:none;padding:50px 0 80px;min-height:70vh;background:var(--cream)}
-.page-card{background:#fff;border-radius:20px;padding:40px;box-shadow:var(--shadow);max-width:820px;margin:0 auto}
-.back{border:0;background:var(--lg);color:var(--blue-dark);padding:10px 18px;border-radius:30px;font-weight:700;cursor:pointer;margin-bottom:25px}
-.page-card h2{margin-bottom:22px}
-.page-card p{margin-bottom:14px}
-.page-card ul{list-style:none;margin:10px 0}
-.page-card li{padding:8px 0 8px 22px;position:relative;border-bottom:1px dashed #e4e9e6}
-.page-card li::before{content:"";position:absolute;left:4px;top:18px;width:7px;height:7px;border-radius:50%;background:var(--blue-dark)}
-.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
-.tags span{padding:6px 12px;border-radius:30px;background:var(--lg);color:var(--blue-dark);font-size:.8rem;font-weight:700}
-.crow{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:18px 0}
-.crow .btn{justify-content:center;padding:12px 8px;font-size:.92rem}
-.map{height:280px;border-radius:14px;overflow:hidden;border:1px solid #e4e9e6}
-.map iframe{width:100%;height:100%;border:0}
-footer{background:#1e3445;color:#b9c5c0;padding:40px 0 20px}
-.fg{display:grid;grid-template-columns:2fr 1fr 1fr;gap:30px}
-footer h3{color:#fff;margin-bottom:10px}
-footer a{display:block;color:#b9c5c0;text-decoration:none;margin:6px 0;cursor:pointer}
-.copy{border-top:1px solid rgba(255,255,255,.1);margin-top:30px;padding-top:16px;font-size:.85rem}
-@media(max-width:850px){.hero .container{grid-template-columns:1fr}.hero-content{padding:50px 0 10px}.hero-img{margin-bottom:40px}.cards,.contact-box,.fg,.crow{grid-template-columns:1fr}.contact-box{padding:30px}.page-card{padding:26px}.hero{min-height:620px}.logo span{display:none}}
-</style>
-</head>
-<body>
-<header>
-<div class="container navbar">
-  <a class="logo" onclick="go('')">Mutter-Kind-Haus Vechta<span data-ui="tag"></span></a>
-  <div class="tools">
-    <a class="pill-btn" href="tel:+494441851150" title="Call">📞</a>
-    <button class="pill-btn" id="langBtn" onclick="toggleLang()">EN</button>
-    <button class="pill-btn dark" onclick="openDrawer()">☰ Menü</button>
-  </div>
-</div>
-</header>
-<div class="overlay" id="overlay" onclick="closeDrawer()"></div>
-<div class="drawer" id="drawer">
-  <div class="d-top"><b>Mutter-Kind-Haus</b><button onclick="closeDrawer()">✕</button></div>
-  <div class="d-scroll" id="menuList"></div>
-  <div class="d-foot"><b>Hiltrud Schilmöller – <span data-ui="lead"></span></b><br>Graskamp 3, 49377 Vechta<br><a href="tel:+494441851150">📞 04441 / 851150</a> · <a href="mailto:schilmoeller@mukihave.de">✉️ E-Mail</a></div>
-</div>
-<main>
-<div id="home">
-  <section class="hero"><div class="container"><div class="hero-content">
-    <span class="eyebrow" data-ui="eyebrow"></span>
-    <h1 data-ui="h1"></h1>
-    <p data-ui="hp"></p>
-    <div class="buttons">
-      <a class="btn btn-w" href="tel:+494441851150">📞 <span data-ui="call"></span></a>
-      <a class="btn btn-o" href="mailto:schilmoeller@mukihave.de">✉️ E-Mail</a>
-      <a class="btn btn-o" href="https://www.google.com/maps/dir//Graskamp+3,+49377+Vechta" target="_blank" rel="noopener">📍 <span data-ui="map"></span></a>
-    </div>
-  </div>
-  <div class="hero-img"><img src="828775336_2667259953676938_1281870662223500688_n.jpg" alt="Mutter und Kind – Mutter-Kind-Haus Vechta"><div class="hero-badge" data-ui="badge"></div></div>
-  </div></section>
-  <section class="section"><div class="container">
-    <div class="center"><div class="label" data-ui="offer"></div><h2 data-ui="h2a"></h2><p data-ui="pa"></p></div>
-    <div class="cards">
-      <article class="card" onclick="go('raeume')"><div class="icon">🏠</div><h3 data-ui="c1t"></h3><p data-ui="c1p"></p></article>
-      <article class="card" onclick="go('paed')"><div class="icon">🤝</div><h3 data-ui="c2t"></h3><p data-ui="c2p"></p></article>
-      <article class="card" onclick="go('psych')"><div class="icon">💚</div><h3 data-ui="c3t"></h3><p data-ui="c3p"></p></article>
-    </div>
-  </div></section>
-  <section class="section" style="padding-top:0"><div class="container"><div class="contact-box">
-    <div><div class="label" data-ui="contact"></div><h2 data-ui="h2c"></h2><p data-ui="pc"></p></div>
-    <div class="cinfo">
-      <a class="btn btn-w" href="tel:+494441851150">📞 04441 / 851150</a>
-      <a class="btn btn-w" href="mailto:schilmoeller@mukihave.de">✉️ schilmoeller@mukihave.de</a>
-      <a class="btn btn-o" href="https://www.google.com/maps/dir//Graskamp+3,+49377+Vechta" target="_blank" rel="noopener">📍 <span data-ui="map"></span></a>
-    </div>
-  </div></div></section>
-</div>
-<div id="page"><div class="container"><div class="page-card">
-  <button class="back" onclick="go('')">← <span data-ui="back"></span></button>
-  <h2 id="pTitle"></h2>
-  <div id="pBody"></div>
-</div></div></div>
-</main>
-<footer><div class="container">
-  <div class="fg">
-    <div><h3>Mutter-Kind-Haus Vechta</h3><p data-ui="tag"></p><p style="margin-top:8px">Graskamp 3, 49377 Vechta</p></div>
-    <div><h3>Info</h3><a onclick="go('raeume')" data-p="raeume"></a><a onclick="go('voraus')" data-p="voraus"></a><a onclick="go('kontakt')" data-p="kontakt"></a></div>
-    <div><h3 data-ui="legal"></h3><a onclick="go('impressum')" data-p="impressum"></a><a onclick="go('datenschutz')" data-p="datenschutz"></a></div>
-  </div>
-  <div class="copy">© 2026 Mutter-Kind-Haus Vechta.</div>
-</div></footer>
-<script>
-let L='de';try{L=localStorage.getItem('lang')||'de'}catch(e){}
-const UI={
-tag:{de:'Seit 1999 · Graskamp 3',en:'Since 1999 · Graskamp 3'},
-lead:{de:'Leitung',en:'Head of facility'},
-eyebrow:{de:'Aufnahme nach §19 SGB VIII',en:'Admission under §19 SGB VIII'},
-h1:{de:'Ein sicherer Anfang darf klein beginnen.',en:'A safe start can begin small.'},
-hp:{de:'Ein Ort für neue Wege: Wir begleiten junge Mütter und ihre Kinder zu mehr Sicherheit und Selbstständigkeit.',en:'A place for new paths: we support young mothers and their children towards safety and independence.'},
-badge:{de:'Ein Ort für neue Wege ✨',en:'A place for new paths ✨'},
-call:{de:'Anrufen',en:'Call'},map:{de:'Route planen',en:'Get directions'},
-offer:{de:'Was wir bieten',en:'What we offer'},h2a:{de:'Unterstützung, die zum Leben passt.',en:'Support that fits real life.'},
-pa:{de:'Informationen zur Einrichtung, unserem Angebot und dem ersten Kontakt.',en:'Information about the facility, our services and first contact.'},
-c1t:{de:'Wohnen',en:'Accommodation'},c1p:{de:'Ein geschützter Wohnraum mit stabilem, familiengerechtem Umfeld.',en:'A protected home with a stable, family-friendly environment.'},
-c2t:{de:'Pädagogische Unterstützung',en:'Educational support'},c2p:{de:'Hilfe bei Alltag, Erziehung, Selbstständigkeit und persönlichen Zielen.',en:'Help with daily life, parenting, independence and personal goals.'},
-c3t:{de:'Psychologische Begleitung',en:'Psychological support'},c3p:{de:'Professionelle Begleitung zur Stabilisierung und Entwicklung.',en:'Professional support for stability and personal development.'},
-contact:{de:'Kontakt',en:'Contact'},h2c:{de:'Wir sind für Sie da.',en:'We are here for you.'},
-pc:{de:'Sie möchten mehr über unsere Einrichtung erfahren? Kontaktieren Sie uns gerne.',en:'Would you like to learn more about our facility? Please get in touch.'},
-back:{de:'Zurück',en:'Back'},legal:{de:'Rechtliches',en:'Legal'}
+import { useState, useRef } from "react";
+import teamImg from "container:///mnt/data/src/assets/afbbeb20969077db-image_20261027_135518.webp";
+import productImg from "container:///mnt/data/src/assets/c6a5f8cb76bb7cf4-image_20261027_134856.webp";
+
+type Product = {
+  id: string;
+  name: string;
+  price: number;
+  tag: string;
+  desc: string;
+  highlight: string;
 };
-const G=[
-{de:'Die Einrichtung',en:'The Facility',k:['raeume','fuerwen','zeiten','voraus']},
-{de:'Was wir bieten',en:'What we offer',k:['konzept','paed','psych','grund','qual']},
-{de:'Das Team',en:'The Team',k:['wir','team','netz']},
-{de:'Kontakt',en:'Contact',k:['kontakt','impressum']},
-{de:'Infos',en:'Info',k:['stellen','datenschutz']}
+
+type CartItem = Product & { qty: number };
+
+const PRODUCTS: Product[] = [
+  {
+    id: "starter",
+    name: "Starter Box",
+    price: 79,
+    tag: "Für den Einstieg - 7 Tage",
+    desc: "Dein einfacher Start: Rezept-Ideen für 7 Tage, Einkaufsliste und eine Routine die in einen vollen Alltag passt.",
+    highlight: "7 Tage Start",
+  },
+  {
+    id: "detox",
+    name: "Detox Paket",
+    price: 59,
+    tag: "Leichte Küche für jeden Tag",
+    desc: "Leichte, leckere Rezepte mit viel Gemüse und frischen Zutaten. Für mehr Wohlbefinden im Alltag.",
+    highlight: "Leicht & lecker",
+  },
+  {
+    id: "komplett",
+    name: "Komplett Box",
+    price: 129,
+    tag: "30 Tage Begleitung mit Plan",
+    desc: "30 Tage Rezepte, kurze Trainings für zuhause und ein Plan der zu deinen Vorlieben passt. Alles in einer Box erklärt.",
+    highlight: "30 Tage Begleitung",
+  },
 ];
-const P={
-raeume:{
-de:['Räumlichkeiten',`<p>Das Mutter-Kind-Haus Vechta wurde 1999 erbaut und ist Bestandteil einer Wohnsiedlung. Die Innenstadt Vechtas ist in 15 Min. zu Fuß zu erreichen. Das Haus verfügt über 5 Wohnungen (2 Zimmer, 1 Flur und 1 Bad, Fläche ca. 36 qm). Weiterhin stehen den Bewohnerinnen mit ihren Kindern ein großer Krabbelraum, eine große Gemeinschaftsküche, ein gemütlicher Aufenthaltsraum, ein Hauswirtschafts- und Vorratsraum sowie ein großer Garten mit geschlossenem Carport zur Verfügung. Alle wichtigen Behörden, weiterführende Schulen und zahlreiche Möglichkeiten zur Berufsausbildung sind in der Stadt Vechta vorhanden und gut zu erreichen.</p><div class="tags"><span>5 Wohnungen</span><span>36 m²</span><span>Krabbelraum</span><span>Gemeinschaftsküche</span><span>Aufenthaltsraum</span><span>Hauswirtschaft</span><span>Garten + Carport</span><span>15 Min. Innenstadt</span></div>`],
-en:['Premises',`<p>The Mutter-Kind-Haus Vechta was built in 1999 and is part of a residential neighbourhood. Vechta's town centre is a 15-minute walk away. The house has 5 apartments (2 rooms, 1 hallway and 1 bathroom, approx. 36 sqm). Residents and their children also have a large crawling room, a large shared kitchen, a cosy common room, a utility and storage room, and a large garden with an enclosed carport. All major authorities, secondary schools and numerous vocational training opportunities are located in Vechta and easy to reach.</p><div class="tags"><span>5 apartments</span><span>36 m²</span><span>Crawling room</span><span>Shared kitchen</span><span>Common room</span><span>Utility room</span><span>Garden + carport</span><span>15 min to centre</span></div>`]},
-fuerwen:{
-de:['Für wen sind wir da',`<p>Unsere pädagogischen und psychologischen Angebote orientieren sich an jungen Schwangeren / Müttern mit ihren Kindern, die durch die Pflege und Erziehung eines Kindes vorübergehend überfordert sind und die auf Grund ihrer persönlichen und sozialen Problematik noch nicht in der Lage sind, allein die alltäglichen Aufgaben zu bewältigen. Sie erfahren bei uns eine behutsame und klar strukturierte Unterstützung, um in ihre Rolle hineinzufinden.</p>`],
-en:['Who we are here for',`<p>Our educational and psychological services are aimed at young pregnant women / mothers and their children who are temporarily overwhelmed by caring for and raising a child and who, due to personal and social difficulties, are not yet able to manage everyday tasks alone. They receive careful, clearly structured support to grow into their role.</p>`]},
-zeiten:{
-de:['Betreuungszeiten',`<p>Wir gewähren von Montag bis Freitag Betreuung vor Ort von <strong>7.00 - 22.00 Uhr</strong>. Die Betreuungszeiten werden morgens flexibel gehandhabt. Bei Bedarf (Schule, Ausbildung) werden die Zeiten individuell angepasst. An den Wochenenden sind wir von <strong>18.00 - 22.00 Uhr</strong> vor Ort.</p><p>Bei erhöhtem Betreuungsbedarf gestalten wir die Zeiten flexibel.</p><p>Außerhalb der Betreuungszeit ist ein Rufdienst eingeschaltet, so dass stets jemand zu erreichen ist.</p>`],
-en:['Care hours',`<p>From Monday to Friday we provide on-site care from <strong>7:00 am - 10:00 pm</strong>. Morning hours are handled flexibly. If needed (school, training), the hours are adjusted individually. On weekends we are on site from <strong>6:00 pm - 10:00 pm</strong>.</p><p>If there is increased need for care, we arrange the hours flexibly.</p><p>Outside care hours an on-call service is active, so someone can always be reached.</p>`]},
-voraus:{
-de:['Voraussetzungen',`<p><strong>Aufnahmeverfahren:</strong></p><p>Das Gespräch mit der jungen Mutter erfolgt nach Absprache mit dem zuständigen Jugendamt. Im Mutter-Kind-Haus kann sich die junge Erwachsene ein Bild von der Einrichtung machen und für sich klären, ob sie sich mit den Anforderungen und Zielsetzungen der Einrichtung einverstanden erklären kann.</p><p>Sehr wichtig ist uns die Bereitschaft zu einer Schulausbildung oder einer anderen Tätigkeit sowie über Praktika Erfahrungen zu sammeln. Dies schließt auch ein, dass die junge Frau bereit ist, eine einfache Tätigkeit aufzunehmen, um sich an die Kosten der Unterkunft zu beteiligen.</p><p><strong>Grundlage für eine Aufnahme bilden §19, §34 und § 41 SGB VIII</strong></p>`],
-en:['Requirements',`<p><strong>Admission procedure:</strong></p><p>The conversation with the young mother takes place in agreement with the responsible youth welfare office. At the Mutter-Kind-Haus the young adult can get an impression of the facility and decide whether she agrees with its requirements and goals.</p><p>We consider it very important that she is willing to pursue school education or another activity and to gather experience through internships. This also includes willingness to take on a simple job to contribute to the cost of accommodation.</p><p><strong>Admission is based on §19, §34 and §41 SGB VIII</strong></p>`]},
-konzept:{
-de:['Konzeptionelle Grundlagen',`<p>In unserer Einrichtung wird minderjährigen Müttern bzw. Schwangeren in problematischer Lebenssituation, die zur Zeit den Alltag nicht allein bewältigen können für eine Übergangszeit ermöglicht, mit unserer Unterstützung erfolgreich in die neue Rolle hinein zu finden. Über das Aktivieren ihrer eigenen Ressourcen und Erwerben neuen Wissens lernen sie in der Zeit bei uns, den Herausforderungen zu begegnen und die Zukunft erfolgreich zu gestalten. Die Einrichtung verfügt über 5 Plätze (5 Mütter, 5 Kinder).</p><p><strong>Grundlage für unsere Tätigkeit bilden §19, §34 und § 41 SGB VIII.</strong></p><p><strong>Einzugsbereich:</strong> Der Einzugsbereich erstreckt sich vorrangig auf den Landkreis Vechta, die angrenzenden Landkreise in Niedersachsen sowie benachbarte Bundesländer.</p>`],
-en:['Conceptual foundations',`<p>In our facility, underage mothers and pregnant women in difficult life situations who currently cannot manage everyday life alone are given the opportunity, for a transitional period, to successfully grow into their new role with our support. By activating their own resources and acquiring new knowledge, they learn during their time with us to face challenges and shape their future successfully. The facility has 5 places (5 mothers, 5 children).</p><p><strong>Our work is based on §19, §34 and §41 SGB VIII.</strong></p><p><strong>Catchment area:</strong> The catchment area primarily covers the district of Vechta, the neighbouring districts in Lower Saxony and neighbouring federal states.</p>`]},
-paed:{
-de:['Pädagogische Zielsetzung',`<p>Im Vordergrund steht die Förderung der Mutter-Kind-Beziehung und das Lernen eines eigenverantwortlichen und selbstständigen Lebens mit dem Kind. Im Mutter-Kind-Haus erhalten die jungen Frauen Unterstützung und Motivation. Die individuell vorhandenen Ressourcen sollen aktiviert werden um ggf. vorhandene destruktive Verhaltensmuster wie Nachlässigkeit, Unpünktlichkeit, Gleichgültigkeit u.v.m. in positive zu überführen. Das bedeutet, dass Auseinandersetzungen stattfinden um so Entwicklungsprozesse zu initiieren. Durch Einzelgespräche und technische Aufzeichnung bestimmter Momente sollen die jungen Frauen ihre Verhaltensweisen überprüfen, einschätzen und beurteilen lernen.</p><p>Über Zukunftsperspektiven wird eingehend gesprochen und beraten. Den jungen Frauen wird die große Bedeutung eines Schulabschlusses und einer Berufsausbildung vermittelt. Sie werden gefördert und ermuntert, Praktika zu absolvieren um eine fundierte Entscheidung für eine spätere Tätigkeit treffen zu können. Wir legen auch Wert darauf, dass unsere Bewohnerinnen sich durch leichte Tätigkeiten an den Kosten ihrer Unterbringung im Mutter-Kind-Haus beteiligen.</p><p>Die jungen Frauen erstellen gemeinsam einen Plan, nach dem sie ihre Aufgaben erledigen. Hierbei werden gruppendynamische Prozesse angestoßen und somit das soziale Verhalten untereinander gefördert und geübt.</p><p>Durch Anleitung und Nachahmung lernen sie den altersentsprechenden Umgang mit ihrem Kind. Wichtig dabei ist förderliches Spielmaterial, täglicher Aufenthalt an der frischen Luft und viel Bewegung. Erwartungshaltungen und Ansprüche an das Kind werden kontrolliert und besprochen.</p>`],
-en:['Educational goals',`<p>The focus is on promoting the mother-child relationship and learning a responsible and independent life with the child. At the Mutter-Kind-Haus the young women receive support and motivation. Their individual resources are to be activated in order to turn any destructive behaviour patterns such as carelessness, unpunctuality, indifference and more into positive ones. This means that disagreements are addressed in order to initiate developmental processes. Through individual talks and technical recording of certain moments, the young women learn to review, assess and evaluate their behaviour.</p><p>Future prospects are discussed and advised on in detail. The young women are made aware of the great importance of a school qualification and vocational training. They are supported and encouraged to complete internships so they can make an informed decision about a future occupation. We also value that our residents contribute to the cost of their accommodation through light work.</p><p>The young women jointly draw up a plan according to which they carry out their tasks. This sets group-dynamic processes in motion and promotes and practises social behaviour among them.</p><p>Through guidance and imitation they learn age-appropriate interaction with their child. Important here are suitable play materials, daily time in the fresh air and plenty of exercise. Expectations and demands placed on the child are monitored and discussed.</p>`]},
-psych:{
-de:['Psychologische Zielsetzung',`<p>In der psychologischen Arbeit wird den Bewohnerinnen auf individueller Ebene geholfen, Chancen und Risiken ihrer Impulse zu erkennen und quasi "innere Kompromisse" zu finden, die sie als Gesamtpersönlichkeit tragen und auch langfristig umsetzen können. Nach solchen angeleiteten Schritten der klientenzentrierten Selbstexploration wird die praktische Umsetzung von konkreten Zielvorhaben der jungen Frauen psychologisch begleitet. Neben Motivationshilfen werden Veränderungen (und Resistenzen) innerhalb ihrer Zusammenhänge thematisiert und mögliche Handlungsalternativen durchgespielt. Hierbei helfen die persönlichen Rückmeldungen (und ggf. technische Aufzeichnungen) den jungen Frauen, Diskrepanzen von Selbstwahrnehmung und Fremdwahrnehmung aufzudecken und zu korrigieren.</p><p>Ferner werden die Klientinnen für interessante entwicklungspsychologische Schritte ihrer Kinder in bestimmten Altersstufen sensibilisiert, was der Mutter-Kind-Beziehung dienlich ist.</p>`],
-en:['Psychological goals',`<p>In psychological work, residents are helped individually to recognise the opportunities and risks of their impulses and to find "inner compromises" that they can carry as a whole personality and implement in the long term. After such guided steps of client-centred self-exploration, the practical implementation of the young women's concrete goals is accompanied psychologically. Besides motivational help, changes (and resistance) within their contexts are addressed and possible alternative actions are played through. Personal feedback (and, where applicable, technical recordings) helps the young women uncover and correct discrepancies between self-perception and how others perceive them.</p><p>Clients are also made aware of interesting developmental steps of their children at certain ages, which benefits the mother-child relationship.</p>`]},
-grund:{
-de:['Grundleistungen nach §5 der Rahmenvereinbarung / §19 SGB VIII',`<ul><li>Kontinuierlicher Tagesablauf</li><li>Begleitung bei der Geburt/Schwangerschaftsberatung</li><li>Pädagogische Einzel- und Gruppengespräche</li><li>Altersgemäße Förderangebote für die Kinder durch päd. wertvolles Spielmaterial, Turnen etc.</li><li>Anleitung der jungen Mutter zur altersgemäßen Erziehung</li><li>Hilfen in lebenspraktischen Bereichen wie Haushaltsführung oder Umgang mit Geld</li><li>Anlegen eines Sparbuches, um gezielt mit den jungen Frauen das Erziehungsgeld einzusetzen</li><li>Bewusste Auseinandersetzung im hygienischen/pflegerischen und erzieherischen Bereich</li><li>Hausaufgabenhilfe</li><li>Betreuung der Kinder bei Abwesenheit der Mütter</li><li>Partner- und Angehörigenarbeit</li><li>Verpflegung für Mutter und Kind</li><li>Wohnung: 2 Zimmer, Flur, Bad</li><li>Gemeinschaftsküche</li><li>Hauswirtschaftsraum</li><li>Vorratsraum</li><li>Krabbel- und Spielzimmer</li><li>Sport- und Freizeitraum</li><li>Betreuung der Kinder während der Schul- und Ausbildungszeit</li><li>Fahrtkosten für Einkäufe, Arzt- und Schulbesuche</li><li>Hilfeplankonferenzen 2x jährlich</li><li>Zusammenarbeit mit dem Pflege- und Adoptionsdienst</li><li>Bei Auszug Begleitung bei der Wohnungssuche, Möbelbeschaffung und Umzug</li><li>Behördengänge</li></ul>`],
-en:['Basic services under §5 of the framework agreement / §19 SGB VIII',`<ul><li>Continuous daily routine</li><li>Support during birth / pregnancy counselling</li><li>Individual and group educational talks</li><li>Age-appropriate activities for the children through educationally valuable play materials, gymnastics etc.</li><li>Guidance for the young mother on age-appropriate parenting</li><li>Help with practical life skills such as housekeeping or handling money</li><li>Setting up a savings book to use the child-raising allowance purposefully with the young women</li><li>Conscious engagement with hygiene / care and parenting topics</li><li>Homework help</li><li>Childcare while the mothers are absent</li><li>Work with partners and relatives</li><li>Meals for mother and child</li><li>Apartment: 2 rooms, hallway, bathroom</li><li>Shared kitchen</li><li>Utility room</li><li>Storage room</li><li>Crawling and play room</li><li>Sports and leisure room</li><li>Childcare during school and training time</li><li>Travel costs for shopping, doctor and school visits</li><li>Support plan conferences twice a year</li><li>Cooperation with the foster care and adoption service</li><li>When moving out: support with finding an apartment, obtaining furniture and moving</li><li>Official errands</li></ul>`]},
-qual:{
-de:['Qualitätssicherung',`<p>Die Qualitätssicherung erfasst u.a. die Dokumentation über Krankheiten der Kinder, Kinderarztbesuche und Krankenhausaufenthalte. Ferner werden Tagesabläufe und besondere Ereignisse dokumentiert. Bei den täglichen Übergaben informieren sich die diensthabenden Mitarbeiter gegenseitig.</p><p>Neben Fortbildung unserer Mitarbeiter erfolgen ferner weitere Maßnahmen zur Qualitätssicherung:</p><ul><li>Wöchentliche ausführliche Dienstbesprechung</li><li>Teamberatung und Einzelfallgespräche mit Unterstützung des Psychologen</li><li>Vorbereitung therapeutischer Hilfen für die jungen Erwachsenen durch den Psychologen</li><li>Regelmäßige Feedbacks der Bewohnerinnen über die inhaltliche Arbeit der MitarbeiterInnen</li><li>Dokumentation von Entwicklungsverläufen der Klientinnen.</li></ul><p>Die Qualitätssicherungsmaßnahmen erfolgen in standardisierter und offener Form. Standardisiert erhobene Daten werden deskriptiv aufbereitet. Bei Hinweisen auf spezielle Problemstellungen können auch weiter gehende statistische Analysen mit multivariaten Verfahren erfolgen.</p>`],
-en:['Quality assurance',`<p>Quality assurance covers, among other things, documentation of the children's illnesses, paediatrician visits and hospital stays. Daily routines and special events are also documented. During daily handovers, the staff on duty inform each other.</p><p>In addition to staff training, further quality assurance measures are carried out:</p><ul><li>Detailed weekly staff meeting</li><li>Team consultation and individual case discussions with the support of the psychologist</li><li>Preparation of therapeutic help for the young adults by the psychologist</li><li>Regular feedback from residents on the content of the staff's work</li><li>Documentation of the clients' developmental progress.</li></ul><p>Quality assurance measures are carried out in standardised and open form. Standardised data are processed descriptively. If specific problems are indicated, more advanced statistical analyses with multivariate methods may also be carried out.</p>`]},
-wir:{
-de:['Wir über uns',`<p>Hier können Sie uns näher kennen lernen!</p><p>An dieser Stelle erfolgen in Kürze die persönliche Vorstellung unserer Mitarbeiter und Details zu ihrer Arbeitsweise.</p>`],
-en:['About us',`<p>Here you can get to know us better!</p><p>Soon, this section will feature a personal introduction of our staff and details of how they work.</p>`]},
-team:{
-de:['Mitarbeiter',`<p><strong>Wir arbeiten zusammen:</strong></p><ul><li>1 Dipl. Sozialpädagogin als Leitung mit 16 Std. wöchentlich und 22,5 Std päd. Dienst</li><li>1 Dipl. Sozialpädagoge mit 38,5 Std. wöchentlich</li><li>1 Erzieherin mit 38,5 Std. wöchentlich</li><li>1 Kinderpflegerin mit 30 Std. wöchentlich</li></ul>`],
-en:['Staff',`<p><strong>We work together:</strong></p><ul><li>1 certified social pedagogue as head, 16 hrs/week plus 22.5 hrs educational duty</li><li>1 certified social pedagogue, 38.5 hrs/week</li><li>1 educator, 38.5 hrs/week</li><li>1 childcare worker, 30 hrs/week</li></ul>`]},
-netz:{
-de:['Vernetzung mit anderen sozialen Diensten',`<ul><li>Hebammen</li><li>Frühförderung</li><li>Ergotherapeuten</li><li>Krankengymnasten</li><li>Heilpäd. Kindergarten</li><li>Schulen</li><li>Aidsberatung</li><li>Malteser Hilfsdienst / Erste Hilfe Kurs (Notfall bei Kleinkindern)</li><li>Berufsfördernde Einrichtungen</li></ul>`],
-en:['Networking with other social services',`<ul><li>Midwives</li><li>Early intervention</li><li>Occupational therapists</li><li>Physiotherapists</li><li>Special-needs kindergarten</li><li>Schools</li><li>AIDS counselling</li><li>Malteser aid service / first aid course (emergencies with small children)</li><li>Vocational support institutions</li></ul>`]},
-kontakt:{
-de:['Kontaktdaten',null],en:['Contact details',null]},
-impressum:{
-de:['Impressum',`<p><strong>Hiltrud Schilmöller</strong><br>Graskamp 3<br>49377 Vechta<br>Tel. 04441 / 851150<br>Fax 04441 / 851157<br><br>Träger: Gemeinnütziger Träger der Jugendhilfe<br>Grundlage: §§19,34,41 SGB VIII<br>Zuständige Aufsichtsbehörde: Jugendamt Landkreis Vechta</p>`],
-en:['Legal notice',`<p><strong>Hiltrud Schilmöller</strong><br>Graskamp 3<br>49377 Vechta, Germany<br>Tel. 04441 / 851150<br>Fax 04441 / 851157<br><br>Provider: Non-profit provider of youth welfare services<br>Basis: §§19,34,41 SGB VIII<br>Supervisory authority: Youth welfare office, district of Vechta</p>`]},
-stellen:{
-de:['Stellenangebote',`<p>Derzeit keine offenen Stellen. Initiativbewerbungen willkommen an <a href="mailto:schilmoeller@mukihave.de">schilmoeller@mukihave.de</a></p>`],
-en:['Job offers',`<p>There are currently no vacancies. Unsolicited applications are welcome at <a href="mailto:schilmoeller@mukihave.de">schilmoeller@mukihave.de</a></p>`]},
-datenschutz:{
-de:['Datenschutz',`<p>Diese Website wird über GitHub Pages gehostet. Es werden keine Cookies gesetzt, kein Tracking. Bei Kontakt per Telefon/E-Mail werden Ihre Daten nur zur Bearbeitung genutzt. Rechtsgrundlage Art. 6 Abs.1 lit. b,f DSGVO. Verantwortlich: Hiltrud Schilmöller, Graskamp 3, 49377 Vechta.</p>`],
-en:['Privacy policy',`<p>This website is hosted via GitHub Pages. No cookies are set and there is no tracking. When you contact us by phone/email, your data is used only to process your request. Legal basis: Art. 6(1)(b),(f) GDPR. Responsible: Hiltrud Schilmöller, Graskamp 3, 49377 Vechta, Germany.</p>`]}
-};
-function contactHtml(){
- const de=L==='de';
- return `<p><strong>Hiltrud Schilmöller</strong><br>Graskamp 3<br>49377 Vechta<br>Tel. 04441/851150<br>Fax 04441/851157<br>email: schilmoeller@mukihave.de</p>
- <div class="crow"><a class="btn btn-g" href="tel:+494441851150">📞 ${de?'Anrufen':'Call'}</a><a class="btn btn-g" href="mailto:schilmoeller@mukihave.de">✉️ E-Mail</a><a class="btn btn-gl" href="https://www.google.com/maps/dir//Graskamp+3,+49377+Vechta" target="_blank" rel="noopener">📍 ${de?'Route planen':'Directions'}</a></div>
- <div class="map"><iframe src="https://www.google.com/maps?q=Graskamp+3,+49377+Vechta&z=16&output=embed" loading="lazy" title="Google Maps"></iframe></div>`;
+
+export default function App() {
+  const [cartOpen, setCartOpen] = useState(false);
+  const [cart, setCart] = useState<CartItem[]>([]);
+  const [programInCart, setProgramInCart] = useState(false);
+
+  // form state
+  const [groesse, setGroesse] = useState("");
+  const [gewicht, setGewicht] = useState("");
+  const [alter, setAlter] = useState("");
+  const [geschlecht, setGeschlecht] = useState<"Männlich" | "Weiblich" | "Divers" | "">("");
+  const [ernaehrung, setErnaehrung] = useState("");
+  const [notEat, setNotEat] = useState("");
+  const [ziel, setZiel] = useState("");
+  const [email, setEmail] = useState("");
+  const [photoPreview, setPhotoPreview] = useState<string | null>(null);
+  const fileRef = useRef<HTMLInputElement>(null);
+
+  const [checkout, setCheckout] = useState({
+    name: "",
+    email: "",
+    strasse: "",
+    plz: "",
+    stadt: "",
+    zahlung: "Kreditkarte",
+  });
+
+  const addToCart = (p: Product) => {
+    setCart((prev) => {
+      const found = prev.find((i) => i.id === p.id);
+      if (found) return prev.map((i) => (i.id === p.id ? { ...i, qty: i.qty + 1 } : i));
+      return [...prev, { ...p, qty: 1 }];
+    });
+    setCartOpen(true);
+  };
+
+  const updateQty = (id: string, delta: number) => {
+    setCart((prev) => {
+      return prev
+        .map((i) => (i.id === id ? { ...i, qty: Math.max(0, i.qty + delta) } : i))
+        .filter((i) => i.qty > 0);
+    });
+  };
+
+  const toggleProgram = () => setProgramInCart((v) => !v);
+  const removeProgram = () => setProgramInCart(false);
+  const addProgram = () => setProgramInCart(true);
+
+  const bmi =
+    groesse && gewicht
+      ? (Number(gewicht) / Math.pow(Number(groesse) / 100, 2)).toFixed(1)
+      : null;
+
+  const cartTotal =
+    cart.reduce((s, i) => s + i.price * i.qty, 0) + (programInCart ? 80 : 0);
+
+  const scrollTo = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  return (
+    <div
+      className="min-h-screen bg-white text-zinc-900 antialiased selection:bg-[#16A34A]/20"
+      style={{
+        fontSize: "18px",
+        fontFamily:
+          "'Outfit', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif",
+        paddingTop: "var(--safe-area-inset-top)",
+        boxSizing: "border-box",
+      }}
+    >
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Fraunces:opsz,wght@9..144,700;9..144,800&display=swap');
+        h1,h2,.display { font-family: 'Fraunces', serif; }
+        .outfit { font-family: 'Outfit', sans-serif; }
+      `}</style>
+
+      {/* TOP BAR - HONEST */}
+      <div className="w-full bg-[#16A34A] text-white text-[13px] font-semibold tracking-wide text-center py-2 px-4 outfit">
+        Persönlich für dich erstellt – aus eigener Erfahrung, lecker & alltagstauglich
+      </div>
+
+      {/* HEADER */}
+      <header className="sticky top-[var(--safe-area-inset-top)] z-30 bg-white/90 backdrop-blur border-b border-zinc-100">
+        <div className="max-w-[1180px] mx-auto px-5 md:px-8 h-[68px] flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="w-9 h-9 rounded-xl bg-[#16A34A] text-white grid place-items-center font-black text-[18px]">T</div>
+            <div className="leading-none">
+              <div className="font-extrabold tracking-tight text-[20px]">TRAUMKÖRPER</div>
+              <div className="text-[11px] font-semibold tracking-[0.18em] text-[#EC4899] -mt-0.5">ABNEHMEN & STRAFFEN</div>
+            </div>
+          </div>
+          <div className="flex items-center gap-2 md:gap-3">
+            <button
+              onClick={() => scrollTo("produkte")}
+              className="hidden md:inline-flex h-10 px-4 rounded-full border border-zinc-200 text-[14px] font-semibold hover:bg-zinc-50 transition"
+            >
+              Produkte ansehen
+            </button>
+            <button
+              onClick={() => setCartOpen(true)}
+              className="relative h-11 w-11 grid place-items-center rounded-full bg-zinc-900 text-white hover:bg-black transition"
+              aria-label="Warenkorb"
+            >
+              <span className="text-[18px]">🛒</span>
+              {cart.length + (programInCart ? 1 : 0) > 0 && (
+                <span className="absolute -top-1 -right-1 min-w-[20px] h-[20px] px-1 rounded-full bg-[#EC4899] text-white text-[11px] font-bold grid place-items-center">
+                  {cart.reduce((s, i) => s + i.qty, 0) + (programInCart ? 1 : 0)}
+                </span>
+              )}
+            </button>
+          </div>
+        </div>
+      </header>
+
+      {/* HERO - HONEST */}
+      <section className="max-w-[1180px] mx-auto px-5 md:px-8 pt-10 md:pt-16 pb-8 md:pb-12 grid md:grid-cols-[1.1fr_0.9fr] gap-8 md:gap-12 items-start">
+        <div>
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#FFF0F7] border border-[#EC4899]/20 text-[#EC4899] text-[12px] font-bold tracking-wide">
+            <span className="w-2 h-2 rounded-full bg-[#EC4899] animate-pulse" /> NEU: Persönlich für dich erstellt - inkl. Rezepte & Training
+          </div>
+
+          <h1 className="display mt-5 text-[34px] md:text-[52px] leading-[0.95] font-extrabold tracking-[-0.03em]">
+            Dein persönlicher Weg zu <span className="text-[#16A34A]">mehr Wohlbefinden</span>
+            <span className="block text-[24px] md:text-[30px] mt-3 font-bold tracking-[-0.02em] leading-[1.1] text-zinc-800">Gesund & Lecker Abnehmen - Mit Plan der zu dir passt</span>
+          </h1>
+
+          <p className="mt-5 text-[19px] leading-[1.5] text-zinc-700 max-w-[56ch] font-medium">
+            Ich erstelle dir einen Ernährungs- & Trainingsplan basierend auf deinen Daten, deinen Vorlieben und deinem Alltag. Kein Hungern, keine Verbote - sondern leckere Mahlzeiten die satt machen.
+            <span className="block mt-3 text-[15px] text-zinc-600 font-normal leading-[1.5]">
+              Aus eigener Erfahrung: Was im Alltag wirklich funktioniert, ist ein Plan der zu dir passt – nicht umgekehrt. Mit Rezepten die du magst und Routinen die bleiben.
+            </span>
+          </p>
+
+          {/* benefits - HONEST */}
+          <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-[600px]">
+            {[
+              "Persönlicher Plan nach deinen Daten (Größe, Gewicht, Ziel)",
+              "Leckere Rezepte die zu deinem Alltag passen",
+              "Alltagstauglich - ohne Verbote, mit Genuss",
+              "Mehr Energie im Alltag - Schritt für Schritt",
+            ].map((t) => (
+              <div key={t} className="flex items-center gap-2.5 text-[14px] font-semibold bg-[#F0FDF4] border border-[#16A34A]/15 rounded-full px-3.5 py-2.5 leading-[1.2]">
+                <span className="w-6 h-6 rounded-full bg-[#16A34A] text-white grid place-items-center text-[13px] shrink-0">✓</span>
+                <span>{t}</span>
+              </div>
+            ))}
+          </div>
+
+          {/* price card - HONEST NO FAKE DISCOUNT */}
+          <div className="mt-8 p-5 rounded-[20px] border-2 border-zinc-900 shadow-[8px_8px_0px_0px_#111] bg-white max-w-[520px]">
+            <div className="flex items-center justify-between gap-4">
+              <div>
+                <div className="text-[12px] font-bold tracking-widest text-[#16A34A]">KOMPLETT PROGRAMM</div>
+                <div className="text-[30px] font-black tracking-tight leading-none mt-1">
+                  80€ <span className="text-[15px] font-semibold text-zinc-600">- Einmalig, kein Abo</span>
+                </div>
+                <div className="text-[13px] text-zinc-600 mt-1.5 font-medium">Inkl. Ernährungsplan + Training + persönlicher Support</div>
+              </div>
+              <div className="text-right hidden sm:block">
+                <div className="inline-flex px-2.5 py-1 rounded-full bg-[#16A34A] text-white text-[11px] font-bold">PERSÖNLICH</div>
+                <div className="mt-1 text-[11px] text-zinc-500 leading-tight">Kein Abo<br/>Einmalig</div>
+              </div>
+            </div>
+
+            <div className="mt-4 grid grid-cols-2 gap-2 text-[13px]">
+              <div className="flex gap-2 items-center"><span>📋</span> Persönlicher Plan</div>
+              <div className="flex gap-2 items-center"><span>🥗</span> Leckere Rezepte</div>
+              <div className="flex gap-2 items-center"><span>🏋️</span> 15-Min Workouts</div>
+              <div className="flex gap-2 items-center"><span>💬</span> Persönlicher Support</div>
+            </div>
+
+            <button
+              onClick={() => scrollTo("plan")}
+              className="mt-5 w-full h-[56px] rounded-full bg-[#16A34A] hover:bg-[#15803D] text-white font-extrabold text-[16px] tracking-wide shadow-[0_10px_20px_-10px_#16A34A] transition flex items-center justify-center gap-2"
+            >
+              Meinen persönlichen Plan für 80€ sichern <span>→</span>
+            </button>
+            <div className="mt-2.5 text-center text-[11px] text-zinc-500">✓ Einmalig, kein Abo · ✓ Sicher bezahlen · ✓ Persönlich erstellt</div>
+          </div>
+
+          <div className="mt-6 flex items-center gap-3 text-[13px] text-zinc-600">
+            <div className="flex -space-x-2">
+              <div className="w-7 h-7 rounded-full border-2 border-white bg-[#F0FDF4] grid place-items-center text-[12px]">🌿</div>
+              <div className="w-7 h-7 rounded-full border-2 border-white bg-[#FFF0F7] grid place-items-center text-[12px]">🥗</div>
+              <div className="w-7 h-7 rounded-full border-2 border-white bg-zinc-100 grid place-items-center text-[12px]">💚</div>
+            </div>
+            <span className="font-medium">Aus eigener Erfahrung erstellt · Für deinen Alltag gedacht</span>
+          </div>
+        </div>
+
+        {/* image - HONEST BADGES */}
+        <div className="relative">
+          <div className="rounded-[28px] overflow-hidden border border-zinc-100 shadow-[0_30px_60px_-30px_rgba(0,0,0,0.35)] bg-[#FFFBFE]">
+            <img src={teamImg} alt="Gesunde leckere Mahlzeiten und Training für den Alltag" className="w-full h-[520px] md:h-[640px] object-cover object-top" />
+            {/* badges - HONEST */}
+            <div className="absolute top-4 left-4 bg-white rounded-full px-3 py-1.5 shadow text-[11px] font-bold border border-zinc-100 flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-emerald-500" /> Aus eigener Erfahrung · Persönlich erstellt
+            </div>
+            <div className="absolute bottom-4 left-4 right-4 grid grid-cols-2 gap-3">
+              <div className="bg-white/95 backdrop-blur rounded-2xl p-3 border border-white shadow">
+                <div className="text-[11px] font-bold text-[#16A34A]">LECKER & SATT</div>
+                <div className="text-[13px] font-semibold leading-tight mt-1">Rezepte die schmecken und satt machen</div>
+                <div className="text-[11px] text-zinc-500 mt-1">Ohne Verbote, mit Genuss</div>
+              </div>
+              <div className="bg-[#16A34A] text-white rounded-2xl p-3 shadow">
+                <div className="text-[11px] font-bold opacity-90">DEIN ALLTAG</div>
+                <div className="text-[14px] font-bold leading-tight mt-1">Plan der zu deinem Leben passt</div>
+                <div className="text-[11px] mt-1 opacity-90">Persönlich & alltagstauglich</div>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-3 flex gap-2 text-[11px] font-medium text-zinc-500 justify-center">
+            <span className="px-2.5 py-1 rounded-full bg-zinc-50 border">Aus eigener Erfahrung</span>
+            <span className="px-2.5 py-1 rounded-full bg-zinc-50 border">Ohne Verbote</span>
+            <span className="px-2.5 py-1 rounded-full bg-zinc-50 border">Für jeden Alltag</span>
+          </div>
+        </div>
+      </section>
+
+      {/* PRODUCTS - HONEST */}
+      <section id="produkte" className="bg-[#FFF8FB] border-y border-[#EC4899]/10">
+        <div className="max-w-[1180px] mx-auto px-5 md:px-8 py-12 md:py-16">
+          <div className="flex flex-wrap items-end justify-between gap-4">
+            <div>
+              <h2 className="display text-[30px] md:text-[42px] font-extrabold tracking-tight leading-none">Passende Produkte für deinen Alltag</h2>
+              <p className="mt-3 text-[16px] text-zinc-600 max-w-[60ch]">Feste Preise: 79€, 59€, 129€ – klar beschrieben, du entscheidest was du brauchst. Kein Abo, keine versteckten Kosten.</p>
+            </div>
+            <div className="text-[13px] font-semibold px-3 py-1 rounded-full bg-white border">✓ Ehrlich beschrieben · ✓ Feste Preise · ✓ Schneller Versand</div>
+          </div>
+
+          <div className="mt-8 grid md:grid-cols-3 gap-6">
+            {PRODUCTS.map((p, idx) => (
+              <div key={p.id} className="group rounded-[24px] bg-white border border-zinc-100 overflow-hidden shadow-[0_10px_30px_-18px_rgba(0,0,0,0.2)] hover:shadow-[0_20px_40px_-20px_rgba(0,0,0,0.25)] transition flex flex-col">
+                <div className="relative h-[220px] bg-[#FFF0F7] overflow-hidden">
+                  {idx === 0 ? (
+                    <img src={productImg} alt={p.name} className="w-full h-full object-cover group-hover:scale-[1.03] transition duration-700" />
+                  ) : (
+                    <div
+                      role="img"
+                      aria-label={p.name}
+                      className="w-full h-full bg-cover bg-center group-hover:scale-[1.03] transition duration-700"
+                      style={{
+                        backgroundImage: `url(${productImg})`,
+                        filter: idx === 1 ? 'saturate(1.15) brightness(1.05)' : 'saturate(0.95) hue-rotate(8deg)',
+                      }}
+                    />
+                  )}
+                  <div className="absolute top-3 left-3 bg-white px-2.5 py-1 rounded-full text-[11px] font-bold border shadow-sm">{p.highlight}</div>
+                  <div className="absolute top-3 right-3 bg-[#16A34A] text-white px-3 py-1 rounded-full text-[13px] font-black">{p.price}€</div>
+                </div>
+                <div className="p-5 flex-1 flex flex-col">
+                  <div className="flex items-baseline justify-between gap-2">
+                    <h3 className="font-extrabold text-[20px] tracking-tight">{p.name}</h3>
+                    <span className="text-[13px] font-bold text-[#EC4899]">{p.price}€ fix</span>
+                  </div>
+                  <div className="mt-1 text-[13px] font-semibold text-zinc-600">{p.tag}</div>
+                  <p className="mt-3 text-[14px] leading-[1.5] text-zinc-600 flex-1">{p.desc}</p>
+
+                  <ul className="mt-4 space-y-1.5 text-[13px]">
+                    <li className="flex gap-2"><span className="text-[#16A34A]">✓</span> Ehrlich beschrieben, klare Zutaten</li>
+                    <li className="flex gap-2"><span className="text-[#16A34A]">✓</span> Fester Preis {p.price}€, kein Abo</li>
+                    <li className="flex gap-2"><span className="text-[#16A34A]">✓</span> Inkl. einfacher Anleitung</li>
+                  </ul>
+
+                  <button
+                    onClick={() => addToCart(p)}
+                    className="mt-5 w-full h-[48px] rounded-full bg-zinc-900 text-white font-bold text-[14px] tracking-wide hover:bg-black transition flex items-center justify-center gap-2"
+                  >
+                    In den Warenkorb – {p.price}€
+                  </button>
+                  <div className="mt-2 text-center text-[11px] text-zinc-500">Fester Preis · Lieferung in 2-3 Tagen · Kein Abo</div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-6 text-center text-[12px] text-zinc-500">Alle Produkte mit festen Preisen – 79€, 59€, 129€. Aus eigener Erfahrung empfohlen, ohne Heilversprechen.</div>
+        </div>
+      </section>
+
+      {/* FORM - HONEST */}
+      <section id="plan" className="max-w-[1180px] mx-auto px-5 md:px-8 py-12 md:py-20 grid lg:grid-cols-[1.1fr_0.9fr] gap-10 items-start">
+        <div>
+          <div className="inline-flex px-3 py-1 rounded-full bg-[#F0FDF4] border border-[#16A34A]/20 text-[#16A34A] text-[12px] font-bold">IN 3 MINUTEN FERTIG</div>
+          <h2 className="display mt-4 text-[32px] md:text-[44px] font-extrabold leading-[0.95] tracking-tight">Dein persönlicher Plan in 3 Minuten</h2>
+          <p className="mt-3 text-[16px] text-zinc-600 max-w-[55ch]">Fülle kurz aus, was zu dir passt. Du bekommst deinen Plan für 80€ – einmalig, kein Abo – basierend auf deinen Daten, Vorlieben und deinem Alltag.</p>
+
+          <div className="mt-8 bg-white rounded-[24px] border border-zinc-200 p-5 md:p-7 shadow-[0_12px_40px_-24px_rgba(0,0,0,0.3)]">
+            {/* photo */}
+            <div className="flex gap-4 items-start">
+              <div className="flex-1">
+                <label className="text-[13px] font-bold tracking-wide">Foto (optional)</label>
+                <div className="mt-2 flex gap-3">
+                  <button
+                    onClick={() => fileRef.current?.click()}
+                    className="h-12 px-4 rounded-full border border-zinc-200 text-[13px] font-semibold hover:bg-zinc-50"
+                  >
+                    Foto wählen
+                  </button>
+                  <span className="text-[12px] text-zinc-500 self-center">Hilft uns, deinen Körpertyp besser einzuschätzen. Bleibt privat.</span>
+                </div>
+                <input
+                  ref={fileRef}
+                  type="file"
+                  accept="image/*"
+                  className="hidden"
+                  onChange={(e) => {
+                    const f = e.target.files?.[0];
+                    if (f) setPhotoPreview(URL.createObjectURL(f));
+                  }}
+                />
+              </div>
+              {photoPreview && (
+                <img src={photoPreview} alt="Vorschau" className="w-20 h-20 rounded-2xl object-cover border" />
+              )}
+            </div>
+
+            <div className="mt-6 grid sm:grid-cols-3 gap-4">
+              <div>
+                <label className="text-[13px] font-bold">Größe (cm)</label>
+                <input value={groesse} onChange={e=>setGroesse(e.target.value)} placeholder="z.B. 168" className="mt-1.5 w-full h-[52px] rounded-xl border border-zinc-200 px-4 text-[16px] focus:outline-none focus:ring-2 focus:ring-[#16A34A]/30 focus:border-[#16A34A]" />
+              </div>
+              <div>
+                <label className="text-[13px] font-bold">Gewicht (kg)</label>
+                <input value={gewicht} onChange={e=>setGewicht(e.target.value)} placeholder="z.B. 74" className="mt-1.5 w-full h-[52px] rounded-xl border border-zinc-200 px-4 text-[16px] focus:outline-none focus:ring-2 focus:ring-[#16A34A]/30 focus:border-[#16A34A]" />
+              </div>
+              <div>
+                <label className="text-[13px] font-bold">Alter</label>
+                <input value={alter} onChange={e=>setAlter(e.target.value)} placeholder="z.B. 31" className="mt-1.5 w-full h-[52px] rounded-xl border border-zinc-200 px-4 text-[16px] focus:outline-none focus:ring-2 focus:ring-[#16A34A]/30 focus:border-[#16A34A]" />
+              </div>
+            </div>
+
+            {/* gender - requirement: grid-cols-3, 56px height, green selected */}
+            <div className="mt-6">
+              <label className="text-[13px] font-bold">Geschlecht</label>
+              <div className="mt-2 grid grid-cols-3 gap-3">
+                {[
+                  { v: "Männlich", e: "👨" },
+                  { v: "Weiblich", e: "👩" },
+                  { v: "Divers", e: "⚧️" },
+                ].map((o) => (
+                  <button
+                    key={o.v}
+                    onClick={() => setGeschlecht(o.v as any)}
+                    className={`h-[56px] rounded-xl border-2 text-[14px] font-bold transition flex items-center justify-center gap-1.5 ${
+                      geschlecht === o.v
+                        ? "bg-[#16A34A] border-[#16A34A] text-white shadow"
+                        : "bg-white border-zinc-200 hover:border-zinc-300"
+                    }`}
+                  >
+                    <span>{o.e}</span> {o.v}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div className="mt-6">
+              <label className="text-[13px] font-bold">Ernährung</label>
+              <div className="mt-2 flex flex-wrap gap-2">
+                {["Normal", "Vegetarisch", "Vegan", "Halal", "Keto"].map((x) => (
+                  <button
+                    key={x}
+                    onClick={() => setErnaehrung(x)}
+                    className={`h-10 px-4 rounded-full border text-[13px] font-semibold transition ${
+                      ernaehrung === x ? "bg-zinc-900 text-white border-zinc-900" : "bg-white border-zinc-200 hover:bg-zinc-50"
+                    }`}
+                  >
+                    {x}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div className="mt-6">
+              <label className="text-[13px] font-bold">Was isst du NICHT? (Allergien, Unverträglichkeiten)</label>
+              <textarea
+                value={notEat}
+                onChange={(e) => setNotEat(e.target.value)}
+                placeholder="z.B. keine Laktose, keine Nüsse, kein Schweinefleisch..."
+                className="mt-2 w-full min-h-[84px] rounded-xl border border-zinc-200 p-3 text-[15px] focus:outline-none focus:ring-2 focus:ring-[#16A34A]/30 focus:border-[#16A34A]"
+              />
+            </div>
+
+            <div className="mt-6">
+              <label className="text-[13px] font-bold">Dein Ziel</label>
+              <div className="mt-2 grid grid-cols-3 gap-2">
+                {["Abnehmen", "Definieren", "Muskelaufbau"].map((x) => (
+                  <button
+                    key={x}
+                    onClick={() => setZiel(x)}
+                    className={`h-[48px] rounded-xl border text-[13px] font-bold transition ${
+                      ziel === x ? "bg-[#EC4899] text-white border-[#EC4899]" : "bg-white border-zinc-200 hover:bg-zinc-50"
+                    }`}
+                  >
+                    {x}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div className="mt-6">
+              <label className="text-[13px] font-bold">E-Mail für deinen Plan</label>
+              <input
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="deine@email.de"
+                type="email"
+                className="mt-1.5 w-full h-[52px] rounded-xl border border-zinc-200 px-4 text-[16px] focus:outline-none focus:ring-2 focus:ring-[#16A34A]/30 focus:border-[#16A34A]"
+              />
+            </div>
+
+            {/* BMI live - HONEST */}
+            <div className="mt-6 rounded-2xl bg-zinc-50 border border-zinc-100 p-4 flex items-center justify-between">
+              <div>
+                <div className="text-[11px] font-bold tracking-widest text-zinc-500">DEIN BMI (Orientierung)</div>
+                <div className="text-[22px] font-black">{bmi ? bmi : "--"}</div>
+                <div className="text-[12px] text-zinc-500">{bmi ? "Berechnet aus Größe & Gewicht" : "Gib Größe & Gewicht ein"}</div>
+              </div>
+              <div className="text-right">
+                <div className="text-[12px] font-semibold px-2.5 py-1 rounded-full bg-white border">Für persönlichen Plan</div>
+                <div className="mt-2 text-[11px] text-zinc-500 max-w-[18ch] leading-tight">Kein medizinischer Rat, nur Orientierung.</div>
+              </div>
+            </div>
+
+            <button
+              onClick={() => {
+                setProgramInCart(true);
+                setCartOpen(true);
+              }}
+              className="mt-7 w-full h-[58px] rounded-full bg-[#16A34A] hover:bg-[#15803D] text-white font-extrabold text-[16px] shadow-[0_14px_30px_-12px_#16A34A] transition"
+            >
+              Meinen Plan für 80€ sichern →
+            </button>
+            <div className="mt-3 text-center text-[11px] text-zinc-500">Sicher & verschlüsselt · Einmalig 80€, kein Abo</div>
+          </div>
+        </div>
+
+        {/* side benefits - HONEST */}
+        <div className="lg:sticky lg:top-[88px]">
+          <div className="rounded-[24px] border border-zinc-100 bg-white p-6 shadow-[0_20px_50px_-30px_rgba(0,0,0,0.3)]">
+            <h3 className="font-extrabold text-[20px] tracking-tight">Was du für 80€ bekommst</h3>
+            <ul className="mt-4 space-y-3 text-[14px] leading-[1.5]">
+              <li className="flex gap-3"><span className="w-8 h-8 rounded-full bg-[#F0FDF4] grid place-items-center">🥗</span><span><b>Persönlicher Ernährungsplan</b> – leckere Rezepte, angepasst an Halal/Vegan/Keto wenn gewünscht.</span></li>
+              <li className="flex gap-3"><span className="w-8 h-8 rounded-full bg-[#FFF0F7] grid place-items-center">⏱️</span><span><b>15-Minuten Workouts</b> für zuhause – ohne Geräte, für deinen Alltag.</span></li>
+              <li className="flex gap-3"><span className="w-8 h-8 rounded-full bg-zinc-50 grid place-items-center">📈</span><span><b>Alltags-Routinen</b> – einfache Schritte, die wirklich bleiben.</span></li>
+              <li className="flex gap-3"><span className="w-8 h-8 rounded-full bg-zinc-50 grid place-items-center">💬</span><span><b>Persönlicher Support</b> – kurze Fragen per E-Mail, Antwort innerhalb 24h.</span></li>
+            </ul>
+
+            <div className="mt-6 p-4 rounded-2xl bg-[#16A34A] text-white">
+              <div className="text-[13px] font-bold opacity-90">INKLUSIVE</div>
+              <div className="mt-1 font-bold leading-tight">Einkaufslisten + Meal-Prep Tipps – einfach & lecker</div>
+            </div>
+
+            <div className="mt-6 grid grid-cols-2 gap-3 text-[12px]">
+              <div className="rounded-xl border p-3">
+                <div className="font-bold">Kein Hungern</div>
+                <div className="text-zinc-600 mt-1 leading-tight">Leckere Mahlzeiten die satt machen, ohne Verbote.</div>
+              </div>
+              <div className="rounded-xl border p-3">
+                <div className="font-bold">Alltagstauglich</div>
+                <div className="text-zinc-600 mt-1 leading-tight">Für Beruf, Familie & wenig Zeit gedacht.</div>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-4 text-center text-[11px] text-zinc-500">Aus eigener Erfahrung, kein medizinischer Rat. Kein Heilversprechen.</div>
+        </div>
+      </section>
+
+      {/* CART DRAWER */}
+      {cartOpen && (
+        <div className="fixed inset-0 z-[60] flex justify-end">
+          <div className="absolute inset-0 bg-black/30 backdrop-blur-[2px]" onClick={() => setCartOpen(false)} />
+          <div className="relative w-full max-w-[440px] h-full bg-white shadow-2xl border-l border-zinc-100 flex flex-col animate-[slideIn_0.28s_ease]">
+            <style>{`@keyframes slideIn{from{transform:translateX(20px);opacity:0}to{transform:translateX(0);opacity:1}}`}</style>
+            <div className="h-[68px] px-6 flex items-center justify-between border-b">
+              <div className="font-extrabold text-[18px]">Dein Warenkorb</div>
+              <button onClick={() => setCartOpen(false)} className="w-9 h-9 rounded-full bg-zinc-100 grid place-items-center">✕</button>
+            </div>
+
+            <div className="flex-1 overflow-y-auto p-6 space-y-4">
+              {/* program line */}
+              {/* program line - NOW TOGGLEABLE & REMOVABLE */}
+              {programInCart ? (
+                <div className="rounded-2xl border-2 border-[#16A34A] p-4 bg-[#F0FDF4] relative">
+                  <div className="absolute top-2 left-3 text-[10px] font-bold tracking-widest text-[#16A34A]">IM WARENKORB • KLICK ZUM ENTFERNEN</div>
+                  <div className="mt-4 flex items-start justify-between gap-3">
+                    <div className="flex-1">
+                      <div className="flex items-center gap-2.5">
+                        <input
+                          type="checkbox"
+                          checked={true}
+                          onChange={removeProgram}
+                          className="w-5 h-5 accent-[#16A34A] cursor-pointer"
+                          aria-label="Programm aus Warenkorb entfernen"
+                        />
+                        <span className="font-extrabold text-[15px] leading-tight">Komplett Programm – 80€</span>
+                      </div>
+                      <div className="mt-1.5 text-[12px] text-zinc-600 leading-tight">
+                        Inkl. Ernährungsplan + Training · Einmalig, kein Abo · Sofortzugang
+                      </div>
+                      <button
+                        onClick={removeProgram}
+                        className="mt-2 text-[11px] font-bold text-[#16A34A] underline underline-offset-4 hover:text-[#15803D]"
+                      >
+                        ✕ Aus Warenkorb entfernen
+                      </button>
+                    </div>
+                    <div className="flex flex-col items-end gap-2">
+                      <div className="font-black text-[16px]">80€</div>
+                      <button
+                        onClick={removeProgram}
+                        className="w-8 h-8 rounded-full bg-white border border-zinc-200 grid place-items-center text-[13px] font-bold hover:bg-zinc-50 shadow-sm"
+                        aria-label="Programm entfernen X"
+                      >
+                        ✕
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <div className="rounded-2xl border-2 border-dashed border-zinc-200 p-4 bg-white">
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="flex-1">
+                      <div className="flex items-center gap-2.5">
+                        <input
+                          type="checkbox"
+                          checked={false}
+                          onChange={addProgram}
+                          className="w-5 h-5 accent-zinc-400 cursor-pointer"
+                          aria-label="Programm hinzufügen"
+                        />
+                        <span className="font-bold text-[14px]">Komplett Programm hinzufügen?</span>
+                      </div>
+                      <div className="mt-1 text-[12px] text-zinc-500 leading-tight">
+                        80€ – Ernährungsplan + Training + Support. Optional – nur Produkte kaufen möglich.
+                      </div>
+                    </div>
+                    <button
+                      onClick={addProgram}
+                      className="h-9 px-4 rounded-full bg-[#16A34A] text-white text-[12px] font-bold hover:bg-[#15803D] shadow-sm whitespace-nowrap"
+                    >
+                      +80€ hinzufügen
+                    </button>
+                  </div>
+                </div>
+              )}
+
+              {/* PRODUCTS LIST OR EMPTY */}
+              {cart.length === 0 && !programInCart ? (
+                <div className="py-10 text-center">
+                  <div className="text-[42px]">🛍️</div>
+                  <div className="mt-3 font-bold text-[16px]">Warenkorb leer</div>
+                  <div className="mt-1 text-[13px] text-zinc-500 max-w-[28ch] mx-auto leading-snug">
+                    Du kannst nur Produkte kaufen – ohne Programm. Oder Programm optional hinzufügen.
+                  </div>
+                  <div className="mt-4 flex gap-2 justify-center flex-wrap">
+                    <button
+                      onClick={() => scrollTo("produkte")}
+                      className="h-10 px-4 rounded-full bg-zinc-900 text-white text-[13px] font-bold hover:bg-black"
+                    >
+                      Produkte ansehen
+                    </button>
+                    <button
+                      onClick={addProgram}
+                      className="h-10 px-4 rounded-full border border-zinc-200 bg-white text-[13px] font-bold hover:bg-zinc-50"
+                    >
+                      Programm hinzufügen
+                    </button>
+                  </div>
+                </div>
+              ) : cart.length === 0 && programInCart ? (
+                <div className="py-6 text-center rounded-2xl bg-zinc-50 border border-dashed">
+                  <div className="text-[13px] text-zinc-600">Nur Programm im Warenkorb – du kannst auch Produkte ohne Programm kaufen.</div>
+                  <button
+                    onClick={() => scrollTo("produkte")}
+                    className="mt-3 h-9 px-4 rounded-full bg-white border text-[12px] font-bold hover:bg-zinc-50"
+                  >
+                    Produkte entdecken
+                  </button>
+                </div>
+              ) : (
+                cart.map((i) => (
+                  <div key={i.id} className="flex gap-3 p-3 rounded-2xl border border-zinc-100 bg-white">
+                    <img src={productImg} alt={i.name} className="w-16 h-16 rounded-xl object-cover" />
+                    <div className="flex-1">
+                      <div className="flex justify-between gap-2">
+                        <div className="font-bold text-[14px] leading-tight">{i.name}</div>
+                        <div className="font-bold text-[14px]">{i.price * i.qty}€</div>
+                      </div>
+                      <div className="text-[11px] text-zinc-500">{i.tag}</div>
+                      <div className="mt-2 flex items-center gap-2">
+                        <button onClick={() => updateQty(i.id, -1)} className="w-7 h-7 rounded-full border grid place-items-center text-[14px] hover:bg-zinc-50">−</button>
+                        <span className="text-[13px] font-bold w-6 text-center">{i.qty}</span>
+                        <button onClick={() => updateQty(i.id, +1)} className="w-7 h-7 rounded-full border grid place-items-center text-[14px] hover:bg-zinc-50">+</button>
+                        <span className="ml-auto text-[11px] text-zinc-500">{i.price}€/Stk</span>
+                        <button onClick={() => updateQty(i.id, -i.qty)} className="ml-1 text-[11px] text-zinc-400 hover:text-red-500 underline">Entfernen</button>
+                      </div>
+                    </div>
+                  </div>
+                ))
+              )}
+
+              {/* checkout fields */}
+              <div className="pt-2 border-t mt-6">
+                <div className="font-bold text-[14px]">Lieferadresse</div>
+                <div className="mt-3 grid gap-3">
+                  <input value={checkout.name} onChange={e=>setCheckout({...checkout,name:e.target.value})} placeholder="Name" className="h-[44px] rounded-xl border border-zinc-200 px-3 text-[14px] focus:outline-none focus:ring-2 focus:ring-[#16A34A]/20" />
+                  <input value={checkout.email} onChange={e=>setCheckout({...checkout,email:e.target.value})} placeholder="E-Mail" className="h-[44px] rounded-xl border border-zinc-200 px-3 text-[14px] focus:outline-none focus:ring-2 focus:ring-[#16A34A]/20" />
+                  <input value={checkout.strasse} onChange={e=>setCheckout({...checkout,strasse:e.target.value})} placeholder="Straße + Hausnr." className="h-[44px] rounded-xl border border-zinc-200 px-3 text-[14px] focus:outline-none focus:ring-2 focus:ring-[#16A34A]/20" />
+                  <div className="grid grid-cols-[0.4fr_0.6fr] gap-3">
+                    <input value={checkout.plz} onChange={e=>setCheckout({...checkout,plz:e.target.value})} placeholder="PLZ" className="h-[44px] rounded-xl border border-zinc-200 px-3 text-[14px] focus:outline-none focus:ring-2 focus:ring-[#16A34A]/20" />
+                    <input value={checkout.stadt} onChange={e=>setCheckout({...checkout,stadt:e.target.value})} placeholder="Stadt" className="h-[44px] rounded-xl border border-zinc-200 px-3 text-[14px] focus:outline-none focus:ring-2 focus:ring-[#16A34A]/20" />
+                  </div>
+                  <div className="flex gap-2">
+                    {["Kreditkarte","PayPal","Klarna"].map(z=>(
+                      <button key={z} onClick={()=>setCheckout({...checkout,zahlung:z})} className={`flex-1 h-[40px] rounded-full border text-[12px] font-bold ${checkout.zahlung===z ? "bg-zinc-900 text-white border-zinc-900" : "bg-white border-zinc-200"}`}>{z}</button>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="p-6 border-t bg-zinc-50">
+              <div className="flex gap-2 mb-4">
+                <button
+                  onClick={programInCart ? removeProgram : undefined}
+                  disabled={!programInCart && cart.length===0}
+                  className={`flex-1 h-10 rounded-full border text-[11px] font-bold tracking-wide transition ${
+                    programInCart || cart.length>0
+                      ? "bg-white border-zinc-200 hover:bg-zinc-50 text-zinc-800"
+                      : "bg-zinc-100 border-zinc-100 text-zinc-400 cursor-not-allowed"
+                  }`}
+                >
+                  Nur Produkte kaufen
+                </button>
+                <button
+                  onClick={toggleProgram}
+                  className={`flex-1 h-10 rounded-full text-[11px] font-bold tracking-wide transition ${
+                    programInCart
+                      ? "bg-zinc-900 text-white hover:bg-black"
+                      : "bg-[#16A34A] text-white hover:bg-[#15803D]"
+                  }`}
+                >
+                  {programInCart ? "Programm entfernen" : "Programm hinzufügen"}
+                </button>
+              </div>
+              <div className="flex justify-between text-[13px]"><span>Zwischensumme</span><span>{cartTotal}€</span></div>
+              <div className="flex justify-between text-[13px] mt-1"><span>Versand</span><span className="text-[#16A34A] font-bold">Kostenlos</span></div>
+              <div className="flex justify-between font-black text-[18px] mt-3 pt-3 border-t"><span>Gesamt</span><span>{cartTotal}€</span></div>
+              <div className="mt-2 text-[11px] text-zinc-500 leading-tight min-h-[32px]">
+                {programInCart
+                  ? `Inkl. 80€ Programm + ${cart.reduce((s,i)=>s+i.price*i.qty,0)}€ Produkte – Gesamt aktualisiert.`
+                  : cart.length>0
+                    ? "Nur Produkte – ohne Programm. Du kannst Programm jederzeit hinzufügen. Gesamt aktualisiert."
+                    : "Warenkorb leer – Gesamt aktualisiert sich automatisch."}
+              </div>
+              <button
+                onClick={() => {
+                  alert(`Danke! Bestellung über ${cartTotal}€ wurde als Entwurf gespeichert. Zahlungsart: ${checkout.zahlung}. Du erhältst deinen Plan per E-Mail.`);
+                  setCart([]);
+                  setProgramInCart(false);
+                  setCartOpen(false);
+                }}
+                disabled={cartTotal===0}
+                className="mt-4 w-full h-[54px] rounded-full bg-zinc-900 text-white font-extrabold text-[15px] hover:bg-black transition disabled:opacity-40 disabled:cursor-not-allowed"
+              >
+                {cartTotal===0 ? "Warenkorb leer" : `Sicher bezahlen – ${cartTotal}€`}
+              </button>
+              <div className="mt-2 text-center text-[10px] text-zinc-500">SSL verschlüsselt · Einmalig 80€ · Kein Abo · Persönlich erstellt</div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* HONEST PILLARS - REPLACES FAKE TESTIMONIALS */}
+      <section className="bg-white border-t border-zinc-100">
+        <div className="max-w-[1180px] mx-auto px-5 md:px-8 py-8 grid md:grid-cols-3 gap-4 text-[13px]">
+          {[
+            { title:"Persönlich", desc:"Dein Plan basiert auf deinen Daten und Vorlieben, nicht Standard." },
+            { title:"Lecker", desc:"Rezepte die satt machen und schmecken – ohne Verbote, mit Genuss." },
+            { title:"Alltagstauglich", desc:"Für Beruf, Familie & wenig Zeit – kurze Workouts, einfache Einkäufe." },
+          ].map(x=>(
+            <div key={x.title} className="rounded-2xl border p-4 bg-zinc-50/60">
+              <div className="flex gap-1 text-[#16A34A] font-bold text-[13px]">✓ {x.title}</div>
+              <div className="mt-2 font-medium leading-snug">{x.desc}</div>
+              <div className="mt-1 text-[11px] text-zinc-500">Aus eigener Erfahrung erstellt</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* FOOTER LEGAL TINY */}
+      <footer className="bg-white border-t border-zinc-100">
+        <div className="max-w-[1180px] mx-auto px-5 md:px-8 py-10">
+          <div className="flex flex-wrap gap-6 text-[13px] font-semibold">
+            <span className="text-zinc-900">© Traumkörper</span>
+            <a className="hover:underline" href="#impressum" onClick={e=>{e.preventDefault(); alert("Impressum Entwurf: Einzelunternehmer, Kontakt per E-Mail, EU-Streitschlichtung.");}}>Impressum</a>
+            <a className="hover:underline" href="#datenschutz" onClick={e=>{e.preventDefault(); alert("Datenschutz Entwurf: Daten nur für Bestellung & Plan, kein Verkauf.");}}>Datenschutz</a>
+            <a className="hover:underline" href="#agb" onClick={e=>{e.preventDefault(); alert("AGB Entwurf: Digitale Inhalte sofort nach Zahlung, Widerruf nach §356 BGB.");}}>AGB</a>
+          </div>
+
+          {/* tiny legal as requested 10px gray #9CA3AF */}
+          <div className="mt-8 pt-6 border-t border-zinc-100">
+            <p style={{ fontSize: "10px", color: "#9CA3AF", lineHeight: "1.6" }}>
+              * Rechtliches: Einzelunternehmer, aus eigener Erfahrung, kein Arzt, Originalware von anerkannten Herstellern, kein Heilversprechen, kein Ersatz für ärztliche Beratung, Ergebnisse können variieren und hängen von Ernährung, Bewegung & Alltag ab, §19 UStG Kleinunternehmer – keine Ausweisung der Umsatzsteuer, kein Abo, Produkte können helfen, unterstützen aber keine Diagnose/Behandlung, bitte ärztlichen Rat einholen bei Vorerkrankungen, sichere Bezahlung über Drittanbieter, Lieferzeit 2-3 Werktage, digitale Inhalte sofort verfügbar nach Zahlung.
+            </p>
+            <p style={{ fontSize: "10px", color: "#9CA3AF", lineHeight: "1.6", marginTop: "8px" }}>
+              Ich arbeite allein aus eigener Erfahrung, keine Firma, keine medizinische Ausbildung, alle Angaben ohne Gewähr, Bilder: Symbolbilder & Community mit Einwilligung, kann helfen-Formulierungen bedeuten keine Garantie.
+            </p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
 }
-function ptitle(k){return P[k][L][0]}
-function buildMenu(){
- document.getElementById('menuList').innerHTML=G.map((g,i)=>`<div class="mb ${i===1?'open':''}" id="mb${i}"><div class="mb-h" onclick="toggleMb(${i})"><span><span class="n">0${i+1}</span>${g[L]}</span><span>⌄</span></div><div class="mb-b">${g.k.map(k=>`<a onclick="go('${k}')"><span>${ptitle(k)}</span><span>↗</span></a>`).join('')}</div></div>`).join('');
-}
-function toggleMb(i){const el=document.getElementById('mb'+i),w=el.classList.contains('open');document.querySelectorAll('.mb').forEach(b=>b.classList.remove('open'));if(!w)el.classList.add('open')}
-function openDrawer(){document.getElementById('drawer').classList.add('open');document.getElementById('overlay').classList.add('open')}
-function closeDrawer(){document.getElementById('drawer').classList.remove('open');document.getElementById('overlay').classList.remove('open')}
-function go(k){closeDrawer();location.hash=k?'#'+k:'';if(!k)render()}
-function render(){
- const k=location.hash.slice(1),home=document.getElementById('home'),pg=document.getElementById('page');
- document.querySelectorAll('[data-ui]').forEach(e=>e.textContent=UI[e.dataset.ui][L]);
- document.querySelectorAll('[data-p]').forEach(e=>e.textContent=ptitle(e.dataset.p));
- document.getElementById('langBtn').textContent=L==='de'?'EN':'DE';
- document.documentElement.lang=L;
- buildMenu();
- if(k&&P[k]){
-  home.style.display='none';pg.style.display='block';
-  document.getElementById('pTitle').textContent=P[k][L][0];
-  document.getElementById('pBody').innerHTML=k==='kontakt'?contactHtml():P[k][L][1];
-  document.title=P[k][L][0]+' – Mutter-Kind-Haus Vechta';
- }else{
-  home.style.display='block';pg.style.display='none';document.title='Mutter-Kind-Haus Vechta';
- }
- window.scrollTo(0,0);
-}
-function toggleLang(){L=L==='de'?'en':'de';try{localStorage.setItem('lang',L)}catch(e){}render()}
-window.addEventListener('hashchange',render);
-render();
-</script>
-<script>(function(){var loc=location.href.replace(/#.*$/,"");var ATTR_NAMES=["data-product-id","data-productid","data-product_id","product-id","productid","product_id","data-source-entity-id","source-entity-id","source_entity_id","data-product","data-metadata","data-meta"];var DATASET_KEYS=["productId","productid","product_id","sourceEntityId","sourceentityid","source_entity_id","product","metadata","meta"];function readProductId(value){if(typeof value!=="string"||value.length===0)return null;if(/^[0-9]{6,}$/.test(value))return value;var match=value.match(/(?:product(?:_|-)?id|source(?:_|-)?entity(?:_|-)?id)["'=:\s]+([0-9]{6,})/i);return match?match[1]:null}function extractProductId(start){for(var node=start;node&&node!==document.body;node=node.parentElement){for(var i=0;i<ATTR_NAMES.length;i++){var attrValue=node.getAttribute&&node.getAttribute(ATTR_NAMES[i]);var attrProductId=readProductId(attrValue);if(attrProductId)return attrProductId}var dataset=node.dataset||null;if(dataset){for(var j=0;j<DATASET_KEYS.length;j++){var dataValue=dataset[DATASET_KEYS[j]];var dataProductId=readProductId(dataValue);if(dataProductId)return dataProductId}}}return null}function isInlineMediaSlotElement(node){return !!(node&&node.getAttribute&&node.getAttribute("data-clippy-inline-media-slot")!==null)}function findInlineMediaSlot(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(isInlineMediaSlotElement(node))return node}return null}function readInlineMediaUrl(node){if(!node)return null;return node.getAttribute&&((node.getAttribute("data-clippy-inline-media-url")||node.getAttribute("data-url")||node.getAttribute("data_url")))||node.href||null}function stripHash(url){return String(url).replace(/#.*$/,"")}function urlsMatch(a,b){if(!a||!b)return false;try{return stripHash(new URL(a,loc).href)===stripHash(new URL(b,loc).href)}catch(_){return stripHash(a)===stripHash(b)}}function isFirstPartyReelUrl(value){try{var url=new URL(value,loc);if(url.protocol!=="https:")return false;var host=url.hostname.toLowerCase();var supported=host==="instagram.com"||host.endsWith(".instagram.com")||host==="facebook.com"||host.endsWith(".facebook.com");return supported&&/\/reels?\//i.test(url.pathname)}catch(_){return false}}function isInlineMediaUrlClick(node,href){var slot=findInlineMediaSlot(node);if(!slot)return false;var slotUrl=readInlineMediaUrl(slot);if(slotUrl)return urlsMatch(href,slotUrl);return isFirstPartyReelUrl(href)}function findDataHref(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(node.getAttribute){var href=node.getAttribute("data-href")||node.getAttribute("data-url");if(href)return{href:href,node:node}}}return null}var nativeOpen=window.open;window.open=function(url){if(parent!==window&&typeof url==="string"&&/^https?:\/\//.test(url)){parent.postMessage({type:"ecto:usercontent-link-click",href:url},"*");return null}return nativeOpen?nativeOpen.apply(window,arguments):null};document.addEventListener("click",function(e){var target=e.target instanceof Element?e.target:null;if(!target)return;if(parent===window)return;var a=target.closest?target.closest("a[href]"):null;if(a&&a.href&&/^https?:\/\//.test(a.href)&&a.href.replace(/#.*$/,"")!==loc){if(isInlineMediaUrlClick(a,a.href))return;var productId=extractProductId(target)||extractProductId(a);if(productId){e.preventDefault();parent.postMessage({type:"ecto-artifact-link-click",productId:productId},"*");return}e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:a.href},"*");return}var dataHref=findDataHref(target);if(dataHref&&/^https?:\/\//.test(dataHref.href)&&dataHref.href.replace(/#.*$/,"")!==loc){if(isInlineMediaUrlClick(dataHref.node,dataHref.href))return;e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:dataHref.href},"*")}},true)})();</script><script>(function(){var FOCUS_TYPE="ecto:artifact-focus-request";var CLOSE_TYPE="ecto:artifact-close-request";function focusArtifactDocument(){var body=document.body;if(!body)return;try{window.focus();}catch(e){}if(!body.hasAttribute("tabindex"))body.setAttribute("tabindex","-1");try{body.focus({preventScroll:true});}catch(e){try{body.focus();}catch(e2){}}}window.addEventListener("message",function(event){if(event.source!==window.parent)return;var data=event.data;if(!data||typeof data!=="object"||data.type!==FOCUS_TYPE)return;if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",focusArtifactDocument,{once:true});return;}focusArtifactDocument();});window.addEventListener("keydown",function(event){if(event.key!=="Escape")return;window.setTimeout(function(){if(event.defaultPrevented)return;window.parent.postMessage({type:CLOSE_TYPE},"*");},0);});})();</script></body>
-</html>
